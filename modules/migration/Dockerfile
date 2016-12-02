@@ -6,7 +6,7 @@ ENV PGHOST=postgresql_test \
     GOSU_VERSION="1.7"
 ENV	PG_MAJOR 9.6
 ENV PG_VERSION 9.6.1-1.pgdg80+1
-COPY ../app /src
+COPY ./app/ /src/
 RUN apt-get update \
 	&& apt-get install -y apt-utils \
     && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \

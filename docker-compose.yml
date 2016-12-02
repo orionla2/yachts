@@ -1,73 +1,83 @@
 version: '2'
 services:
-     nginx-proxy:
+    nginx-proxy:
       image: jwilder/nginx-proxy
-      container_name: proxy
+      container_name: proxy-prod
       ports:
-          - "80:80"
+        - "80:80"
       volumes:
-          - /var/run/docker.sock:/tmp/docker.sock:ro
-     public:
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+    public:
       image: orionla2/public_microservice:1.0.0
-      container_name: public
+      container_name: public-prod
       environment:
-          - VIRTUAL_HOST=public.site.org
-     paypal:
+        - VIRTUAL_HOST=public.site.org
+    paypal:
       image: orionla2/paypal_microservice:1.0.0
-      container_name: paypal
+      container_name: paypal-prod
       environment:
-          - VIRTUAL_HOST=paypal.site.org
-     reports:
+        - VIRTUAL_HOST=paypal.site.org
+    reports:
       image: orionla2/reports_microservice:1.0.0
-      container_name: reports
+      container_name: reports-prod
       environment:
-          - VIRTUAL_HOST=reports.site.org
-     invoice:
+        - VIRTUAL_HOST=reports.site.org
+    invoice:
       image: orionla2/invoice_microservice:1.0.0
-      container_name: invoice
+      container_name: invoice-prod
       environment:
-          - VIRTUAL_HOST=invoice.site.org
-     postgresql:
+        - VIRTUAL_HOST=invoice.site.org
+    rabbit:
+      image: dmitrovskiy/docker-nginx-php-fpm:1.0.0-alpine # orionla2/invoice_microservice:latest
+      container_name: app-rabbit-mq
+      #volumes:
+      #    - ./modules/rabbitmq/app:/var/www/html/web
+      #    - ./modules/rabbitmq/src/default.conf:/etc/nginx/conf.d/default.conf
+      environment:
+        - VIRTUAL_HOST=rabbit.site.org
+    postgresql:
       image: postgres
-      container_name: postgresql
+      container_name: postgresql-prod
       ports:
-          - "5432:5432"
+        - "5432:5432"
       environment:
-          - "POSTGRES_USER=postgres"
-          - "POSTGRES_PASSWORD=1q2w3e4r"
-          - "POSTGRES_DB=postgres"
+        - "POSTGRES_USER=postgres"
+        - "POSTGRES_PASSWORD=1q2w3e4r"
+        - "POSTGRES_DB=postgres"
       volumes:
-          - ./srv/docker/postgresql/data:/var/lib/postgresql/data
-          - ./srv/docker/db_backup:/home
-     schema_setup:
-      build: ./modules/migration/src
+        - ./srv/docker/postgresql/data:/var/lib/postgresql/data
+        - ./srv/docker/db_backup:/home
+    schema_setup:
+      build: ./modules/migration
       image: orionla2/migration_microservice:1.0.0
+      container_name: schema-prod
       environment:
-          - "POSTGRES_USER=postgres"
-          - "POSTGRES_PASSWORD=1q2w3e4r"
-          - "POSTGRES_DB=postgres"
-          - "PGHOST=target_service"
-          - "PGPASSWORD=1q2w3e4r"
-          - "SQITCH_BUNDLE_REPO=https://github.com/anddorua/ymigration.git"
+        - "POSTGRES_USER=postgres"
+        - "POSTGRES_PASSWORD=1q2w3e4r"
+        - "POSTGRES_DB=postgres"
+        - "PGHOST=target_service"
+        - "PGPASSWORD=1q2w3e4r"
+        - "SQITCH_BUNDLE_REPO=https://github.com/anddorua/ymigration.git"
       links:
-          - postgresql:target_service
+        - postgresql:target_service
       depends_on:
-          - postgresql
+        - postgresql
       command: /src/start.sh
-     postgrest:
+    postgrest:
       build: ./dockerfiles/main
-      container_name: postgrest
+      container_name: postgrest-prod
       environment:
-          - "POSTGREST_VERSION=0.3.2.0"
-          - "POSTGREST_DBHOST=postgresql"
-          - "POSTGREST_DBPORT=5432"
-          - "POSTGREST_DBNAME=postgres"
-          - "POSTGREST_DBUSER=postgres"
-          - "POSTGREST_SCHEMA=my_yacht"
-          - "POSTGREST_DBPASS=1q2w3e4r"
-          - "POSTGREST_PORT=80"
-          - VIRTUAL_HOST=site.org
+        - "POSTGREST_VERSION=0.3.2.0"
+        - "POSTGREST_DBHOST=postgresql-dev"
+        - "POSTGREST_DBPORT=5432"
+        - "POSTGREST_DBNAME=postgres"
+        - "POSTGREST_ANONYMOUS=guest"
+        - "POSTGREST_DBUSER=authenticator"
+        - "POSTGREST_SCHEMA=my_yacht"
+        - "POSTGREST_DBPASS=password"
+        - "POSTGREST_PORT=80"
+        - VIRTUAL_HOST=site.org
       links:
-          - postgresql:postgresql
+        - postgresql:postgresql
       depends_on:
-          - postgresql
+        - postgresql
