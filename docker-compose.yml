@@ -68,7 +68,7 @@ services:
       container_name: postgrest-prod
       environment:
         - "POSTGREST_VERSION=0.3.2.0"
-        - "POSTGREST_DBHOST=postgresql-dev"
+        - "POSTGREST_DBHOST=postgresql"
         - "POSTGREST_DBPORT=5432"
         - "POSTGREST_DBNAME=postgres"
         - "POSTGREST_ANONYMOUS=guest"
