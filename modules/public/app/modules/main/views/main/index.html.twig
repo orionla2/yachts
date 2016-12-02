@@ -1,0 +1,11 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+    Main controller
+    <p>
+    {% for key,value in reqObj %}
+        <br>
+        Key : {{ key }}
+        <br><br>
+        Value : {{ dump(value) }} <br>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,73 @@
+version: '2'
+services:
+     nginx-proxy:
+      image: jwilder/nginx-proxy
+      container_name: proxy
+      ports:
+          - "80:80"
+      volumes:
+          - /var/run/docker.sock:/tmp/docker.sock:ro
+     public:
+      image: orionla2/public_microservice:1.0.0
+      container_name: public
+      environment:
+          - VIRTUAL_HOST=public.site.org
+     paypal:
+      image: orionla2/paypal_microservice:1.0.0
+      container_name: paypal
+      environment:
+          - VIRTUAL_HOST=paypal.site.org
+     reports:
+      image: orionla2/reports_microservice:1.0.0
+      container_name: reports
+      environment:
+          - VIRTUAL_HOST=reports.site.org
+     invoice:
+      image: orionla2/invoice_microservice:1.0.0
+      container_name: invoice
+      environment:
+          - VIRTUAL_HOST=invoice.site.org
+     postgresql:
+      image: postgres
+      container_name: postgresql
+      ports:
+          - "5432:5432"
+      environment:
+          - "POSTGRES_USER=postgres"
+          - "POSTGRES_PASSWORD=1q2w3e4r"
+          - "POSTGRES_DB=postgres"
+      volumes:
+          - ./srv/docker/postgresql/data:/var/lib/postgresql/data
+          - ./srv/docker/db_backup:/home
+     schema_setup:
+      build: ./modules/migration/src
+      image: orionla2/migration_microservice:1.0.0
+      environment:
+          - "POSTGRES_USER=postgres"
+          - "POSTGRES_PASSWORD=1q2w3e4r"
+          - "POSTGRES_DB=postgres"
+          - "PGHOST=target_service"
+          - "PGPASSWORD=1q2w3e4r"
+          - "SQITCH_BUNDLE_REPO=https://github.com/anddorua/ymigration.git"
+      links:
+          - postgresql:target_service
+      depends_on:
+          - postgresql
+      command: /src/start.sh
+     postgrest:
+      build: ./dockerfiles/main
+      container_name: postgrest
+      environment:
+          - "POSTGREST_VERSION=0.3.2.0"
+          - "POSTGREST_DBHOST=postgresql"
+          - "POSTGREST_DBPORT=5432"
+          - "POSTGREST_DBNAME=postgres"
+          - "POSTGREST_DBUSER=postgres"
+          - "POSTGREST_SCHEMA=my_yacht"
+          - "POSTGREST_DBPASS=1q2w3e4r"
+          - "POSTGREST_PORT=80"
+          - VIRTUAL_HOST=site.org
+      links:
+          - postgresql:postgresql
+      depends_on:
+          - postgresql
