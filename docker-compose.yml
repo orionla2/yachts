@@ -27,14 +27,19 @@ services:
       container_name: invoice-prod
       environment:
         - VIRTUAL_HOST=invoice.site.org
-    rabbit:
-      image: dmitrovskiy/docker-nginx-php-fpm:1.0.0-alpine # orionla2/invoice_microservice:latest
-      container_name: app-rabbit-mq
-      #volumes:
-      #    - ./modules/rabbitmq/app:/var/www/html/web
-      #    - ./modules/rabbitmq/src/default.conf:/etc/nginx/conf.d/default.conf
-      environment:
-        - VIRTUAL_HOST=rabbit.site.org
+    alerts:
+     image: orionla2/alpine-node-6.9.2:1.0.0 #dmitrovskiy/docker-nginx-php-fpm:1.0.0-alpine # orionla2/invoice_microservice:latest
+     container_name: app-alerts
+     ports:
+         - "5672"
+     #command: /bin/sh -c "node /var/www/html/web/listener.js *.# && node /var/www/html/web/listener.js *.*.user.*.*"
+     depends_on:
+         - rabbitmq
+    rabbitmq:
+     image: rabbitmq:3.5.7
+     container_name: rabbitmq
+     env_file:
+         - ./modules/rabbitmq/src/rabbitmq.env
     postgresql:
       image: postgres
       container_name: postgresql-prod
