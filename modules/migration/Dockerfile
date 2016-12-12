@@ -1,5 +1,5 @@
 FROM docteurklein/sqitch
-ENV PGHOST=postgresql_test \
+ENV PGHOST=postgresql \
     PGDATABASE=postgres \
     PGUSER=postgres \
     PGPASSWORD=1q2w3e4r \
@@ -18,7 +18,7 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main' $PG_MAJ
 RUN apt-get update \
   && apt-get install -y libdbd-pg-perl \
   && cpan App::cpanminus \
-  && cpanm DBD::Pg 
+  && cpanm DBD::Pg
 RUN groupadd -r postgres --gid=999 \ 
   && useradd -r -g postgres --uid=999 postgres  
 RUN apt-get install -y --force-yes postgresql-client
