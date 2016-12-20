@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Starter" script:language="StarBasic">REM  *****  BASIC  *****
+
+sub Report( _
+	optional byval reportName as string, _
+	optional byval resultName as string, _
+	optional byval dataDir as string)
+	
+	dim logger as New ConsoleLogger
+	&apos;dim logger as New FileLogger
+	&apos;logger.setFileName(&quot;/home/andriy/projects/lo-reports/dev/reports/log.txt&quot;)
+	if ismissing(reportName) then
+		logger.out(&quot;{&quot;&quot;error&quot;&quot;:&quot;&quot;reportName not specified&quot;&quot;}&quot;)
+		&apos;exit sub
+	endif
+	if ismissing(resultName) then
+		logger.out(&quot;{&quot;&quot;error&quot;&quot;:&quot;&quot;resultName not specified&quot;&quot;}&quot;)
+		&apos;exit sub
+	endif
+	if ismissing(dataDir) then
+		logger.out(&quot;{&quot;&quot;error&quot;&quot;:&quot;&quot;dataDir not specified&quot;&quot;}&quot;)
+		&apos;exit sub
+	endif
+	logger.out(&quot;{&quot;&quot;info&quot;&quot;:&quot;&quot;parameters passed&quot;&quot;}&quot;)
+	
+	dim rm as New ReportMaker
+	dim res as boolean
+	dim ds as new DataSource
+	ds.setDataDir(dataDir)
+	ds.setWorkDir(dataDir)
+	ds.CollectData
+	
+	rm.SetLogger(logger)
+	
+	res = rm.Make( _
+		reportName, _
+		resultName, _
+		ds)
+	if res then
+		logger.out(&quot;{&quot;&quot;info&quot;&quot;:&quot;&quot;success&quot;&quot;}&quot;)
+	else
+		logger.out(&quot;{&quot;&quot;error&quot;&quot;:&quot;&quot;&quot; &amp; rm.errorMessage &amp; &quot;&quot;&quot;}&quot;)
+	endif
+	ds.CloseCollector
+
+end sub
+</script:module>

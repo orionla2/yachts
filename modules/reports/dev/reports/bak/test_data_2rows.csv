@@ -1,0 +1,3 @@
+BOAT,Status,Date,Day,Start,End,Hour,Guests,Agent,Client / Comment,Package, Amount , Comm , Net Amt , Deposit , Bal , Catering , Liquor , Other , GP , Cost , NP , Month 
+VIRGO,Closed,1-Jan-16,Fri,3:00 PM,7:00 PM,4,,,sarah - Kirean ,,6000,600,8400,8400, -   ,600,,,7800,3600,4200,Jan 16
+VIRGO,Closed,2-Jan-16,Sat,12:00 PM,4:00 PM,4,,Exotic,exotic - James,,6000,1200,4800,4800, -   ,300,,,4500,3600,900,Jan 16

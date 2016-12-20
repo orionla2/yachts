@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="FileLogger" script:language="StarBasic">REM  *****  BASIC  *****
+
+Option Compatible
+Option ClassModule
+
+Option Explicit
+
+&apos;private _templateDocument as Object
+&apos;private _resultDocument as Object
+private _fh as variant
+
+private Sub Class_Initialize()
+	_fh = nothing
+End Sub
+
+Private Sub Class_Terminate()
+	Close #_fh
+end sub
+
+Public property Set fileName (val as string)
+	_fh = FreeFile()
+	Open val For Output As _fh
+end property
+
+Public sub setFileName (val as string)
+	_fh = FreeFile()
+	Open val For Output As _fh
+end sub
+
+public sub out(message as string)
+	Print #_fh, message
+end sub
+</script:module>

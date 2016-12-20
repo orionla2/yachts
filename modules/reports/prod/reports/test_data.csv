@@ -1,0 +1,33 @@
+BOAT,Status,Date,Day,Start,End,Hour,Guests,Agent,Client / Comment,Package, Amount , Comm , Net Amt , Deposit , Bal , Catering , Liquor , Other , GP , Cost , NP , Month 
+VIRGO,Closed,1-Jan-16,Fri,3:00 PM,7:00 PM,4,,,sarah - Kirean ,,6000,600,8400,8400, -   ,600,,,7800,3600,4200,Jan 16
+VIRGO,Closed,2-Jan-16,Sat,12:00 PM,4:00 PM,4,,Exotic,exotic - James,,6000,1200,4800,4800, -   ,300,,,4500,3600,900,Jan 16
+VIRGO,Closed,2-Jan-16,Sat,7:00 PM,11:00 PM,4,,Capt,prabhu client,,7500,750,6750,6750, -   ,300,,,6450,3600,2850,Jan 16
+VIRGO,Closed,3-Jan-16,Sun,3:00 PM,7:00 PM,4,,,shameer/D3,,7500,750,6750,6750, -   ,300,,,6450,3600,2850,Jan 16
+VIRGO,Closed,8-Jan-16,Fri,5:00 PM,10:00 PM,5,,Exotic,exotic limo - Arif ,,7500,1500,6000,6000, -   ,300,,,5700,4500,1200,Jan 16
+VIRGO,Closed,9-Jan-16,Sat,12:00 AM,4:00 AM,4,,MBC,Behzad - MBC,,9000,1500,7500,7500, -   ,300,,,7200,3600,3600,Jan 16
+VIRGO,Closed,13-Jan-16,Wed,11:30 PM,3:30 AM,4,,Ultimate,zillah ,,7500,1500,6000,6000, -   ,300,,,5700,3600,2100,Jan 16
+VIRGO,Closed,14-Jan-16,Thu,5:30 PM,8:30 PM,3,,,super yacht - fadala,,6000,600,7200,7200, -   ,300,,,6900,2700,4200,Jan 16
+VIRGO,Closed,15-Jan-16,Fri,12:00 PM,3:00 PM,3,,MBC,Behzad,,5000,,5000,5000, -   ,300,,,4700,2700,2000,Jan 16
+VIRGO,Cancelled,15-Jan-16,Fri,5:00 PM,9:00 PM,,,Exotic,exotic - luara (NO show),,, -   ,1000,1000, -   ,300,,,700, -   ,700,Jan 16
+VIRGO,Closed,16-Jan-16,Sat,8:00 PM,12:00 AM,4,,Capt,Bharhim  - prabu client,,7500,750,6750,6750, -   ,300,,,6450,3600,2850,Jan 16
+VIRGO,Closed,18-Jan-16,Mon,8:00 PM,12:00 AM,4,,Capt, prabu client,,7500,750,6750,6750, -   ,300,,,6450,3600,2850,Jan 16
+VIRGO,Closed,20-Jan-16,Wed,7:00 PM,11:00 PM,4,,Exotic,exotic - Osman ( pay to rustom directly),,6000,1500,4500,4500, -   ,300,,,4200,3600,600,Jan 16
+VIRGO,Closed,22-Jan-16,Fri,1:00 PM,5:00 PM,4,,,omar,,6000,,6000,6000, -   ,300,,,5700,3600,2100,Jan 16
+VIRGO,Closed,25-Jan-16,Mon,11:00 AM,3:00 PM,4,,,D3 yacht,,6500,650,5850,5850, -   ,300,,,5550,3600,1950,Jan 16
+VIRGO,Closed,27-Jan-16,Wed,2:00 PM,6:00 PM,4,,Ultimate,ultimate - zilah,,16645,2235,14410,14410, -   ,2325,1550,,10535,3600,6935,Jan 16
+VIRGO,Closed,28-Jan-16,Thu,10:00 PM,3:00 AM,5,,Exotic,exotic - jude,,9375,2344,7031,7031, -   ,300,,300,6431,4500,1931,Jan 16
+VIRGO,Closed,29-Jan-16,Fri,1:00 PM,5:00 PM,4,,,nabeel - facecard,,7500,1500,6000,6000, -   ,300,,,5700,3600,2100,Jan 16
+VIRGO,Closed,29-Jan-16,Fri,8:00 PM,12:00 AM,4,,Xtreme,"xtreme yacht, Upgrade Rose",,7500,1500,6000,6000, -   ,300,,,5700,3600,2100,Jan 16
+VIRGO,Closed,30-Jan-16,Sat,9:00 PM,12:00 AM,3,,,zena - laura (paid to address hotel),,18250,,18250,18250, -   ,3600,1750,,12900,2700,10200,Jan 16
+VIRGO,Cancelled,3-Feb-16,Wed,8:00 PM,11:00 PM,,,,zohab (Postpone),,,, -   , -   , -   ,,,, -   , -   , -   ,Feb 16
+VIRGO,Closed,5-Feb-16,Fri,4:00 AM,7:00 AM,3,,,Shahruz (320 security),,6000,,6000,6000, -   ,300,,,5700,2700,3000,Feb 16
+VIRGO,Closed,5-Feb-16,Fri,1:00 PM,5:00 PM,4,,,Walle,,7500,750,6750,6750, -   ,300,,,6450,3600,2850,Feb 16
+VIRGO,Closed,5-Feb-16,Fri,10:30 PM,2:30 AM,4,,Capt,Alladin Client,,7000,,7000,7000, -   ,300,,300,6400,3600,2800,Feb 16
+VIRGO,Closed,7-Feb-16,Sun,12:00 PM,4:00 PM,4,,Exotic,exotic - maysa (rustom collect from them directly),,6000,1500,4500,4500, -   ,,,,4500,3600,900,Feb 16
+VIRGO,Closed,11-Feb-16,Thu,10:30 PM,2:30 AM,4,,Capt,Alladin Client,,7500,500,7000,7000, -   ,300,,,6700,3600,3100,Feb 16
+VIRGO,Closed,12-Feb-16,Fri,1:00 PM,6:00 PM,5,,,ahmed - james,,10375,938,9437,9437, -   ,300,,600,8537,4500,4037,Feb 16
+VIRGO,Closed,12-Feb-16,Fri,8:00 PM,1:00 AM,5,,Exotic,exotic - Jaques,,7500,1875,5625,5625, -   ,300,,,5325,4500,825,Feb 16
+VIRGO,Closed,13-Feb-16,Sat,3:00 PM,7:00 PM,4,60,,Marina (Alameen Al Mawali) Security 500,,7300,250,7050,7050, -   ,300,,240,6510,3600,2910,Feb 16
+VIRGO,Closed,17-Feb-16,Wed,6:00 PM,9:00 PM,3,25,,"logicom - standn ( food @130, drinks @100)",,10750,,10750,10750, -   ,2500,,,8250,2700,5550,Feb 16
+VIRGO,Closed,19-Feb-16,Fri,8:00 AM,12:00 PM,4,,Mala,syed mala yacht,,7500,1500,6000,6000, -   ,300,,,5700,3600,2100,Feb 16
+VIRGO,Closed,19-Feb-16,Fri,2:00 PM,6:00 PM,4,,,Lokesh - Mohammed Chaudhry friend,,6750,,6750,6750, -   ,300,,,6450,3600,2850,Feb 16

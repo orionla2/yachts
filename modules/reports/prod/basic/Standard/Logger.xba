@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Logger" script:language="StarBasic">REM  *****  BASIC  *****
+&apos;//-- Customizable Logging function --
+&apos; Make the log to the console or a file.
+&apos; Usage:
+&apos;  Logg(sLogMessage [, nLogLevel] [, sName1] [, sName2])
+&apos;
+&apos;   sLogMessage (string): message 
+&apos;   nLogLevel (long)    : log level. if you do not specify, nDefaultLogLevel_Logging is used.
+&apos;   sName1 (string)     : optional string. This is not used in default impl.
+&apos;   sName2 (string)     : also optional. If you want to add additional information for log, 
+&apos;                         please edit &quot;CustomLogFormatter_format&quot; function for output.
+&apos;
+&apos; Please customize CustomLogFormatter_format function for your purpose.
+&apos; The output to the console does not work on Windows environment.
+&apos; 
+&apos; Log message is going to ouput if nLogLevel is grater or equal to nThreshold_Logging value.
+
+&apos;//-- variables
+&apos; threshold to show log message
+Const nThreshold_Logging = 900 &apos;com.sun.star.logging.LogLevel.WARNING
+Const nDefaultLogLevel_Logging = 800 &apos;com.sun.star.logging.LogLevel.INFO
+Const sDefaultEncoding_Logging = &quot;utf-8&quot;
+Const sLoggerName_Logging = &quot;OOo Basic&quot;
+
+&apos; for file output
+Const nLogIntoFile_Logging = 0 &apos; 0 for console output, 1 for file output
+&apos; specify a file URL to write, substituted by css.util.PathSubstitution during initialization
+Const sFileURL_Logging = &quot;$(user)/temp/basic.log&quot;
+
+
+&apos;//-- formatting log output
+&apos; you can customize output string. This function of css.logging.XLogFormatter interface 
+&apos; is called from the log handler.
+&apos; Append line feed or carrige return at the end of the line.
+Function CustomLogFormatter_format(aRecord As com.sun.star.logging.LogRecord) As String
+  Dim sLog As String
+  sLog = FormatDate_Logging(aRecord.LogTime) &amp; _
+      &quot; &quot; &amp; aRecord.Message
+  CustomLogFormatter_format = sLog &amp; chr(10)
+End Function
+
+
+Dim oLogger_Logging As Object &apos; object for logging
+Dim nSequenceNumber_Logging As Long &apos; for sequencial numbering
+
+&apos;//-- to log
+&apos;   sMessage: message string to show information about the situation
+&apos;   nLogLevel: one of a member of css.logging.LogLevel constants
+&apos;   sSourceClassName: Like a module name, optional
+&apos;   sSourceMethodName: sub or function name, optional
+Sub Logg(Optional sMessage As String, Optional nLogLevel As Long, _
+        Optional sSourceClassName As String, Optional sSourceMethodName As String)
+  If IsNull(oLogger_Logging) Then
+    &apos; create new logger
+    nSequenceNumber_Logging = 0
+    
+    If nLogIntoFile_Logging = 0 Then
+      &apos; for consol output
+      oLogger_Logging = CreateUnoService(&quot;com.sun.star.logging.ConsoleHandler&quot;)
+      
+      oLogFormatter_Logging = CreateUnoListener(&quot;CustomLogFormatter_&quot;, _
+         &quot;com.sun.star.logging.XLogFormatter&quot;)
+      
+      Dim aArgs_Logging(2) As New com.sun.star.beans.NamedValue
+      aArgs_Logging(0).Name = &quot;Formatter&quot;
+      aArgs_Logging(0).Value = oLogFormatter_Logging
+      aArgs_Logging(1).Name = &quot;Encoding&quot;
+      aArgs_Logging(1).Value = sDefaultEncoding_Logging
+      aArgs_Logging(2).Name = &quot;Level&quot;
+      aArgs_Logging(2).Value = nThreshold_Logging
+      
+      oLogger_Logging.initialize(Array(aArgs_Logging))
+      oLogger_Logging.Threshold = nThreshold_Logging
+    Else
+      &apos; for file output
+      oLogger_Logging = CreateUnoService(&quot;com.sun.star.logging.FileHandler&quot;)
+      
+      oLogFormatter_Logging = CreateUnoListener(&quot;CustomLogFormatter_&quot;, _
+         &quot;com.sun.star.logging.XLogFormatter&quot;)
+      
+      Dim aArgs1_Logging(3) As New com.sun.star.beans.NamedValue
+      aArgs1_Logging(0).Name = &quot;Formatter&quot;
+      aArgs1_Logging(0).Value = oLogFormatter_Logging
+      aArgs1_Logging(1).Name = &quot;Encoding&quot;
+      aArgs1_Logging(1).Value = sDefaultEncoding_Logging
+      aArgs1_Logging(2).Name = &quot;Level&quot;
+      aArgs1_Logging(2).Value = nThreshold_Logging
+      aArgs1_Logging(3).Name = &quot;FileURL&quot;
+      aArgs1_Logging(3).Value = sFileURL_Logging
+      
+      oLogger_Logging.initialize(Array(aArgs1_Logging))
+    End If
+    
+  End If
+  If NOT IsNull(oLogger_Logging) Then
+    If IsMissing(nLogLevel) Then nLogLevel = nDefaultLogLevel_Logging
+    If IsMissing(sSourceClassName) Then sSourceClassName = &quot;&quot;
+    If IsMissing(sSourceMethodName) Then sSourceMethodName = &quot;&quot;
+    oLogger_Logging.publish( _
+        LogEntry_Logging(sMessage, nLogLevel, _
+            sSourceClassName, sSourceMethodName, nSequenceNumber_Logging))
+    oLogger_Logging.flush() &apos; force output
+    nSequenceNumber_Logging = nSequenceNumber_Logging + 1
+  End If
+End Sub
+
+
+Sub Logg2(Optional sMessage As String, Optional nLogLevel As Long, _
+        Optional sSourceClassName As String, Optional sSourceMethodName As String)
+  If IsNull(oLogger_Logging) Then
+    &apos; create new logger
+    nSequenceNumber_Logging = 0
+    
+    If nLogIntoFile_Logging = 0 Then
+      &apos; for consol output
+      oLogger_Logging = CreateUnoService(&quot;com.sun.star.logging.ConsoleHandler&quot;)
+      
+      oLogFormatter_Logging = CreateUnoListener(&quot;CustomLogFormatter_&quot;, _
+         &quot;com.sun.star.logging.XLogFormatter&quot;)
+      
+      Dim aArgs_Logging(2) As New com.sun.star.beans.NamedValue
+      aArgs_Logging(0).Name = &quot;Formatter&quot;
+      aArgs_Logging(0).Value = oLogFormatter_Logging
+      aArgs_Logging(1).Name = &quot;Encoding&quot;
+      aArgs_Logging(1).Value = sDefaultEncoding_Logging
+      aArgs_Logging(2).Name = &quot;Level&quot;
+      aArgs_Logging(2).Value = nThreshold_Logging
+      
+      oLogger_Logging.initialize(Array(aArgs_Logging))
+      oLogger_Logging.Threshold = nThreshold_Logging
+    Else
+      &apos; for file output
+      oLogger_Logging = CreateUnoService(&quot;com.sun.star.logging.FileHandler&quot;)
+      
+      oLogFormatter_Logging = CreateUnoListener(&quot;CustomLogFormatter_&quot;, _
+         &quot;com.sun.star.logging.XLogFormatter&quot;)
+      
+      Dim aArgs1_Logging(3) As New com.sun.star.beans.NamedValue
+      aArgs1_Logging(0).Name = &quot;Formatter&quot;
+      aArgs1_Logging(0).Value = oLogFormatter_Logging
+      aArgs1_Logging(1).Name = &quot;Encoding&quot;
+      aArgs1_Logging(1).Value = sDefaultEncoding_Logging
+      aArgs1_Logging(2).Name = &quot;Level&quot;
+      aArgs1_Logging(2).Value = nThreshold_Logging
+      aArgs1_Logging(3).Name = &quot;FileURL&quot;
+      aArgs1_Logging(3).Value = sFileURL_Logging
+      
+      oLogger_Logging.initialize(Array(aArgs1_Logging))
+    End If
+    
+  End If
+  If NOT IsNull(oLogger_Logging) Then
+    If IsMissing(nLogLevel) Then nLogLevel = nDefaultLogLevel_Logging
+    If IsMissing(sSourceClassName) Then sSourceClassName = &quot;&quot;
+    If IsMissing(sSourceMethodName) Then sSourceMethodName = &quot;&quot;
+    oLogger_Logging.publish( _
+        LogEntry_Logging(sMessage, nLogLevel, _
+            sSourceClassName, sSourceMethodName, nSequenceNumber_Logging))
+    oLogger_Logging.flush() &apos; force output
+    nSequenceNumber_Logging = nSequenceNumber_Logging + 1
+  End If
+End Sub
+
+
+&apos; create new log entry
+&apos; nLogLevel: specified one of entry from constant group of css.logging.LogLevel
+Function LogEntry_Logging(sMessage As String, nLogLevel As Long, _
+        sSourceClassName As String, sSourceMethodName As String, _
+        nSequenceNumber As Long)
+  aRecord = CreateUnoStruct(&quot;com.sun.star.logging.LogRecord&quot;)
+  aDateTime = CreateUnoStruct(&quot;com.sun.star.util.DateTime&quot;)
+  vNow = Now()
+  With aDateTime
+    .Year = Year(vNow)
+    .Month = Month(vNow)
+    .Day = Day(vNow)
+    .Hours = Hour(vNow)
+    .Minutes = Minute(vNow)
+    .Seconds = Second(vNow)
+  End With
+  With aRecord
+    .LoggerName = sLoggerName
+    .SourceClassName = sSourceClassName
+    .SourceMethodName = sSourceMethodName
+    .Message = sMessage
+    .LogTime = aDateTime
+    .SequenceNumber = nSequenceNumber
+    .ThreadID = 0
+    .Level = nLogLevel
+  End With
+  
+  LogEntry_Logging = aRecord
+End Function
+
+
+&apos; they are not called from the console handler
+Function CustomLogFormatter_getHead()
+  CustomLogFormatter_getHead = &quot;&quot;
+End Function
+Function CustomLogFormatter_getTail()
+  CustomLogFormatter_getTail = &quot;&quot;
+End Function
+
+
+&apos; to make date and time format
+Function FormatDate_Logging(aDateTime As com.sun.star.util.DateTime) As String
+  FormatDate_Logging = &quot;[&quot; &amp; Format(aDateTime.Year, &quot;0000-&quot;) &amp; _
+      Format(aDateTime.Month, &quot;00-&quot;) &amp; Format(aDateTime.Day, &quot;00 &quot;) &amp; _
+      Format(aDateTime.Hours, &quot;00:&quot;) &amp; Format(aDateTime.Minutes, &quot;00:&quot;) &amp; _
+      Format(aDateTime.Seconds, &quot;00&quot;) &amp; &quot;]&quot;
+End Function
+</script:module>

@@ -23,14 +23,36 @@ services:
      volumes:
          - ./modules/paypal/app:/var/www/html/web
          - ./modules/paypal/src/default.conf:/etc/nginx/conf.d/default.conf
+
     reports:
-     image: dmitrovskiy/docker-nginx-php-fpm:1.0.0-alpine
+     image: mapleukraine/yacht-nginx-php-lo:1.0.0
      container_name: app-reports
      environment:
          - VIRTUAL_HOST=reports.site.org
+         - ALIAS_DOMAIN=reports.site.org
+         - DISPLAY=$DISPLAY 
+         - REPORT_DIR=/home/application/reports
+         - REPORT_DONE_DIR=/home/application/reports-done
+         - RMQ_SERVER=rabbitmq
+         - RMQ_PORT=5672
+         - RMQ_LOGIN=admin
+         - RMQ_PASSWORD=123456789
+         - LOG_LEVEL=DEBUG
+         - POSTGREST_HOST=postgrest
      volumes:
-         - ./modules/reports/app:/var/www/html/web
-         - ./modules/reports/src/default.conf:/etc/nginx/conf.d/default.conf
+         - ./modules/reports/dev/site:/app
+         - ./modules/reports/dev/nginx/vhost.common.d:/opt/docker/etc/nginx/vhost.common.d
+         - ./modules/reports/dev/basic:/home/application/.config/libreoffice/4/user/basic
+         - ./modules/reports/dev/basic:/root/.config/libreoffice/4/user/basic
+         - ./modules/reports/dev/reports:/home/application/reports
+         - ./modules/reports/dev/reports-done:/home/application/reports-done
+         - ./modules/reports/dev/supervisor/conf:/etc/supervisor/conf.d
+         - /tmp/.X11-unix:/tmp/.X11-unix
+         - $HOME/.Xauthority:/root/.Xauthority
+     depends_on:
+         - postgrest
+         - rabbitmq
+
     invoice-dev:
      image: dmitrovskiy/docker-nginx-php-fpm:1.0.0-alpine # orionla2/invoice_microservice:latest
      container_name: app-invoice
@@ -94,7 +116,7 @@ services:
          - "PGPASSWORD=1q2w3e4r"
          - "SQITCH_BUNDLE_REPO=git@bitbucket.org:mapleukraine/ymigration.git"
          - "SQITCH_BUNDLE_BRANCH=master"
-         - "SQITCH_DEPLOY_CHANGE=v20161212"
+         - "SQITCH_DEPLOY_CHANGE="
         links:
          - postgresql:target_service
         volumes:
