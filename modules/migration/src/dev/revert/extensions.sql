@@ -1,0 +1,8 @@
+-- Revert extensions
+
+BEGIN;
+
+DROP EXTENSION IF EXISTS plpgsql CASCADE;
+DROP EXTENSION IF EXISTS pgcrypto CASCADE;
+
+COMMIT;

@@ -84,8 +84,7 @@ services:
          - ./srv/docker/db_backup:/home
      
     schema_setup:
-        build: ./modules/migration
-        image: schema_setup
+        image: mapleukraine/yacht-migration:1.1.0
         container_name: schema
         environment:
          - "POSTGRES_USER=postgres"
@@ -93,14 +92,20 @@ services:
          - "POSTGRES_DB=postgres"
          - "PGHOST=target_service"
          - "PGPASSWORD=1q2w3e4r"
-         - "SQITCH_BUNDLE_REPO=https://github.com/anddorua/ymigration.git"
+         - "SQITCH_BUNDLE_REPO=git@bitbucket.org:mapleukraine/ymigration.git"
+         - "SQITCH_BUNDLE_BRANCH=master"
+         - "SQITCH_DEPLOY_CHANGE=v20161212"
         links:
          - postgresql:target_service
+        volumes:
+         - ./modules/migration/app:/src
         #volumes:
         # - /app:/src
         depends_on:
          - postgresql
+        entrypoint: /bin/bash
         command: /src/start.sh
+
     postgrest:
      build: dockerfiles/main
      container_name: postgrest

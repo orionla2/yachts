@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.sql" dialect="PostgreSQL" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.sql" dialect="PostgreSQL" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_3.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/clearance.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/extensions.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_check_role_exists.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_checkdate.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_clearance_for_role.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_createbooking.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_current_email.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_encrypt_pass.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_getid.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_login.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_notify.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_request_password_reset.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_reset_password.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_send_validation.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_signup.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_statuschange.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_update_users.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_updatebookingstatus.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/f_user_role.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/schema_pure.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_additional.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_booking.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_devices.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_download.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_extras.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_file.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_invoice.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_packages.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_payment.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_status.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_text_storage.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_tokens.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_user.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_yacht.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/t_yacht_description.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/types.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/v20161212.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/deploy/v_users.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/dump_src.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/appschema.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/clearance.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/extensions.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/f_check_role_exists.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/f_checkdate.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/f_clearance_for_role.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/f_createbooking.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/f_current_email.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/f_encrypt_pass.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/f_send_validation.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/f_signup.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/f_user_role.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/types.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/users.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/revert/v20161212.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/dev/verify/t_yacht.sql" dialect="PostgreSQL" />
+  </component>
+</project>
