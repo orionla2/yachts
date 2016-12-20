@@ -30,6 +30,7 @@ declare
 	i json;
 	m_id text;
 	booking_id int;
+	u_role text;
 	msg text;
 begin
 	IF createBooking.user_id is null OR createBooking.user_id = 0 THEN
@@ -63,8 +64,9 @@ begin
 					(booking_id,_extras::int,_packages::int,createBooking.guests,_amount::int,_money::int);
 				--RAISE unique_violation USING MESSAGE = _extras || ' ' || _amount;
 			END LOOP;
-
-			IF (SELECT user) = 'user_role' THEN
+			SELECT role FROM my_yacht.user WHERE id = _usr_id into u_role;
+			--RAISE unique_violation USING MESSAGE = msg;
+			IF u_role = 'user_role' THEN
 				FOR m_id IN SELECT id FROM my_yacht.user WHERE role = 'manager'
 				LOOP
 					msg :=  _usr_id || '.' || m_id || '.booking.newBooking.push';
@@ -76,7 +78,7 @@ begin
 				SELECT pg_notify('messanger',msg) into msg;
 				msg :=  _usr_id || '.' || _usr_id || '.booking.newBooking.sms';
 				SELECT pg_notify('messanger',msg) into msg;
-			ELSIF (SELECT user) = 'manager' THEN
+			ELSIF u_role = 'manager' THEN
 				msg :=  _usr_id || '.' || _usr_id || '.booking.newBooking.email';
 				SELECT pg_notify('messanger',msg) into msg;
 				msg :=  _usr_id || '.' || _usr_id || '.booking.newBooking.push';
