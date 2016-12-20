@@ -1,3 +1,3 @@
 #!/bin/bash
-docker run -ti --rm --network="container:postgrest_test" \
-	-v $(pwd)/dev:/src postgrestdb_schema_setup
+docker run -ti --rm --network="container:postgresql" \
+	-v $(pwd)/dev:/src schema_setup

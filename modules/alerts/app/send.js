@@ -4,7 +4,7 @@ var amqp = require('amqplib/callback_api');
 
 amqp.connect('amqp://admin:123456789@rabbitmq:5672', function(err, conn) {
   conn.createChannel(function(err, ch) {
-    var ex = 'myTest';
+    var ex = 'user';
     var args = process.argv.slice(2);
     var key = (args.length > 0) ? args[0] : 'anonymous.info';
     var msg = args.slice(1).join(' ') || 'Hello World!';

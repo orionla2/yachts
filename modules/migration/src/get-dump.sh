@@ -1,3 +1,5 @@
 #!/bin/bash
 docker run -ti --rm --network="container:postgresql" \
-	-v $(pwd)/../app/:/src orionla2/migration_microservice:1.0.2 run_pg_dump.sh
+   -e PGHOST=postgresql \
+    --entrypoint pg_dump \
+    mapleukraine/yacht-migration:1.0.0

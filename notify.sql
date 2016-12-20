@@ -52,27 +52,31 @@ ALTER FUNCTION my_yacht.login(text, text)
   OWNER TO postgres;
 
 
+DROP FUNCTION my_yacht.signup(text,text,text,text,text);
 CREATE OR REPLACE FUNCTION my_yacht.signup(
     firstname text,
     lastname text,
     email text,
     mobile text,
     password text)
-  RETURNS void AS
+  RETURNS integer AS
 $BODY$
 declare
   msg text;
   emiter text;
+  _id int;
 begin
   emiter:= 'guest';
   insert into my_yacht.users (firstname, lastname, email, mobile, password,role, discount) values
     (signup.firstname, signup.lastname, signup.email, signup.mobile, signup.password, emiter, '0');
-  end;
+    
+    SELECT id FROM my_yacht.user WHERE my_yacht.user.email = signup.email into _id;
+    
+  return _id;
+end;
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION my_yacht.signup(text, text, text, text, text)
-  OWNER TO postgres;
 
 CREATE OR REPLACE FUNCTION my_yacht.update_users()
   RETURNS trigger AS
@@ -131,16 +135,16 @@ ALTER FUNCTION my_yacht.update_users()
 GRANT EXECUTE ON FUNCTION my_yacht.signup(text, text) TO user_role;
 
 CREATE OR REPLACE VIEW my_yacht.users AS 
- SELECT actual.firstname,
+  SELECT actual.firstname,
     actual.lastname,
     actual.email,
     actual.mobile,
     '***'::text AS password,
     actual.role,
     actual.discount
-   FROM my_yacht."user" actual,
+  FROM my_yacht."user" actual,
     ( SELECT pg_authid.rolname
-           FROM pg_authid
+          FROM pg_authid
           WHERE pg_has_role("current_user"(), pg_authid.oid, 'member'::text)) member_of
   WHERE actual.role::name = member_of.rolname || actual.role::name = 'user_role';
 
@@ -150,3 +154,96 @@ ALTER TABLE my_yacht.users
   GRANT USAGE, SELECT ON SEQUENCE user_id_seq TO guest;
   GRANT USAGE, SELECT ON SEQUENCES TO guest;
   grant all privileges on all sequences in schema public to guest;
+
+
+CREATE OR REPLACE FUNCTION my_yacht.createBooking(
+  email text,
+  start_date timestamp with time zone, 
+  end_date timestamp with time zone, 
+  guests integer, 
+  firstname text,
+  lastname text, 
+  payment_type text, 
+  phone text, 
+  user_id integer, 
+  y_id integer,
+  additionals text) RETURNS boolean AS
+$BODY$
+declare
+  msg text;
+  ret_id int;
+  json text;
+  _usr_id int;
+begin
+  IF createBooking.user_id is null OR createBooking.user_id = 0 THEN
+    insert into my_yacht.users (firstname, lastname, email, mobile, password,role, discount) values 
+    (createBooking.firstname, createBooking.lastname, createBooking.email, createBooking.phone, createBooking.phone,user,0);
+    SELECT id FROM my_yacht.user WHERE my_yacht.user.email = createBooking.email into ret_id;
+    _usr_id := ret_id;
+  ELSE
+    _usr_id := user_id;
+    --RAISE unique_violation USING MESSAGE = 'Not logged in. ' || ret_id;
+  END IF;
+  if my_yacht.checkdate(start_date,end_date) THEN
+  insert into my_yacht.booking (y_id,start_date,end_date,user_id,payment,status,payment_type,discount) values
+  (createBooking.y_id,createBooking.start_date,createBooking.end_date,_user_id,0,'pending',createBooking.payment_type);
+  
+  return true;
+  ELSE
+  return false;
+  END if;
+  
+  
+  json := createBooking.additionals::json->2;
+  RAISE unique_violation USING MESSAGE = 'Logged in. User ID: ' || json;
+end
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION my_yacht.createBooking(text, timestamp with time zone, timestamp with time zone, integer, text, text, text, text, integer, integer,text)
+  OWNER TO postgres
+
+CREATE OR REPLACE FUNCTION my_yacht.checkDate(startDate timestamp with time zone, endDate timestamp with time zone) RETURNS boolean AS
+$BODY$
+declare
+  temp_id int;
+  ch_st_date int;
+  ch_end_date int;
+  json text;
+begin
+   if startDate >= endDate THEN
+  RAISE unique_violation USING MESSAGE = 'Start date lower than End date';
+   END if;
+   
+   select id from my_yacht.booking where start_date < startDate order by start_date asc limit 1 into temp_id;
+   if temp_id is null THEN
+  ch_st_date:= 1;
+   ELSE
+  select 1 from my_yacht.booking where id = temp_id AND end_date < startDate order by start_date limit 1 into ch_st_date;
+   END if;
+
+   select id from my_yacht.booking where end_date > startDate order by start_date desc limit 1 into temp_id;
+   if temp_id is null THEN
+  ch_end_date:= 1;
+   ELSE 
+  select 1 from my_yacht.booking where id = temp_id AND start_date > endDate order by start_date limit 1 into ch_end_date;
+   END if;
+   
+   if ch_st_date = 1 AND ch_end_date = 1 THEN
+  return true;
+   ELSE
+  return false;
+   END if;
+   --RAISE unique_violation USING MESSAGE = 'Logged in. User ID: ' || sDate;
+end
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  SECURITY DEFINER
+  COST 100;
+  
+ALTER FUNCTION my_yacht.checkDate(timestamp with time zone,timestamp with time zone)
+  OWNER TO postgres
+
+
+
+  
