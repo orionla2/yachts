@@ -116,7 +116,7 @@ services:
          - "PGPASSWORD=1q2w3e4r"
          - "SQITCH_BUNDLE_REPO=git@bitbucket.org:mapleukraine/ymigration.git"
          - "SQITCH_BUNDLE_BRANCH=master"
-         - "SQITCH_DEPLOY_CHANGE="
+         - "SQITCH_DEPLOY_CHANGE=v20161212"
         links:
          - postgresql:target_service
         volumes:
