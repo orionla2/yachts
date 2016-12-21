@@ -4,9 +4,9 @@
 BEGIN;
 
 SET search_path = my_yacht, pg_catalog;
-CREATE OR REPLACE FUNCTION update_users() RETURNS trigger
-LANGUAGE plpgsql
-AS $$
+CREATE OR REPLACE FUNCTION my_yacht.update_users() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
 declare
   msg text;
   id int;
@@ -21,13 +21,13 @@ begin
     values
       (new.firstname, new.lastname, new.email, new.mobile, new.password, new.role,new.discount);
     select lastval() into id;
-    FOR m_id IN SELECT id FROM my_yacht.user WHERE role = 'manager'
-    LOOP
-      msg := id || '.' || m_id ||'.user.newUser.email';
-      SELECT pg_notify('messanger',msg) into msg;
-      msg := id || '.' || m_id ||'.user.newUser.push';
-      SELECT pg_notify('messanger',msg) into msg;
-    END LOOP;
+	FOR m_id IN SELECT my_yacht.user.id FROM my_yacht.user WHERE my_yacht.user.role = 'manager'
+	LOOP
+		msg := id || '.' || m_id ||'.user.newUser.email';
+		SELECT pg_notify('messanger',msg) into msg;
+		msg := id || '.' || m_id ||'.user.newUser.push';
+		SELECT pg_notify('messanger',msg) into msg;
+	END LOOP;
     msg := id || '.' || id ||'.user.newUser.email';
     SELECT pg_notify('messanger',msg) into msg;
     msg := id || '.' || id ||'.user.newUser.sms';

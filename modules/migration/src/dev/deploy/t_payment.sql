@@ -12,7 +12,7 @@ SET default_with_oids = false;
 CREATE TABLE payment (
     id integer NOT NULL,
     invoice_id integer NOT NULL,
-    type character varying(45) NOT NULL,
+    type character varying(80) NOT NULL,
     user_id integer NOT NULL,
     value numeric
 );

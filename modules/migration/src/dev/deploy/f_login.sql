@@ -4,11 +4,9 @@
 BEGIN;
 
 SET search_path = my_yacht, pg_catalog;
-CREATE OR REPLACE FUNCTION my_yacht.login(
-  email text,
-  password text)
-  RETURNS auth.jwt_claims AS
-$BODY$
+CREATE OR REPLACE FUNCTION my_yacht.login(email text, password text) RETURNS auth.jwt_claims
+LANGUAGE plpgsql
+AS $$
 declare
   _role name;
   _verified boolean;
@@ -25,9 +23,7 @@ begin
   into result;
   return result;
 end;
-$BODY$
-LANGUAGE plpgsql VOLATILE
-COST 100;
+$$;
 
 
 ALTER FUNCTION my_yacht.login(email text, password text) OWNER TO postgres;

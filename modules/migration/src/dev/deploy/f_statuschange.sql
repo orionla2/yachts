@@ -6,7 +6,7 @@ BEGIN;
 --
 -- Name: statuschange(integer, integer); Type: FUNCTION; Schema: my_yacht; Owner: postgres
 --
-
+SET search_path = my_yacht, pg_catalog;
 CREATE OR REPLACE FUNCTION my_yacht.statuschange(bookingid integer, bookingstatus integer) RETURNS boolean
     LANGUAGE plpgsql
     AS $$
@@ -33,22 +33,22 @@ begin
 			WHEN 3 THEN
 				IF _role = 'manager' THEN
 					--RAISE unique_violation USING MESSAGE = 'bookingId: ' || bookingId || '; bookingStatus: ' || bookingStatus || '; role: ' || _role || ';';
-					msg :=  'manager.' || _usr_id || '.booking.approvedBooking.email';
+					msg :=  _usr_id || '.' || _usr_id || '.booking.approvedBooking.email';
+					--RAISE unique_violation USING MESSAGE = msg;
 					SELECT pg_notify('messanger',msg) into msg;
-					msg :=  'manager.' || _usr_id || '.booking.approvedBooking.push';
+					msg :=  _usr_id || '.' || _usr_id || '.booking.approvedBooking.push';
 					SELECT pg_notify('messanger',msg) into msg;
-					msg :=  'manager.' || _usr_id || '.booking.approvedBooking.sms';
+					msg :=  _usr_id || '.' || _usr_id || '.booking.approvedBooking.sms';
 					SELECT pg_notify('messanger',msg) into msg;
 				END IF;
 			WHEN 4 THEN
 				IF _role = 'manager' THEN
 					--RAISE unique_violation USING MESSAGE = 'bookingId: ' || bookingId || '; bookingStatus: ' || bookingStatus || '; role: ' || _role || ';';
+					msg :=  _usr_id || '.' || _usr_id || '.booking.cancelledBooking.email';
 					SELECT pg_notify('messanger',msg) into msg;
-					msg :=  'manager.' || _usr_id || '.booking.cancelledBooking.email';
+					msg :=  _usr_id || '.' || _usr_id || '.booking.cancelledBooking.push';
 					SELECT pg_notify('messanger',msg) into msg;
-					msg :=  'manager.' || _usr_id || '.booking.cancelledBooking.push';
-					SELECT pg_notify('messanger',msg) into msg;
-					msg :=  'manager.' || _usr_id || '.booking.cancelledBooking.sms';
+					msg :=  _usr_id || '.' || _usr_id || '.booking.cancelledBooking.sms';
 					SELECT pg_notify('messanger',msg) into msg;
 				ELSIF _role = 'user_role' THEN
 					--RAISE unique_violation USING MESSAGE = 'bookingId: ' || bookingId || '; bookingStatus: ' || bookingStatus || '; role: ' || _role || ';';
