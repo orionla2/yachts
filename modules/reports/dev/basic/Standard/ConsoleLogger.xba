@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="ConsoleLogger" script:language="StarBasic">REM  *****  BASIC  *****
+
+Option Compatible
+Option ClassModule
+
+Option Explicit
+
+&apos;private _templateDocument as Object
+&apos;private _resultDocument as Object
+private _handler as object
+
+private Sub Class_Initialize()
+	_handler = createUnoService(&quot;com.sun.star.logging.ConsoleHandler&quot;)
+	_handler.initialize(Array())
+	_handler.Level = com.sun.star.logging.LogLevel.ALL
+End Sub
+
+Private Sub Class_Terminate()
+end sub
+
+public sub out(message as string)
+	dim msg as new com.sun.star.logging.LogRecord
+	msg.Message = message &apos; &amp; Space(4096)
+	msg.Level = com.sun.star.logging.LogLevel.ALL
+	_handler.publish(msg)
+	_handler.flush()
+end sub
+</script:module>

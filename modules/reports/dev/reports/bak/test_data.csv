@@ -1,0 +1,397 @@
+BOAT,Status,Date,Day,Start,End,Hour,Guests,Agent,Client / Comment,Package, Amount , Comm , Net Amt , Deposit , Bal , Catering , Liquor , Other , GP , Cost , NP , Month 
+VIRGO,Closed,1-Jan-16,Fri,3:00 PM,7:00 PM,4.0,,,sarah - Kirean ,," 6,000 ", 600 ," 8,400 "," 8,400 ", -   , 600 ,,," 7,800 "," 3,600 "," 4,200 ",Jan 16
+VIRGO,Closed,2-Jan-16,Sat,12:00 PM,4:00 PM,4.0,,Exotic,exotic - James,," 6,000 "," 1,200 "," 4,800 "," 4,800 ", -   , 300 ,,," 4,500 "," 3,600 ", 900 ,Jan 16
+VIRGO,Closed,2-Jan-16,Sat,7:00 PM,11:00 PM,4.0,,Capt,prabhu client,," 7,500 ", 750 ," 6,750 "," 6,750 ", -   , 300 ,,," 6,450 "," 3,600 "," 2,850 ",Jan 16
+VIRGO,Closed,3-Jan-16,Sun,3:00 PM,7:00 PM,4.0,,,shameer/D3,," 7,500 ", 750 ," 6,750 "," 6,750 ", -   , 300 ,,," 6,450 "," 3,600 "," 2,850 ",Jan 16
+VIRGO,Closed,8-Jan-16,Fri,5:00 PM,10:00 PM,5.0,,Exotic,exotic limo - Arif ,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   , 300 ,,," 5,700 "," 4,500 "," 1,200 ",Jan 16
+VIRGO,Closed,9-Jan-16,Sat,12:00 AM,4:00 AM,4.0,,MBC,Behzad - MBC,," 9,000 "," 1,500 "," 7,500 "," 7,500 ", -   , 300 ,,," 7,200 "," 3,600 "," 3,600 ",Jan 16
+VIRGO,Closed,13-Jan-16,Wed,11:30 PM,3:30 AM,4.0,,Ultimate,zillah ,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   , 300 ,,," 5,700 "," 3,600 "," 2,100 ",Jan 16
+VIRGO,Closed,14-Jan-16,Thu,5:30 PM,8:30 PM,3.0,,,super yacht - fadala,," 6,000 ", 600 ," 7,200 "," 7,200 ", -   , 300 ,,," 6,900 "," 2,700 "," 4,200 ",Jan 16
+VIRGO,Closed,15-Jan-16,Fri,12:00 PM,3:00 PM,3.0,,MBC,Behzad,," 5,000 ",," 5,000 "," 5,000 ", -   , 300 ,,," 4,700 "," 2,700 "," 2,000 ",Jan 16
+VIRGO,Cancelled,15-Jan-16,Fri,5:00 PM,9:00 PM,,,Exotic,exotic - luara (NO show),,, -   ," 1,000 "," 1,000 ", -   , 300 ,,, 700 , -   , 700 ,Jan 16
+VIRGO,Closed,16-Jan-16,Sat,8:00 PM,12:00 AM,4.0,,Capt,Bharhim  - prabu client,," 7,500 ", 750 ," 6,750 "," 6,750 ", -   , 300 ,,," 6,450 "," 3,600 "," 2,850 ",Jan 16
+VIRGO,Closed,18-Jan-16,Mon,8:00 PM,12:00 AM,4.0,,Capt, prabu client,," 7,500 ", 750 ," 6,750 "," 6,750 ", -   , 300 ,,," 6,450 "," 3,600 "," 2,850 ",Jan 16
+VIRGO,Closed,20-Jan-16,Wed,7:00 PM,11:00 PM,4.0,,Exotic,exotic - Osman ( pay to rustom directly),," 6,000 "," 1,500 "," 4,500 "," 4,500 ", -   , 300 ,,," 4,200 "," 3,600 ", 600 ,Jan 16
+VIRGO,Closed,22-Jan-16,Fri,1:00 PM,5:00 PM,4.0,,,omar,," 6,000 ",," 6,000 "," 6,000 ", -   , 300 ,,," 5,700 "," 3,600 "," 2,100 ",Jan 16
+VIRGO,Closed,25-Jan-16,Mon,11:00 AM,3:00 PM,4.0,,,D3 yacht,," 6,500 ", 650 ," 5,850 "," 5,850 ", -   , 300 ,,," 5,550 "," 3,600 "," 1,950 ",Jan 16
+VIRGO,Closed,27-Jan-16,Wed,2:00 PM,6:00 PM,4.0,,Ultimate,ultimate - zilah,," 16,645 "," 2,235 "," 14,410 "," 14,410 ", -   ," 2,325 "," 1,550 ",," 10,535 "," 3,600 "," 6,935 ",Jan 16
+VIRGO,Closed,28-Jan-16,Thu,10:00 PM,3:00 AM,5.0,,Exotic,exotic - jude,," 9,375 "," 2,344 "," 7,031 "," 7,031 ", -   , 300 ,, 300 ," 6,431 "," 4,500 "," 1,931 ",Jan 16
+VIRGO,Closed,29-Jan-16,Fri,1:00 PM,5:00 PM,4.0,,,nabeel - facecard,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   , 300 ,,," 5,700 "," 3,600 "," 2,100 ",Jan 16
+VIRGO,Closed,29-Jan-16,Fri,8:00 PM,12:00 AM,4.0,,Xtreme,"xtreme yacht, Upgrade Rose",," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   , 300 ,,," 5,700 "," 3,600 "," 2,100 ",Jan 16
+VIRGO,Closed,30-Jan-16,Sat,9:00 PM,12:00 AM,3.0,,,zena - laura (paid to address hotel),," 18,250 ",," 18,250 "," 18,250 ", -   ," 3,600 "," 1,750 ",," 12,900 "," 2,700 "," 10,200 ",Jan 16
+VIRGO,Cancelled,3-Feb-16,Wed,8:00 PM,11:00 PM,,,,zohab (Postpone),,,, -   , -   , -   ,,,, -   , -   , -   ,Feb 16
+VIRGO,Closed,5-Feb-16,Fri,4:00 AM,7:00 AM,3.0,,,Shahruz (320 security),," 6,000 ",," 6,000 "," 6,000 ", -   , 300 ,,," 5,700 "," 2,700 "," 3,000 ",Feb 16
+VIRGO,Closed,5-Feb-16,Fri,1:00 PM,5:00 PM,4.0,,,Walle,," 7,500 ", 750 ," 6,750 "," 6,750 ", -   , 300 ,,," 6,450 "," 3,600 "," 2,850 ",Feb 16
+VIRGO,Closed,5-Feb-16,Fri,10:30 PM,2:30 AM,4.0,,Capt,Alladin Client,," 7,000 ",," 7,000 "," 7,000 ", -   , 300 ,, 300 ," 6,400 "," 3,600 "," 2,800 ",Feb 16
+VIRGO,Closed,7-Feb-16,Sun,12:00 PM,4:00 PM,4.0,,Exotic,exotic - maysa (rustom collect from them directly),," 6,000 "," 1,500 "," 4,500 "," 4,500 ", -   ,,,," 4,500 "," 3,600 ", 900 ,Feb 16
+VIRGO,Closed,11-Feb-16,Thu,10:30 PM,2:30 AM,4.0,,Capt,Alladin Client,," 7,500 ", 500 ," 7,000 "," 7,000 ", -   , 300 ,,," 6,700 "," 3,600 "," 3,100 ",Feb 16
+VIRGO,Closed,12-Feb-16,Fri,1:00 PM,6:00 PM,5.0,,,ahmed - james,," 10,375 ", 938 ," 9,437 "," 9,437 ", -   , 300 ,, 600 ," 8,537 "," 4,500 "," 4,037 ",Feb 16
+VIRGO,Closed,12-Feb-16,Fri,8:00 PM,1:00 AM,5.0,,Exotic,exotic - Jaques,," 7,500 "," 1,875 "," 5,625 "," 5,625 ", -   , 300 ,,," 5,325 "," 4,500 ", 825 ,Feb 16
+VIRGO,Closed,13-Feb-16,Sat,3:00 PM,7:00 PM,4.0,60,,Marina (Alameen Al Mawali) Security 500,," 7,300 ", 250 ," 7,050 "," 7,050 ", -   , 300 ,, 240 ," 6,510 "," 3,600 "," 2,910 ",Feb 16
+VIRGO,Closed,17-Feb-16,Wed,6:00 PM,9:00 PM,3.0,25,,"logicom - standn ( food @130, drinks @100)",," 10,750 ",," 10,750 "," 10,750 ", -   ," 2,500 ",,," 8,250 "," 2,700 "," 5,550 ",Feb 16
+VIRGO,Closed,19-Feb-16,Fri,8:00 AM,12:00 PM,4.0,,Mala,syed mala yacht,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   , 300 ,,," 5,700 "," 3,600 "," 2,100 ",Feb 16
+VIRGO,Closed,19-Feb-16,Fri,2:00 PM,6:00 PM,4.0,,,Lokesh - Mohammed Chaudhry friend,," 6,750 ",," 6,750 "," 6,750 ", -   , 300 ,,," 6,450 "," 3,600 "," 2,850 ",Feb 16
+VIRGO,Closed,19-Feb-16,Fri,8:00 PM,12:00 AM,4.0,,Capt,babu client,," 7,500 ", 750 ," 6,750 "," 6,750 ", -   , 300 ,,," 6,450 "," 3,600 "," 2,850 ",Feb 16
+VIRGO,Closed,20-Feb-16,Sat,7:00 PM,11:00 PM,4.0,30,Mala,syed mala yacht,," 11,850 "," 1,935 "," 9,915 "," 9,915 ", -   ," 3,000 ",,," 6,915 "," 3,600 "," 3,315 ",Feb 16
+VIRGO,Closed,25-Feb-16,Thu,5:30 PM,7:30 PM,2.0,,,maxol,," 4,000 ",," 4,000 "," 4,000 ", -   , 300 ,,," 3,700 "," 1,800 "," 1,900 ",Feb 16
+VIRGO,Closed,25-Feb-16,Thu,10:00 PM,2:00 AM,4.0,,,Ibrahim ( 1 security),," 7,000 ",," 7,000 "," 7,000 ", -   , 300 ,,," 6,700 "," 3,600 "," 3,100 ",Feb 16
+VIRGO,Closed,26-Feb-16,Fri,9:00 AM,11:00 AM,2.0,,,leah,," 3,600 ", 400 ," 3,200 "," 3,200 ", -   , 300 ,,," 2,900 "," 1,800 "," 1,100 ",Feb 16
+VIRGO,Closed,26-Feb-16,Fri,1:00 PM,5:00 PM,4.0,,,Kashif - Nabil Friend Facecard,," 6,000 ",," 6,000 "," 6,000 ", -   , 300 ,,," 5,700 "," 3,600 "," 2,100 ",Feb 16
+VIRGO,Closed,26-Feb-16,Fri,7:00 PM,11:00 PM,4.0,,Xtreme,xtreme yacht,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   , 300 ,,," 5,700 "," 3,600 "," 2,100 ",Feb 16
+VIRGO,Closed,27-Feb-16,Sat,7:30 PM,10:30 PM,3.0,20,,big idea (premium package),," 20,750 "," 2,825 "," 17,925 "," 17,925 ", -   ," 2,200 "," 1,000 ",," 14,725 "," 2,700 "," 12,025 ",Feb 16
+VIRGO,Closed,1-Mar-16,Tue,Full day,,,,,Boat show,,,, -   ,, -   ,,,, -   , -   , -   ,Mar 16
+VIRGO,Closed,2-Mar-16,Wed,Full day,,,,,Boat show,,,, -   ,, -   ,,,, -   , -   , -   ,Mar 16
+VIRGO,Closed,3-Mar-16,Thu,Full day,,,,,Boat show,,,, -   ,, -   ,,,, -   , -   , -   ,Mar 16
+VIRGO,Closed,4-Mar-16,Fri,Full day,,,,,Boat show,,,, -   ,, -   ,,,, -   , -   , -   ,Mar 16
+VIRGO,Closed,5-Mar-16,Sat,Full day,,,,,Boat show,,,, -   ,, -   ,,,, -   , -   , -   ,Mar 16
+VIRGO,Closed,10-Mar-16,Thu,2:30 PM,5:30 PM,3.0,,,Elena - first yacht,," 6,000 "," 1,200 "," 4,800 "," 4,800 ", -   , 300 ,,," 4,500 "," 2,700 "," 1,800 ",Mar 16
+VIRGO,Closed,10-Mar-16,Thu,7:00 PM,11:00 PM,4.0,,Exotic,exotic - alex ( rustom collect directly),," 7,500 "," 1,875 "," 5,625 "," 5,625 ", -   , 300 ,,," 5,325 "," 3,600 "," 1,725 ",Mar 16
+VIRGO,Closed,11-Mar-16,Fri,1:00 PM,5:00 PM,4.0,,,ankur - myconciege (10%) 250 security,," 7,750 ", 750 ," 7,000 "," 7,000 ", -   , 300 ,,," 6,700 "," 3,600 "," 3,100 ",Mar 16
+VIRGO,Closed,11-Mar-16,Fri,8:00 PM,12:00 AM,4.0,,Bong,eid - farid friend ( security paid),," 7,000 ",," 7,000 "," 7,000 ", -   , 300 ,,," 6,700 "," 3,600 "," 3,100 ",Mar 16
+VIRGO,Closed,12-Mar-16,Sat,12:00 AM,4:00 AM,4.0,,DJ Party,Mohammed Outrageous (security 500),," 8,000 ",," 8,000 "," 8,000 ", -   , 300 ,, 700 ," 7,000 "," 3,600 "," 3,400 ",Mar 16
+VIRGO,Closed,12-Mar-16,Sat,6:00 PM,8:00 PM,2.0,,,tim - kid party,," 4,000 ",," 4,000 "," 4,000 ", -   , 300 ,,," 3,700 "," 1,800 "," 1,900 ",Mar 16
+VIRGO,Closed,18-Mar-16,Fri,1:00 PM,6:00 PM,5.0,,Capt,babu client,," 9,200 ", 920 ," 8,280 "," 8,280 ", -   , 300 ,, 300 ," 7,680 "," 4,500 "," 3,180 ",Mar 16
+VIRGO,Closed,18-Mar-16,Fri,8:00 PM,12:00 AM,4.0,,Exotic,Exotic mutaz,," 7,500 "," 1,875 "," 5,625 "," 5,625 ", -   , 300 ,,," 5,325 "," 3,600 "," 1,725 ",Mar 16
+VIRGO,Closed,19-Mar-16,Sat,11:00 AM,3:00 PM,4.0,,Cozmo,saju cosmo yacht,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Mar 16
+VIRGO,Closed,19-Mar-16,Sat,4:00 PM,8:00 PM,4.0,,Mala,syed mala yacht,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Mar 16
+VIRGO,Closed,20-Mar-16,Sun,4:00 PM,6:00 PM,2.0,,,leah,," 5,000 "," 1,000 "," 4,000 "," 4,000 ", -   ,,,," 4,000 "," 1,800 "," 2,200 ",Mar 16
+VIRGO,Closed,21-Mar-16,Mon,2:00 PM,7:00 PM,5.0,,,james ahmed Tirena Yacht,," 9,375 ", 375 ," 9,000 "," 9,000 ", -   ,,,," 9,000 "," 4,500 "," 4,500 ",Mar 16
+VIRGO,Closed,24-Mar-16,Thu,7:30 PM,10:30 PM,3.0,,Capt,babu client,," 6,000 ", 600 ," 5,400 "," 5,400 ", -   , 300 ,,," 5,100 "," 2,700 "," 2,400 ",Mar 16
+VIRGO,Closed,25-Mar-16,Fri,2:00 PM,6:00 PM,4.0,,Exotic,exotic - mark,," 7,500 "," 1,875 "," 5,625 "," 5,625 ", -   , 300 ,,," 5,325 "," 3,600 "," 1,725 ",Mar 16
+VIRGO,Closed,27-Mar-16,Sun,1:00 PM,7:00 PM,6.0,,,Eden Yacht,," 11,250 "," 2,250 "," 9,000 "," 9,000 ", -   , 300 ,,," 8,700 "," 5,400 "," 3,300 ",Mar 16
+VIRGO,Closed,27-Mar-16,Sun,9:00 PM,1:00 AM,4.0,,4 Yacht,Addullah - 4 yacht,," 7,500 ", 750 ," 6,750 "," 6,750 ", -   , 300 ,,," 6,450 "," 3,600 "," 2,850 ",Mar 16
+VIRGO,Closed,28-Mar-16,Mon,7:00 PM,11:00 PM,4.0,,,Shaji,," 5,700 ",," 5,700 "," 5,700 ", -   ," 1,650 ",,," 4,050 "," 3,600 ", 450 ,Mar 16
+VIRGO,Closed,31-Mar-16,Thu,5:00 PM,10:00 PM,5.0,,,Mick Frost - (jack 10 % comm) + 600 bouncer,," 8,100 ",," 8,100 "," 8,100 ", -   , 300 ,,," 7,800 "," 4,500 "," 3,300 ",Mar 16
+VIRGO,Cancelled,31-Mar-16,Thu,11:00 PM,3:00 AM,,,,Ibrahim ( 1 security) - cancel,," 1,500 ",," 1,500 "," 1,500 ", -   , 60 ,,," 1,440 ", -   ," 1,440 ",Mar 16
+VIRGO,Closed,1-Apr-16,Fri,1:00 PM,6:00 PM,5.0,,,Kashif - Nabil Friend Facecard + security,," 9,375 "," 1,875 "," 7,750 "," 7,750 ", -   , 420 ,,," 7,330 "," 4,500 "," 2,830 ",Apr 16
+VIRGO,Closed,1-Apr-16,Fri,10:00 PM,2:00 AM,4.0,,,Ibrahim ( 1 security),," 7,500 ",," 7,500 "," 7,500 ", -   , 300 ,,," 7,200 "," 3,600 "," 3,600 ",Apr 16
+VIRGO,Closed,2-Apr-16,Sat,12:00 PM,6:00 PM,6.0,,,Omar - Asfer tour,," 11,250 "," 1,125 "," 10,000 "," 10,000 ", -   , 300 ,,," 9,700 "," 5,400 "," 4,300 ",Apr 16
+VIRGO,Closed,7-Apr-16,Thu,7:00 PM,11:00 PM,4.0,,,my conceige + 500 security,," 7,500 ", 750 ," 7,250 "," 7,250 ", -   ,,,," 7,250 "," 3,600 "," 3,650 ",Apr 16
+VIRGO,Closed,8-Apr-16,Fri,8:00 PM,1:00 AM,5.0,,Exotic,exotic - Hasam + 500 security,," 9,375 "," 2,345 "," 7,030 "," 7,030 ", -   ,,,," 7,030 "," 4,500 "," 2,530 ",Apr 16
+VIRGO,Closed,9-Apr-16,Sat,6:30 PM,12:30 AM,6.0,,Mala,syed mala yacht,," 11,250 "," 2,250 "," 9,000 "," 9,000 ", -   ,,,," 9,000 "," 5,400 "," 3,600 ",Apr 16
+VIRGO,Closed,10-Apr-16,Sun,5:00 PM,10:00 PM,5.0,,Mala,syed mala yacht,," 9,375 "," 1,875 "," 9,000 "," 9,000 ", -   ,,," 2,000 "," 7,000 "," 4,500 "," 2,500 ",Apr 16
+VIRGO,Cancelled,13-Apr-16,Wed,6:00 PM,10:00 PM,,,Exotic,exotic - Mac ( rustom collect directly),, -   , -   , -   ,, -   ,,,, -   , -   , -   ,Apr 16
+VIRGO,Closed,14-Apr-16,Thu,11:00 PM,3:00 AM,4.0,,,Bong Event (Security client paid directly),," 6,000 ",," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Apr 16
+VIRGO,Cancelled,15-Apr-16,Fri,,,,,,Fiona - FDW event (cancelled),," 2,000 ",," 2,000 "," 2,000 ", -   ,,,," 2,000 ", -   ," 2,000 ",Apr 16
+VIRGO,Closed,15-Apr-16,Fri,8:00 PM,12:00 AM,4.0,,,michael minot (+500 security),," 7,500 ", 750 ," 7,250 "," 7,250 ", -   ,,,," 7,250 "," 3,600 "," 3,650 ",Apr 16
+VIRGO,Closed,16-Apr-16,Sat,8:00 PM,12:00 AM,4.0,,,my conceige + 500 security,," 8,000 ", 750 ," 7,250 "," 7,250 ", -   ,,,," 7,250 "," 3,600 "," 3,650 ",Apr 16
+VIRGO,Closed,21-Apr-16,Thu,8:00 PM,1:00 AM,5.0,,Capt,babu client (+ 500 security),," 11,000 "," 1,000 "," 10,000 "," 10,000 ", -   ,,, 500 ," 9,500 "," 4,500 "," 5,000 ",Apr 16
+VIRGO,Closed,22-Apr-16,Fri,1:00 PM,5:00 PM,4.0,,,Fiona - FDW event (+500 security),," 7,000 ",," 7,000 "," 7,000 ", -   , 35 ,,," 6,965 "," 3,600 "," 3,365 ",Apr 16
+VIRGO,Closed,27-Apr-16,Wed,8:00 PM,12:00 AM,4.0,45,Zain,zain - cosmo (35 *295)+70*25,," 20,800 "," 2,080 "," 18,720 "," 18,720 ", -   ," 4,460 "," 1,700 ",," 12,560 "," 3,600 "," 8,960 ",Apr 16
+VIRGO,Closed,28-Apr-16,Thu,4:00 PM,7:00 PM,3.0,,Mala,syed mala yacht,," 4,500 ",," 4,500 "," 4,500 ", -   ,,,," 4,500 "," 2,700 "," 1,800 ",Apr 16
+VIRGO,Closed,28-Apr-16,Thu,7:15 PM,11:15 PM,4.0,,,Nabeel,," 6,500 "," 1,300 "," 5,200 "," 5,200 ", -   ,,,," 5,200 "," 3,600 "," 1,600 ",Apr 16
+VIRGO,Closed,28-Apr-16,Thu,11:00 PM,3:00 AM,4.0,,,Ibrahim ( 1 security),," 7,500 ",," 7,500 "," 7,500 ", -   ,,, 300 ," 7,200 "," 3,600 "," 3,600 ",Apr 16
+VIRGO,Closed,29-Apr-16,Fri,2:00 PM,6:00 PM,4.0,,Capt,babu client,," 7,500 ", 750 ," 6,750 "," 6,750 ", -   ,,,," 6,750 "," 3,600 "," 3,150 ",Apr 16
+VIRGO,Closed,29-Apr-16,Fri,8:00 PM,12:00 AM,4.0,,,Fiona - FDW event (+500 security),," 7,500 ", 750 ," 7,250 "," 7,250 ", -   ,,, 300 ," 6,950 "," 3,600 "," 3,350 ",Apr 16
+VIRGO,Balance,30-Apr-16,Sat,1:00 PM,6:00 PM,5.0,,,Kashif - Nabil Friend Facecard ,," 9,375 "," 1,875 "," 7,500 "," 7,000 ", 500 ,,, 240 ," 7,260 "," 4,500 "," 2,760 ",Apr 16
+VIRGO,Closed,2-May-16,Mon,3:00 PM,7:00 PM,4.0,25,Exotic,exotic -mark,," 7,500 "," 1,875 "," 5,625 "," 5,625 ", -   ,,,," 5,625 "," 3,600 "," 2,025 ",May 16
+VIRGO,Closed,3-May-16,Tue,9:30 AM,11:30 AM,2.0,25,Tour Dubai,Tour Dubai Valentine Pvt Party,," 3,000 ",," 3,000 "," 3,000 ", -   ,,,," 3,000 "," 1,800 "," 1,200 ",May 16
+VIRGO,Cancelled,3-May-16,Tue,,,,,Royal Star,royal star + 1 security (cancellation),," 1,000 ",," 1,000 "," 1,000 ", -   ,,,," 1,000 ", -   ," 1,000 ",May 16
+VIRGO,Closed,3-May-16,Tue,9:00 PM,1:00 AM,4.0,,,Shaji,," 4,000 ",," 4,000 "," 4,000 ", -   ,,,," 4,000 "," 3,600 ", 400 ,May 16
+VIRGO,Closed,4-May-16,Wed,4:00 PM,6:00 PM,2.0,,,leah,," 3,600 ", 600 ," 3,000 "," 3,000 ", -   ,,,," 3,000 "," 1,800 "," 1,200 ",May 16
+VIRGO,Closed,5-May-16,Thu,7:00 PM,11:00 PM,4.0,,DJ Party,Kieran (Sobiah Khan),," 8,000 ", 750 ," 7,250 "," 7,250 ", -   ,,, 300 ," 6,950 "," 3,600 "," 3,350 ",May 16
+VIRGO,Closed,6-May-16,Fri,11:30 AM,7:30 PM,8.0,,DJ Party,sherine + 1 security,," 11,000 ",," 11,500 "," 11,500 ", -   ,,,," 11,500 "," 7,200 "," 4,300 ",May 16
+VIRGO,Closed,6-May-16,Fri,9:00 PM,1:00 AM,4.0,,Mala,syed mala yacht,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",May 16
+VIRGO,Closed,7-May-16,Sat,6:30 PM,8:30 PM,2.0,,Zain,cozmo - zain,," 4,000 ", 200 ," 3,800 "," 3,800 ", -   ,,,," 3,800 "," 1,800 "," 2,000 ",May 16
+VIRGO,Closed,10-May-16,Tue,7:00 PM,11:00 PM,4.0,,4 Yacht,Addullah - 4 yacht,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",May 16
+VIRGO,Balance,11-May-16,Wed,5:00 PM,9:00 PM,4.0,,,my conceige ,," 6,500 "," 1,000 "," 5,500 "," 6,500 "," (1,000)",,,," 5,500 "," 3,600 "," 1,900 ",May 16
+VIRGO,Closed,12-May-16,Thu,6:00 PM,9:00 PM,3.0,,,penelope ( 11 yrs old gal birthday),," 6,300 ",," 6,300 "," 6,300 ", -   ,,,," 6,300 "," 2,700 "," 3,600 ",May 16
+VIRGO,Closed,13-May-16,Fri,1:00 PM,5:00 PM,4.0,,,Fiona - FDW event (+500 security),," 7,500 ", 750 ," 7,250 "," 7,250 ", -   ,,,," 7,250 "," 3,600 "," 3,650 ",May 16
+VIRGO,Closed,13-May-16,Fri,7:00 PM,12:00 AM,5.0,,,my conceige + 600 security,," 9,975 "," 1,875 "," 8,100 "," 8,100 ", -   ,,,," 8,100 "," 4,500 "," 3,600 ",May 16
+VIRGO,Closed,16-May-16,Mon,5:00 PM,7:00 PM,2.0,,Zain,cozmo - Zain,," 3,000 ",," 3,000 "," 3,000 ", -   ,,,," 3,000 "," 1,800 "," 1,200 ",May 16
+VIRGO,Closed,17-May-16,Tue,8:30 PM,12:30 AM,4.0,,,shaji (Nikki) + F&B,," 5,000 ",," 5,000 "," 5,000 ", -   ,,,," 5,000 "," 3,600 "," 1,400 ",May 16
+VIRGO,Closed,19-May-16,Thu,4:30 PM,9:30 PM,5.0,,4 Yacht,4 Yachts + security,," 10,175 "," 1,875 "," 8,300 "," 8,300 ", -   ,,,," 8,300 "," 4,500 "," 3,800 ",May 16
+VIRGO,Closed,20-May-16,Fri,1:00 PM,5:00 PM,4.0,,Xtreme,Xtreme,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",May 16
+VIRGO,Balance,20-May-16,Fri,6:00 PM,10:00 PM,4.0,,Exotic,exotic - rana ( collect 3500),," 7,500 "," 1,875 "," 5,625 "," 3,500 "," 2,125 ",,,," 5,625 "," 3,600 "," 2,025 ",May 16
+VIRGO,Closed,21-May-16,Sat,11:00 AM,3:00 PM,4.0,30,Mala,syed mala yacht (30 pax),," 4,400 ",," 4,400 "," 4,400 ", -   ,,,," 4,400 "," 3,600 ", 800 ,May 16
+VIRGO,Closed,21-May-16,Sat,4:00 PM,7:00 PM,3.0,,Cozmo,cozmo - wilson,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 2,700 "," 3,300 ",May 16
+VIRGO,Closed,22-May-16,Sun,9:00 AM,11:00 AM,2.0,,,Leah,," 1,800 ",," 1,800 "," 1,800 ", -   ,,,," 1,800 "," 1,800 ", -   ,May 16
+VIRGO,Balance,22-May-16,Sun,8:00 PM,12:00 AM,4.0,,Exotic,exotic - adbulize (collect 6000),," 7,500 "," 1,875 "," 5,625 "," 6,000 ", (375),,,," 5,625 "," 3,600 "," 2,025 ",May 16
+VIRGO,Closed,24-May-16,Tue,9:30 AM,12:30 PM,3.0,,Mala,syed mala yacht (60 pax),," 3,750 ",," 3,750 "," 3,750 ", -   ,,,," 3,750 "," 2,700 "," 1,050 ",May 16
+VIRGO,Closed,25-May-16,Wed,6:00 PM,10:00 PM,4.0,,Cozmo,cozmo - wilson(illona),," 8,650 "," 1,500 "," 7,150 "," 7,150 ", -   ,,,," 7,150 "," 3,600 "," 3,550 ",May 16
+VIRGO,Closed,26-May-16,Thu,8:00 PM,12:00 AM,4.0,,,Fiona - FDW event (+500 security),," 7,500 ", 750 ," 7,250 "," 7,250 ", -   ,,,," 7,250 "," 3,600 "," 3,650 ",May 16
+VIRGO,Closed,27-May-16,Fri,1:30 PM,5:30 PM,4.0,,,Nathan + 500 security(provide mixer etc),," 7,500 ",," 8,000 "," 8,000 ", -   ,, 300 , 600 ," 7,100 "," 3,600 "," 3,500 ",May 16
+VIRGO,Closed,27-May-16,Fri,6:00 PM,10:00 PM,4.0,,Mala,syed mala yacht,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,, 300 ,," 5,700 "," 3,600 "," 2,100 ",May 16
+VIRGO,Closed,28-May-16,Sat,12:30 AM,3:30 AM,3.0,,Mala,syed mala yacht (security),," 7,200 "," 1,200 "," 6,000 "," 6,000 ", -   ,, 300 , 240 ," 5,460 "," 2,700 "," 2,760 ",May 16
+VIRGO,Closed,30-May-16,Mon,8:00 PM,12:00 AM,4.0,,,Shaji (Nikki) + DOM & food extra,," 5,000 ",," 5,000 "," 5,000 ", -   ,," 1,700 ",," 3,300 "," 3,600 ", (300),May 16
+VIRGO,Closed,30-May-16,Mon,12:00 AM,3:00 AM,3.0,,,Jabu,," 3,000 ",," 3,000 "," 3,000 ", -   ,,,," 3,000 "," 2,700 ", 300 ,May 16
+VIRGO,Closed,31-May-16,Tue,9:00 AM,12:00 PM,3.0,,Direct,ahmad adel dib - fliming ,," 4,500 ",," 4,500 "," 4,500 ", -   ,,,," 4,500 "," 2,700 "," 1,800 ",May 16
+VIRGO,Closed,2-Jun-16,Thu,3:30 PM,6:30 PM,3.0,,Royal Star,Royal star Ansari brother,," 6,000 "," 1,200 "," 4,800 "," 4,800 ", -   ,,,," 4,800 "," 2,700 "," 2,100 ",Jun 16
+VIRGO,Balance,2-Jun-16,Thu,7:30 PM,11:30 PM,4.0,,Exotic,exotic - Laura (collect 3500),," 7,500 "," 1,875 "," 6,125 "," 3,500 "," 2,625 ",,,," 6,125 "," 3,600 "," 2,525 ",Jun 16
+VIRGO,Closed,3-Jun-16,Fri,4:00 AM,8:00 AM,4.0,,DJ Party,aidin ( security ),," 6,000 ",," 6,000 "," 6,000 ", -   ,,, 300 ," 5,700 "," 3,600 "," 2,100 ",Jun 16
+VIRGO,Closed,3-Jun-16,Fri,3:00 PM,7:00 PM,4.0,,,Marc + security,," 7,500 ",," 8,000 "," 8,000 ", -   ,,, 240 ," 7,760 "," 3,600 "," 4,160 ",Jun 16
+VIRGO,Closed,3-Jun-16,Fri,8:00 PM,12:00 AM,4.0,,Xtreme,Xtreme,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Jun 16
+VIRGO,Closed,4-Jun-16,Sat,4:00 PM,6:00 PM,2.0,,,leah (collect  3600),," 3,750 ", 750 ," 3,000 "," 3,000 ", -   ,,,," 3,000 "," 1,800 "," 1,200 ",Jun 16
+VIRGO,Balance,4-Jun-16,Sat,7:00 PM,11:00 PM,4.0,,Exotic,Exotic rustom personal party,," 3,750 ",," 3,750 ",," 3,750 ",,,," 3,750 "," 3,600 ", 150 ,Jun 16
+VIRGO,Balance,20-Jun-16,Mon,8:30 PM,12:30 AM,4.0,,Exotic,exotic (client 7000) - client just pay balance 1500 1 sept,," 7,500 "," 1,875 "," 5,625 "," 7,000 "," (1,375)",,,," 5,625 "," 3,600 "," 2,025 ",Jun 16
+VIRGO,Closed,21-Jun-16,Tue,9:00 PM,1:00 AM,4.0,,,ansari brother,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Jun 16
+VIRGO,Closed,6-Jul-16,Wed,6:30 PM,9:30 PM,3.0,,Mala,syed mala yacht,," 5,625 "," 1,125 "," 4,500 "," 4,500 ", -   ,,,," 4,500 "," 2,700 "," 1,800 ",Jul 16
+VIRGO,Balance,7-Jul-16,Thu,7:00 PM,11:00 PM,4.0,,Exotic,exotic - tolu (5000),," 7,500 "," 1,875 "," 5,625 "," 5,000 ", 625 ,,,," 5,625 "," 3,600 "," 2,025 ",Jul 16
+VIRGO,Closed,8-Jul-16,Fri,12:30 PM,4:30 PM,4.0,,,Nabill - facecard,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Jul 16
+VIRGO,Closed,8-Jul-16,Fri,5:00 PM,9:00 PM,4.0,,,Roy Volume,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Jul 16
+VIRGO,Closed,9-Jul-16,Sat,4:00 PM,7:00 PM,3.0,,,Leah - uniway,," 5,400 ", 900 ," 4,500 "," 4,500 ", -   ,,,," 4,500 "," 2,700 "," 1,800 ",Jul 16
+VIRGO,Closed,15-Jul-16,Fri,6:30 PM,10:30 PM,4.0,,Cozmo,sajid cosmo,," 7,700 "," 1,500 "," 6,200 "," 6,200 ", -   ,,,," 6,200 "," 3,600 "," 2,600 ",Jul 16
+VIRGO,Closed,29-Jul-16,Fri,2:30 PM,6:30 PM,4.0,,,Nabill - facecard,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Jul 16
+VIRGO,Closed,1-Aug-16,Mon,7:00 PM,11:00 PM,4.0,,,Shaji,," 4,000 ",," 4,000 "," 4,000 ", -   ,,,," 4,000 "," 3,600 ", 400 ,Aug 16
+VIRGO,Closed,20-Aug-16,Sat,7:00 PM,11:00 PM,4.0,,,Shaji,," 4,000 ",," 4,000 "," 4,000 ", -   ,,,," 4,000 "," 3,600 ", 400 ,Aug 16
+VIRGO,Closed,25-Aug-16,Thu,8:00 PM,1:00 AM,5.0,,Cozmo,cozmo - wilson,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 4,500 "," 1,500 ",Aug 16
+VIRGO,Balance,26-Aug-16,Fri,6:00 PM,10:00 PM,4.0,,Exotic,Exotic - Dr Markus (collect 3400),," 7,500 "," 1,875 "," 5,625 "," 7,500 "," (1,875)",,,," 5,625 "," 3,600 "," 2,025 ",Aug 16
+VIRGO,Closed,27-Aug-16,Sat,6:00 PM,9:00 PM,3.0,,,Leah,," 4,500 ",," 4,500 "," 4,500 ", -   ,,,," 4,500 "," 2,700 "," 1,800 ",Aug 16
+VIRGO,Closed,2-Sep-16,Fri,6:00 PM,10:00 PM,4.0,,,Claire Heylin,," 7,500 ",," 7,500 "," 7,500 ", -   ,,,," 7,500 "," 3,600 "," 3,900 ",Sep 16
+VIRGO,Closed,4-Sep-16,Sun,5:30 PM,8:30 PM,3.0,,,neptune - marco,," 6,000 "," 1,200 "," 4,800 "," 4,800 ", -   ,,,," 4,800 "," 2,700 "," 2,100 ",Sep 16
+VIRGO,Closed,7-Sep-16,Wed,5:00 PM,9:00 PM,4.0,,,victor - boat captain,," 7,500 ",," 7,500 "," 7,500 ", -   ,,,," 7,500 "," 3,600 "," 3,900 ",Sep 16
+VIRGO,Closed,8-Sep-16,Thu,5:00 PM,9:00 PM,4.0,,4 Yacht,4 yacht,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Sep 16
+VIRGO,Closed,9-Sep-16,Fri,4:00 PM,8:00 PM,4.0,,,Marc + security,," 8,000 ",," 8,000 "," 8,000 ", -   ,,, 240 ," 7,760 "," 3,600 "," 4,160 ",Sep 16
+VIRGO,Closed,9-Sep-16,Fri,10:00 PM,12:00 AM,2.0,,,amwaj,," 4,000 ", 800 ," 3,200 "," 3,200 ", -   ,,,," 3,200 "," 1,800 "," 1,400 ",Sep 16
+VIRGO,Closed,10-Sep-16,Sat,11:00 AM,3:00 PM,4.0,,Capt,babu client,," 7,500 ",," 7,500 "," 7,500 ", -   ,,,," 7,500 "," 3,600 "," 3,900 ",Sep 16
+VIRGO,Closed,10-Sep-16,Sat,4:00 PM,8:00 PM,4.0,,Mala,syed mala yacht,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Sep 16
+VIRGO,Cancelled,30-Sep-16,Fri,,,,,,Marc + security (30 Sep canelled),, -   ,,, -   , -   ,,,, -   , -   , -   ,Sep 16
+VIRGO,Closed,11-Sep-16,Sun,3:30 PM,7:30 PM,4.0,,Xtreme,Xtreme,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Sep 16
+VIRGO,Balance,11-Sep-16,Sun,8:00 PM,2:00 AM,6.0,,Zain,cozmo - Zain,," 11,250 "," 2,250 "," 9,000 "," 8,900 ", 100 ,,,," 9,000 "," 5,400 "," 3,600 ",Sep 16
+VIRGO,Closed,13-Sep-16,Tue,5:00 PM,9:00 PM,4.0,,,Sibal - Hemant ( capt sajiv daughter 50% off)+ bartender,," 7,500 "," 3,750 "," 4,350 "," 4,350 ", -   ,,, 250 ," 4,100 "," 3,600 ", 500 ,Sep 16
+VIRGO,Closed,14-Sep-16,Wed,4:00 PM,8:00 PM,4.0,,,deep blue sea charter - 10% comm,," 7,500 ", 750 ," 6,750 "," 6,750 ", -   ,,,," 6,750 "," 3,600 "," 3,150 ",Sep 16
+VIRGO,Closed,15-Sep-16,Thu,5:00 PM,9:00 PM,4.0,60,,Mohammed,," 7,500 ",," 7,500 "," 7,500 ", -   ,,,," 7,500 "," 3,600 "," 3,900 ",Sep 16
+VIRGO,Closed,16-Sep-16,Fri,6:00 PM,11:00 PM,5.0,56,,Saeed mala yacht (Standard Liquor Package),," 17,495 "," 2,687 "," 14,808 "," 14,808 ", -   ,," 1,500 ",," 13,308 "," 4,500 "," 8,808 ",Sep 16
+VIRGO,Closed,17-Sep-16,Sat,10:00 PM,1:00 AM,3.0,40,,Roy Volume + security,," 6,300 "," 1,200 "," 5,100 "," 5,100 ", -   ,,,," 5,100 "," 2,700 "," 2,400 ",Sep 16
+VIRGO,Closed,21-Sep-16,Wed,6:00 PM,10:00 PM,4.0,,DJ Party,mohammed outrageous,," 3,000 ",," 3,000 "," 3,000 ", -   ,,,," 3,000 "," 3,600 ", (600),Sep 16
+VIRGO,Closed,22-Sep-16,Thu,4:00 PM,8:00 PM,4.0,,,saeed mala yacht,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Sep 16
+VIRGO,Closed,23-Sep-16,Fri,11:00 AM,2:00 PM,3.0,,Xtreme,xtreme yacht,," 6,000 "," 1,200 "," 4,800 "," 4,800 ", -   ,,,," 4,800 "," 2,700 "," 2,100 ",Sep 16
+VIRGO,Closed,23-Sep-16,Fri,3:00 PM,7:00 PM,4.0,,,saeed mala yacht,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Sep 16
+VIRGO,Closed,24-Sep-16,Sat,8:00 AM,10:00 AM,2.0,,,Leah,," 3,000 ",," 3,000 "," 3,000 ", -   ,,,," 3,000 "," 1,800 "," 1,200 ",Sep 16
+VIRGO,Closed,24-Sep-16,Sat,9:30 PM,1:30 AM,4.0,,,Shaji,," 4,000 ",," 4,000 "," 4,000 ", -   ,,,," 4,000 "," 3,600 ", 400 ,Sep 16
+VIRGO,Closed,25-Sep-16,Sun,9:30 PM,1:30 AM,4.0,,,Shaji,," 4,000 ",," 4,000 "," 4,000 ", -   ,,,," 4,000 "," 3,600 ", 400 ,Sep 16
+VIRGO,Closed,28-Sep-16,Wed,8:30 AM,10:30 AM,2.0,,Royal Star,Royal star Ansari brother,," 4,000 ", 800 ," 3,200 "," 3,200 ", -   ,,,," 3,200 "," 1,800 "," 1,400 ",Sep 16
+VIRGO,Balance,29-Sep-16,Thu,8:00 PM,11:00 PM,3.0,,Exotic,exotic - shelly,," 6,000 "," 1,500 "," 4,500 "," 6,000 "," (1,500)",,,," 4,500 "," 2,700 "," 1,800 ",Sep 16
+VIRGO,Closed,30-Sep-16,Fri,1:00 PM,5:00 PM,4.0,,DJ Party,Ben Friend + Security  (Balance Deposit pay by sat),," 9,000 ",," 9,000 "," 9,000 ", -   ,,,," 9,000 "," 3,600 "," 5,400 ",Sep 16
+VIRGO,Cancelled,30-Sep-16,Fri,6:00 PM,10:00 PM,,,,Ibrahim ( 1 security) CANCEL,,,, -   , -   , -   ,,,, -   , -   , -   ,Sep 16
+KHAN,Closed,30-Sep-16,Fri,2:00 PM,6:00 PM,4.0,40,Mala,syed mala yacht,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,," 2,600 "," 3,400 "," 3,400 ", -   ,Sep 16
+VIRGO,Closed,1-Oct-16,Sat,4:30 PM,7:30 PM,3.0,,Royal Star,royal star aisha,," 5,000 ",," 5,000 "," 5,000 ", -   ,,,," 5,000 "," 2,700 "," 2,300 ",Oct 16
+VIRGO,Closed,4-Oct-16,Tue,5:00 PM,8:00 PM,3.0,,,neptune - marco,," 6,000 "," 1,200 "," 4,800 "," 4,800 ", -   ,,,," 4,800 "," 2,700 "," 2,100 ",Oct 16
+VIRGO,Closed,6-Oct-16,Thu,3:30 PM,8:30 PM,5.0,,Bong,Farid's friend Bong events ,," 9,375 "," 1,875 "," 7,500 "," 7,500 ", -   ,,,," 7,500 "," 4,500 "," 3,000 ",Oct 16
+VIRGO,Closed,7-Oct-16,Fri,2:00 PM,6:00 PM,4.0,,Capt,babu client,," 7,500 ", 750 ," 6,750 "," 6,750 ", -   ,,,," 6,750 "," 3,600 "," 3,150 ",Oct 16
+VIRGO,Closed,7-Oct-16,Fri,7:30 PM,10:30 PM,3.0,,4 Yacht,4 yacht rachael,," 6,000 "," 1,200 "," 4,800 "," 4,800 ", -   ,,,," 4,800 "," 2,700 "," 2,100 ",Oct 16
+KHAN,Closed,7-Oct-16,Fri,1:00 PM,5:00 PM,4.0,35,4 Yacht,4 yacht natalia,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,," 2,600 "," 3,400 "," 3,400 ", -   ,Oct 16
+KHAN,Closed,8-Oct-16,Sat,5:00 PM,9:00 PM,4.0,2,Ultimate,Zillah ultimate (pick from Royal Mirage - 2pax),," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,," 2,600 "," 3,400 "," 3,400 ", -   ,Oct 16
+VIRGO,Closed,10-Oct-16,Mon,8:00 AM,10:00 AM,2.0,,,Leah,," 3,000 ",," 3,000 "," 3,000 ", -   ,,,," 3,000 "," 1,800 "," 1,200 ",Oct 16
+VIRGO,Closed,10-Oct-16,Mon,6:30 PM,10:30 PM,4.0,,Mala,syed mala yacht (red carpet),," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Oct 16
+VIRGO,Closed,11-Oct-16,Tue,5:00 PM,7:00 PM,2.0,,,Leah,," 4,000 ", 800 ," 3,200 "," 3,200 ", -   ,,,," 3,200 "," 1,800 "," 1,400 ",Oct 16
+VIRGO,Balance,11-Oct-16,Tue,8:30 PM,11:30 PM,3.0,,,Shaji,," 4,000 ",," 4,000 ",," 4,000 ", 300 , 600 , 300 ," 2,800 "," 2,700 ", 100 ,Oct 16
+VIRGO,Closed,13-Oct-16,Thu,7:00 PM,11:00 PM,4.0,,Xtreme,Xtreme,," 7,500 "," 1,500 "," 6,000 "," 6,000 ", -   ,,,," 6,000 "," 3,600 "," 2,400 ",Oct 16
+KHAN,Closed,13-Oct-16,Thu,5:30 PM,8:30 PM,3.0,,,North Tour,," 5,800 ",," 5,800 "," 5,800 ", -   ,,," 1,950 "," 3,850 "," 2,550 "," 1,300 ",Oct 16
+KHAN,Balance,13-Oct-16,Thu,9:00 PM,11:00 PM,2.0,,,Shaji wife (Jaya Booked),," 4,000 ",," 4,000 ",," 4,000 ", 270 , 30 ,," 3,700 "," 1,700 "," 2,000 ",Oct 16
+VIRGO,Closed,14-Oct-16,Fri,1:00 PM,5:00 PM,4.0,39,,Raj Friend - Mike - Drinks Package,," 13,155 ",," 13,155 "," 13,155 ", -   ,," 1,500 ",," 11,655 "," 3,600 "," 8,055 ",Oct 16
+VIRGO,Balance,14-Oct-16,Fri,5:30 PM,8:30 PM,3.0,,Exotic,exotic - Kelly,," 6,000 "," 1,500 "," 4,500 "," 3,000 "," 1,500 ",,,," 4,500 "," 2,700 "," 1,800 ",Oct 16
+KHAN,Closed,14-Oct-16,Fri,11:00 AM,7:00 PM,6.0,35,Alpha,"Alpha Tour CEO (soft drinks, BBQ Grill & plates/Glasses)",," 10,000 ",," 10,000 "," 10,000 ", -   ,,, 400 ," 9,600 "," 5,100 "," 4,500 ",Oct 16
+KHAN,Confirm,17-Oct-16,Mon,9:00 PM,2:00 AM,,,,Rizwan - Danube (Tausif),,,, -   ,, -   ,,, -   , -   , -   , -   ,Oct 16
+VIRGO,Pending,18-Oct-16,Tue,7:00 PM,11:00 PM,4.0,,Mala,syed mala yacht,," 7,500 "," 1,500 "," 6,000 ",," 6,000 ",,,," 6,000 "," 3,600 "," 2,400 ",Oct 16
+VIRGO,Pending,20-Oct-16,Thu,4:00 PM,9:00 PM,5.0,35,,mario (coco cola) + standard package,," 19,700 "," 1,970 "," 17,730 ",," 17,730 "," 2,450 "," 1,000 ",," 14,280 "," 4,500 "," 9,780 ",Oct 16
+VIRGO,Pending,20-Oct-16,Thu,9:30 PM,1:30 AM,4.0,60,Ultimate,Fadi - Ex ultimate,," 7,500 ",," 7,500 ",," 7,500 ",,,," 7,500 "," 3,600 "," 3,900 ",Oct 16
+VIRGO,Confirm,21-Oct-16,Fri,2:30 PM,6:30 PM,4.0,,,Farah (sweet stuff),," 7,500 ",," 7,500 "," 1,500 "," 6,000 ",,,," 7,500 "," 3,600 "," 3,900 ",Oct 16
+VIRGO,Confirm,21-Oct-16,Fri,9:00 PM,11:00 PM,2.0,,Capt,babu client,," 4,000 ",," 4,000 "," 2,000 "," 2,000 ",,,," 4,000 "," 1,800 "," 2,200 ",Oct 16
+KHAN,Confirm,21-Oct-16,Fri,1:00 PM,9:00 PM,6.0,60,,alina - blue marlin + 800 security,," 14,050 "," 2,450 "," 12,400 "," 5,000 "," 7,400 ",,," 3,900 "," 8,500 "," 5,100 "," 3,400 ",Oct 16
+VIRGO,Pending,22-Oct-16,Sat,1:00 PM,5:00 PM,4.0,,Xtreme,Xtreme,," 7,500 "," 1,500 "," 6,000 ",," 6,000 ",,,," 6,000 "," 3,600 "," 2,400 ",Oct 16
+VIRGO,Confirm,22-Oct-16,Sat,5:30 PM,10:30 PM,5.0,,Mala,syed mala yacht,," 9,375 "," 1,875 "," 7,500 "," 7,500 ", -   ,,,," 7,500 "," 4,500 "," 3,000 ",Oct 16
+KHAN,Confirm,22-Oct-16,Sat,1:00 PM,5:00 PM,4.0,,,exotic -fadi,," 7,500 "," 1,875 "," 5,625 "," 3,000 "," 2,625 ",,," 2,600 "," 3,025 "," 3,400 ", (375),Oct 16
+VIRGO,Confirm,24-Oct-16,Mon,4:00 PM,8:00 PM,4.0,,,elite pearl - roudy,," 6,000 ",," 6,000 "," 1,000 "," 5,000 ",,,," 6,000 "," 3,600 "," 2,400 ",Oct 16
+VIRGO,Confirm,25-Oct-16,Tue,2:00 PM,7:00 PM,5.0,,,ilona model friend,," 8,500 ",," 8,500 "," 4,000 "," 4,500 ",,,," 8,500 "," 4,500 "," 4,000 ",Oct 16
+VIRGO,Confirm,27-Oct-16,Thu,8:00 PM,1:00 AM,5.0,,,Omar - Asfer tour ,," 9,375 ", 938 ," 8,438 "," 1,000 "," 7,438 ",,,," 8,438 "," 4,500 "," 3,938 ",Oct 16
+VIRGO,Confirm,28-Oct-16,Fri,2:00 PM,6:00 PM,4.0,,Capt,babu client,," 7,500 ",," 7,500 "," 2,250 "," 5,250 ",,,," 7,500 "," 3,600 "," 3,900 ",Oct 16
+VIRGO,pending,28-Oct-16,Fri,7:00 PM,11:00 PM,4.0,,,Ibrahim,," 7,500 ",," 7,500 ",," 7,500 ",,,," 7,500 "," 3,600 "," 3,900 ",Oct 16
+KHAN,Confirm,28-Oct-16,Fri,2:00 PM,6:00 PM,4.0,,,Dan Friend Alex,," 6,400 ",," 6,400 "," 3,200 "," 3,200 ",,," 2,600 "," 3,800 "," 3,400 ", 400 ,Oct 16
+VIRGO,pending,29-Oct-16,Sat,12:30 AM,3:30 AM,3.0,,,Danielle + security 300,," 6,300 ",," 6,300 ",," 6,300 ",,,," 6,300 "," 2,700 "," 3,600 ",Oct 16
+VIRGO,Confirm,29-Oct-16,Sat,2:00 PM,6:00 PM,4.0,,Mala,syed mala yacht,," 7,500 "," 1,500 "," 6,000 "," 2,000 "," 4,000 ",,,," 6,000 "," 3,600 "," 2,400 ",Oct 16
+KHAN,Confirm,29-Oct-16,Sat,1:00 PM,6:00 PM,5.0,,,roudy + 500 security + jetski,," 9,375 ",," 9,375 ",," 9,375 ",,,," 9,375 "," 4,250 "," 5,125 ",Oct 16
+VIRGO,Confirm,2-Nov-16,Wed,4:00 PM,6:00 PM,2.0,,,Roy Volume,," 4,000 ", 800 ," 3,200 "," 1,000 "," 2,200 ",,,," 3,200 "," 1,800 "," 1,400 ",Nov 16
+VIRGO,Confirm,3-Nov-16,Thu,5:00 PM,8:00 PM,3.0,,,zohab - rohit,," 5,000 ",," 5,000 "," 3,250 "," 1,750 ",,,," 5,000 "," 2,700 "," 2,300 ",Nov 16
+VIRGO,Confirm,4-Nov-16,Fri,2:00 PM,6:00 PM,4.0,,Xtreme,xtreme yacht,," 7,500 "," 1,500 "," 6,000 "," 3,000 "," 3,000 ",,,," 6,000 "," 3,600 "," 2,400 ",Nov 16
+VIRGO,Confirm,4-Nov-16,Fri,7:30 PM,11:30 PM,4.0,,,caroline (F & B) ,," 23,300 ",," 23,300 "," 3,500 "," 19,800 ",,,," 23,300 "," 3,600 "," 19,700 ",Nov 16
+KHAN,Confirm,4-Nov-16,Fri,1:00 PM,6:00 PM,5.0,,,mario ,," 9,375 ", 938 ," 8,438 "," 2,000 "," 6,438 ",,," 3,250 "," 5,188 "," 4,250 ", 938 ,Nov 16
+VIRGO,Confirm,5-Nov-16,Sat,2:00 PM,6:00 PM,4.0,,Mala,syed mala yacht,," 7,500 "," 1,500 "," 6,000 "," 1,500 "," 4,500 ",,,," 6,000 "," 3,600 "," 2,400 ",Nov 16
+VIRGO,Pending,8-Nov-16,Tue,7:00 PM,11:00 PM,4.0,,Mala,syed mala yacht,," 7,500 "," 1,500 "," 6,000 ",," 6,000 ",,,," 6,000 "," 3,600 "," 2,400 ",Nov 16
+VIRGO,Pending,10-Nov-16,Thu,2:00 PM,7:00 PM,5.0,,,ultimate concierge - shukur,," 9,375 ", 938 ," 8,438 ",," 8,438 ",,,," 8,438 "," 4,500 "," 3,938 ",Nov 16
+VIRGO,Confirm,11-Nov-16,Fri,7:00 PM,12:00 AM,5.0,,Mala,syed mala yacht,," 9,375 "," 1,875 "," 7,500 "," 1,000 "," 6,500 ",,,," 7,500 "," 4,500 "," 3,000 ",Nov 16
+VIRGO,Pending,12-Nov-16,Sat,4:00 PM,9:00 PM,5.0,,4 Yacht,4 yacht ,," 9,375 "," 1,875 "," 7,500 ",," 7,500 ",,,," 7,500 "," 4,500 "," 3,000 ",Nov 16
+VIRGO,Confirm,18-Nov-16,Fri,2:00 PM,6:00 PM,4.0,,,Fiona - FDW event (+500 security),," 7,500 ",," 7,500 "," 3,000 "," 4,500 ",,,," 7,500 "," 3,600 "," 3,900 ",Nov 16
+VIRGO,Pending,19-Nov-16,Sat,11:00 AM,3:00 PM,4.0,,Tour Dubai,Tour Dubai Jacky,," 7,500 "," 1,500 "," 6,000 ",," 6,000 ",,,," 6,000 "," 3,600 "," 2,400 ",Nov 16
+VIRGO,Confirm,19-Nov-16,Sat,4:00 PM,7:00 PM,3.0,,Exotic,exotic - steve,," 6,000 "," 1,500 "," 4,500 ",," 4,500 ",,,," 4,500 "," 2,700 "," 1,800 ",Nov 16
+VIRGO,Pending,23-Nov-16,Wed,F1 23Nov,12:00 AM,5 Days,,,,,,, -   ,, -   ,,,, -   ,, -   ,Nov 16
+KHAN,Pending,23-Nov-16,Wed,F1 23Nov,12:00 AM,5 Days,,,,,,, -   ,, -   ,,,, -   ,, -   ,Nov 16
+VIRGO,Pending,7-Dec-16,Wed,10:00 AM,1:00 PM,3.0,,Al Wasl,Ali Al wasl,," 6,000 "," 1,200 "," 4,800 ",," 4,800 ",,,," 4,800 "," 2,700 "," 2,100 ",Dec 16
+VIRGO,Confirm,8-Dec-16,Thu,4:00 PM,8:00 PM,4.0,,,cozmo - Zain,," 7,500 "," 1,500 "," 6,000 ",," 6,000 ",,,," 6,000 "," 3,600 "," 2,400 ",Dec 16
+VIRGO,Confirm,8-Dec-16,Thu,9:00 PM,1:00 AM,4.0,,,maxoel ,," 7,500 "," 1,500 "," 6,000 "," 2,000 "," 4,000 ",,,," 6,000 "," 3,600 "," 2,400 ",Dec 16
+KHAN,Pending,8-Dec-16,Thu,5:00 PM,9:00 PM,4.0,,,4 yacht rachael,," 7,500 ",," 7,500 ",," 7,500 ",,," 2,600 "," 4,900 ",," 4,900 ",Dec 16
+VIRGO,Confirm,9-Dec-16,Fri,1:00 PM,5:00 PM,4.0,,,berth (1 bartender + 2 waiter) pay month end now give few hundreds,," 8,400 ",," 8,400 ",," 8,400 ",,,," 8,400 "," 3,600 "," 4,800 ",Dec 16
+VIRGO,Confirm,9-Dec-16,Fri,7:30 PM,11:30 PM,4.0,,Exotic,exotic - Markus,," 7,500 "," 1,875 "," 5,625 ",," 5,625 ",,,," 5,625 "," 3,600 "," 2,025 ",Dec 16
+VIRGO,Pending,14-Dec-16,Wed,7:00 PM,11:00 PM,4.0,,,Fiona - FDW event (+500 security),," 7,500 ",," 7,500 ",," 7,500 ",,,," 7,500 "," 3,600 "," 3,900 ",Dec 16
+VIRGO,Pending,16-Dec-16,Fri,1:00 PM,6:00 PM,5.0,,Mala,Mala Syed,," 9,375 "," 1,875 "," 7,500 ",," 7,500 ",,,," 7,500 "," 4,500 "," 3,000 ",Dec 16
+VIRGO,Pending,17-Dec-16,Sat,10:00 AM,1:00 PM,3.0,,Al Wasl,Ali Al wasl,," 6,000 "," 1,200 "," 4,800 ",," 4,800 ",,,," 4,800 "," 2,700 "," 2,100 ",Dec 16
+VIRGO,Confirm,29-Dec-16,Thu,8:00 PM,12:00 AM,4.0,,,Kashif - Nabil Friend Facecard,," 7,500 "," 1,500 "," 6,000 "," 1,000 "," 5,000 ",,,," 6,000 "," 3,600 "," 2,400 ",Dec 16
+VIRGO,Confirm,31-Dec-16,Sat,12:00 PM,4:00 PM,4.0,60,Mala,syed mala yacht,,,, -   ,,,,,, -   ," 3,600 "," (3,600)",Dec 16
+VIRGO,Confirm,31-Dec-16,Sat,6:00 PM,3:00 AM,9.0,60,,"Dino (F&B, DJ, mixology, music equipment)",," 75,000 ",," 75,000 "," 37,500 "," 37,500 "," 9,000 "," 3,000 "," 2,000 "," 61,000 "," 8,100 "," 52,900 ",Dec 16
+VIRGO,Pending,28-Jan-17,Sat,5:00 PM,10:00 PM,5.0,60,Mala,syed mala yacht,,,, -   ,,,,,, -   ," 4,500 "," (4,500)",Jan 17
+VIRGO,Confirm,18-Feb-17,Sat,3:30 PM,8:30 PM,5.0,,Mala,syed mala yacht,," 7,500 "," 1,500 "," 6,000 "," 1,250 "," 4,750 ",,,," 6,000 "," 4,500 "," 1,500 ",Feb 17
+VIRGO,Confirm,18-Mar-17,Sat,9:30 PM,1:30 AM,4.0,,,Pamela (40 pax) - pick up one and only.(security),," 8,000 ",," 8,000 "," 8,000 ", -   ,,,," 8,000 "," 3,600 "," 4,400 ",Mar 17
+ROSE,Closed,2-Jan-16,Sat,8:00 PM,12:00 AM,4.0,,MBC,Behzad - MBC,," 32,125 "," 5,563 "," 26,562 "," 26,562 ", -   ," 4,500 ",, 800 ," 21,262 "," 12,000 "," 9,262 ",Jan 16
+ROSE,Closed,12-Jan-16,Tue,6:00 PM,10:00 PM,4.0,,,Leah,," 73,500 "," 6,050 "," 67,450 "," 67,450 ", -   ," 36,000 ",,," 31,450 "," 12,000 "," 19,450 ",Jan 16
+ROSE,Closed,13-Jan-16,Wed,2:00 PM,10:00 PM,8.0,,,eventive - CANCELLED,," 50,000 ",," 50,000 "," 50,000 ", -   ,,,," 50,000 "," 24,000 "," 26,000 ",Jan 16
+ROSE,Closed,14-Jan-16,Thu,8:00 PM,12:00 AM,4.0,,MBC,Behzad - MBC,," 56,600 "," 4,000 "," 52,600 "," 52,600 ", -   ," 13,600 "," 5,000 ",," 34,000 "," 12,000 "," 22,000 ",Jan 16
+ROSE,Closed,15-Jan-16,Fri,8:00 PM,12:00 AM,4.0,,MBC,Behzad - MBC,," 41,600 "," 4,000 "," 37,600 "," 37,600 ", -   ," 12,800 ",,," 24,800 "," 12,000 "," 12,800 ",Jan 16
+ROSE,Closed,17-Jan-16,Sun,8:00 PM,12:00 AM,4.0,,MBC,Behzad - MBC,," 42,800 "," 4,000 "," 38,800 "," 38,800 ", -   ," 12,000 ",,," 26,800 "," 12,000 "," 14,800 ",Jan 16
+ROSE,Closed,19-Jan-16,Tue,8:00 PM,12:00 AM,4.0,,,Sanjeev,," 31,600 ",," 31,600 "," 31,600 ", -   ," 9,720 "," 2,500 ",," 19,380 "," 12,000 "," 7,380 ",Jan 16
+ROSE,Closed,21-Jan-16,Thu,7:00 PM,11:00 PM,4.0,,Exotic,exotic - keerme,," 20,000 "," 4,000 "," 16,000 "," 16,000 ", -   ,,,," 16,000 "," 12,000 "," 4,000 ",Jan 16
+ROSE,Closed,22-Jan-16,Fri,11:00 PM,3:00 AM,4.0,,Capt,prabhu client,," 15,000 "," 1,500 "," 15,000 "," 15,000 ", -   ,,,," 15,000 "," 12,000 "," 3,000 ",Jan 16
+ROSE,Closed,23-Jan-16,Sat,6:00 PM,10:00 PM,4.0,,,xclusive,," 21,500 ",," 21,500 "," 21,500 ", -   , 300 ,,," 21,200 "," 12,000 "," 9,200 ",Jan 16
+ROSE,Closed,26-Jan-16,Tue,6:00 PM,10:00 PM,4.0,,Xtreme,xtreme yacht,," 55,400 "," 5,000 "," 50,400 "," 50,400 ", -   ," 12,750 "," 5,000 ", 600 ," 32,050 "," 12,000 "," 20,050 ",Jan 16
+ROSE,Closed,29-Jan-16,Fri,1:00 PM,5:00 PM,4.0,,,Farhad brunch(295 x 93),," 28,515 ",," 28,515 "," 28,515 ", -   ," 5,625 "," 5,000 "," 1,450 "," 16,440 "," 12,000 "," 4,440 ",Jan 16
+ROSE,Closed,29-Jan-16,Fri,1:00 PM,5:00 PM,,,Exotic,Exotic Rustom Desert Rose Net deal 9000,," 9,000 ",," 9,000 "," 9,000 ", -   ,,,," 9,000 ", -   ," 9,000 ",Jan 16
+ROSE,Closed,30-Jan-16,Sat,12:00 AM,4:00 AM,4.0,,,"mhamad Outrageous (open Bar 150 Pax, AED 75 for extra Pax)",," 38,000 ",," 38,000 "," 38,000 ", -   ,," 5,000 "," 3,950 "," 29,050 "," 12,000 "," 17,050 ",Jan 16
+ROSE,Closed,30-Jan-16,Sat,10:00 PM,2:00 AM,4.0,,,imbrahim,," 17,500 ",," 17,500 "," 17,500 ", -   ,,, 300 ," 17,200 "," 12,000 "," 5,200 ",Jan 16
+ROSE,Closed,4-Feb-16,Thu,4:00 PM,9:00 PM,,30,,Jonathan,," 5,000 ",," 5,000 "," 5,000 ", -   ," 1,500 ",, 200 ," 3,300 ", -   ," 3,300 ",Feb 16
+ROSE,Closed,5-Feb-16,Fri,2:00 PM,6:00 PM,4.0,200,Bong,Farid Bong events ,," 20,000 "," 4,000 "," 16,000 "," 16,000 ", -   ,,,," 16,000 "," 12,000 "," 4,000 ",Feb 16
+ROSE,Closed,6-Feb-16,Sat,3:00 PM,3:00 AM,12.0,100,Ultimate,"ultimate - zilah (10,000 Corkage)",," 60,000 "," 11,000 "," 49,000 "," 49,000 ", -   ,,, 720 ," 48,280 "," 36,000 "," 12,280 ",Feb 16
+ROSE,Closed,7-Feb-16,Sun,4:30 PM,8:30 PM,4.0,200,,"Panasonic (meal Address, Paid Bar)",," 48,820 ",," 48,820 "," 48,820 ", -   ," 11,700 "," 1,000 ",," 36,120 "," 12,000 "," 24,120 ",Feb 16
+ROSE,Closed,7-Feb-16,Sun,9:30 PM,1:30 AM,4.0,120,,"Shaji - Cricket MCL (address, open bar)",," 35,000 ",," 35,000 "," 35,000 ", -   ," 8,800 "," 5,000 "," 1,790 "," 19,410 "," 12,000 "," 7,410 ",Feb 16
+ROSE,Closed,11-Feb-16,Thu,8:00 PM,12:00 AM,4.0,,,Cancelled (Ajay British Tobacco),," 30,000 ",," 30,000 "," 30,000 ", -   ,,,," 30,000 "," 12,000 "," 18,000 ",Feb 16
+ROSE,Closed,12-Feb-16,Fri,2:00 PM,6:00 PM,4.0,80,,Amina Royal Yacht,," 20,000 "," 2,000 "," 18,000 "," 18,000 ", -   ,,,," 18,000 "," 12,000 "," 6,000 ",Feb 16
+ROSE,Closed,13-Feb-16,Sat,2:00 PM,6:00 PM,4.0,200,,Bardia (Dh200 Emirates & bar),," 55,000 ",," 55,000 "," 55,000 ", -   ," 16,625 "," 4,000 "," 1,240 "," 33,135 "," 12,000 "," 21,135 ",Feb 16
+ROSE,Closed,13-Feb-16,Sat,8:00 PM,12:00 AM,4.0,175,,Emirates - Amina Dolia (food only Emirates),," 34,125 ",," 34,125 "," 34,125 ", -   ," 15,300 ", 750 ,," 18,075 "," 12,000 "," 6,075 ",Feb 16
+ROSE,Closed,17-Feb-16,Wed,1:00 PM,9:00 PM,8.0,,,xclusive Nivea (2 security 1000),," 31,000 "," 6,000 "," 25,000 "," 25,000 ", -   ,,, 600 ," 24,400 "," 24,000 ", 400 ,Feb 16
+ROSE,Closed,20-Feb-16,Sat,8:30 PM,10:30 PM,2.0,,,Pakistan,," 7,000 ",," 7,000 "," 7,000 ", -   ,, 300 ,," 6,700 "," 6,000 ", 700 ,Feb 16
+ROSE,Closed,23-Feb-16,Tue,7:30 PM,11:30 PM,4.0,80,,"ICON valentine Party (address food, Liquor Self Chivas18)",," 20,000 ",," 20,000 "," 20,000 ", -   ," 5,600 "," 1,000 ",," 13,400 "," 12,000 "," 1,400 ",Feb 16
+ROSE,Closed,26-Feb-16,Fri,12:00 AM,4:00 AM,4.0,190,DJ Party,"Mohammed Outrageous (open Bar 150 Pax, AED 75 for extra Pax)",," 38,000 ",," 38,000 "," 38,000 ", -   ,," 5,000 "," 3,400 "," 29,600 "," 12,000 "," 17,600 ",Feb 16
+ROSE,Cancelled,26-Feb-16,Fri,1:00 PM,5:00 PM,,,,Breff - Playboy Cancelled,," 10,000 ",," 10,000 "," 10,000 ", -   ,,,," 10,000 ", -   ," 10,000 ",Feb 16
+ROSE,Closed,26-Feb-16,Fri,10:00 PM,2:00 AM,4.0,80,DJ Party,Delpiro Salsa (Aed250 for first 150 Guest then 220),," 15,500 ",," 15,500 "," 15,500 ", -   ," 4,900 "," 2,000 ",," 8,600 "," 12,000 "," (3,400)",Feb 16
+ROSE,Closed,27-Feb-16,Sat,3:00 PM,7:00 PM,4.0,150,Xtreme,xtreme yacht (AED115/pax no comm),," 37,250 "," 4,000 "," 33,250 "," 33,250 ", -   ,," 5,000 "," 1,000 "," 27,250 "," 12,000 "," 15,250 ",Feb 16
+ROSE,Closed,28-Feb-16,Sun,5:00 PM,1:00 AM,8.0,150,,Dilip - from india (DJ + music equipment),," 26,500 ",," 26,500 "," 26,500 ", -   ,,,," 26,500 "," 24,000 "," 2,500 ",Feb 16
+ROSE,Closed,29-Feb-16,Mon,7:30 PM,12:30 AM,5.0,90,Zain,Zain - Bday Party,," 43,000 "," 4,300 "," 38,700 "," 38,700 ", -   ," 6,300 ",," 1,200 "," 31,200 "," 15,000 "," 16,200 ",Feb 16
+ROSE,Closed,1-Mar-16,Tue,Full day,,,40,,Boat show Iiza,," 20,000 ",," 20,000 "," 20,000 ", -   ," 10,000 ",,," 10,000 ", -   ," 10,000 ",Mar 16
+ROSE,Closed,2-Mar-16,Wed,Full day,,,,,Boat show Behazad,," 5,000 ",," 5,000 "," 5,000 ", -   ," 2,500 ",,," 2,500 ", -   ," 2,500 ",Mar 16
+ROSE,Closed,3-Mar-16,Thu,Full day,,4.0,120,,Boat show DWTC,," 30,225 ",," 30,225 "," 30,225 ", -   ," 15,113 ",,," 15,113 "," 12,000 "," 3,113 ",Mar 16
+ROSE,Closed,4-Mar-16,Fri,Full day,,,140,,Boat show EGA,," 20,300 ",," 20,300 "," 20,300 ", -   ," 10,150 ",,," 10,150 ", -   ," 10,150 ",Mar 16
+ROSE,Closed,5-Mar-16,Sat,Full day,,,50,,Boat show Tech Venture,," 17,500 ",," 17,500 "," 17,500 ", -   ," 8,750 ",,," 8,750 ", -   ," 8,750 ",Mar 16
+ROSE,Closed,9-Mar-16,Wed,12:00 PM,6:00 PM,6.0,,Xtreme,Xtreme Yacht Bacaradi (200x100),," 45,000 "," 3,000 "," 42,000 "," 42,000 ", -   ," 11,050 ",,," 30,950 "," 18,000 "," 12,950 ",Mar 16
+ROSE,Closed,11-Mar-16,Fri,4:00 PM,9:00 PM,5.0,,DJ Party,Mohammed Chaudhry,," 28,150 "," 2,500 "," 25,650 "," 25,650 ", -   ,,," 1,500 "," 24,150 "," 15,000 "," 9,150 ",Mar 16
+ROSE,Closed,12-Mar-16,Sat,2:00 PM,6:00 PM,4.0,225,Mala,syed mala yacht,," 22,800 "," 4,200 "," 18,600 "," 18,600 ", -   ,,, 500 ," 18,100 "," 12,000 "," 6,100 ",Mar 16
+ROSE,Closed,12-Mar-16,Sat,8:00 PM,10:00 PM,2.0,170,Xtreme,"xtreme yacht (Boat &Food 200x185, Drinks 5000 Alacarte)",," 42,000 "," 4,200 "," 37,800 "," 37,800 ", -   ," 11,900 "," 1,000 ",," 24,900 "," 6,000 "," 18,900 ",Mar 16
+ROSE,Closed,14-Mar-16,Mon,8:30 PM,11:30 PM,3.0,87,Zain,Dia 33 Zain (80 Pax food standard),," 23,000 "," 2,370 "," 20,630 "," 20,630 ", -   ," 4,900 ",,," 15,730 "," 9,000 "," 6,730 ",Mar 16
+ROSE,Closed,17-Mar-16,Thu,6:00 PM,11:00 PM,5.0,60,Zain,SP properties Zain (395 Package + Nikk+1 Security+1 bartender),," 43,950 "," 4,395 "," 39,555 "," 39,555 ", -   ," 5,225 "," 1,000 "," 1,750 "," 31,580 "," 15,000 "," 16,580 ",Mar 16
+ROSE,Closed,18-Mar-16,Fri,1:00 PM,5:00 PM,4.0,,,one tribe - ken (125x80)+700 security + 1000 music,," 11,700 ",," 11,700 "," 11,700 ", -   ,,,," 11,700 "," 12,000 ", (300),Mar 16
+ROSE,Closed,18-Mar-16,Fri,7:00 PM,11:00 PM,4.0,,Exotic,exotic - nathan + 1000 music,," 21,000 "," 4,000 "," 17,000 "," 17,000 ", -   ,,,," 17,000 "," 12,000 "," 5,000 ",Mar 16
+ROSE,Closed,19-Mar-16,Sat,3:00 PM,11:00 PM,8.0,150,,samaher - wedding,," 47,673 ",," 47,673 "," 47,673 ", -   ," 9,100 ", 700 , 200 ," 37,673 "," 24,000 "," 13,673 ",Mar 16
+ROSE,Closed,23-Mar-16,Wed,11:00 AM,3:00 PM,4.0,50,,Jamila (Samer Yas),," 27,250 "," 2,725 "," 24,525 "," 24,525 ", -   ," 3,500 ",,," 21,025 "," 12,000 "," 9,025 ",Mar 16
+ROSE,Closed,25-Mar-16,Fri,1:00 PM,5:00 PM,4.0,170,Xtreme,Xtreme (150 per pax package),," 25,500 "," 2,000 "," 23,500 "," 23,500 ", -   ,,, 600 ," 22,900 "," 12,000 "," 10,900 ",Mar 16
+ROSE,Closed,28-Mar-16,Mon,7:00 PM,11:00 PM,4.0,150,,north tour,," 20,000 "," 2,000 "," 18,000 "," 18,000 ", -   ,,,," 18,000 "," 12,000 "," 6,000 ",Mar 16
+ROSE,Closed,1-Apr-16,Fri,4:00 PM,12:00 AM,8.0,100,,Shalu (premium 395 per pax),," 78,315 "," 9,000 "," 69,315 "," 69,315 ", -   ," 9,775 "," 5,000 "," 1,640 "," 52,900 "," 24,000 "," 28,900 ",Apr 16
+ROSE,Closed,7-Apr-16,Thu,5:00 PM,9:00 PM,4.0,80,Zain,"Zain Amsa Healthcare (Music, Red+Absolute 750 each)",," 17,500 "," 1,600 "," 15,900 "," 15,900 ", -   ,, 300 ,," 15,600 "," 12,000 "," 3,600 ",Apr 16
+ROSE,Closed,7-Apr-16,Thu,10:30 PM,2:30 AM,4.0,250,,Maxoel (Mike) (4 Security @80),," 22,680 "," 4,000 "," 18,680 "," 18,680 ", -   ,,,," 18,680 "," 12,000 "," 6,680 ",Apr 16
+ROSE,Closed,8-Apr-16,Fri,7:00 PM,11:00 PM,4.0,30,,"Smart mind, Liquor 130 per pax",," 10,000 ",," 10,000 "," 10,000 ", -   ,, 500 , 300 ," 9,200 "," 12,000 "," (2,800)",Apr 16
+ROSE,Closed,8-Apr-16,Fri,12:00 AM,4:00 AM,4.0,40,,Ibrahim ( 1 security),," 12,000 ",," 12,000 "," 12,000 ", -   ,,, 300 ," 11,700 "," 12,000 ", (300),Apr 16
+ROSE,Closed,9-Apr-16,Sat,6:00 PM,10:00 PM,4.0,200,,leah - chinese lobster group,," 80,000 "," 10,000 "," 70,000 "," 70,000 ", -   ," 27,600 ",, 600 ," 41,800 "," 12,000 "," 29,800 ",Apr 16
+ROSE,Closed,10-Apr-16,Sun,6:00 PM,2:00 AM,8.0,120,,pel - wedding,," 77,400 ",," 77,400 "," 77,400 ", -   ," 10,200 "," 5,000 "," 1,500 "," 60,700 "," 24,000 "," 36,700 ",Apr 16
+ROSE,Closed,11-Apr-16,Mon,9:00 AM,5:00 PM,8.0,700,Xtreme,Xtreme (700 pax group),," 22,000 "," 2,000 "," 20,000 "," 20,000 ", -   ,,, 700 ," 19,300 "," 24,000 "," (4,700)",Apr 16
+ROSE,Closed,12-Apr-16,Tue,1:00 PM,5:00 PM,4.0,,,royal yacht,," 21,000 "," 2,000 "," 19,000 "," 19,000 ", -   ,,,," 19,000 "," 12,000 "," 7,000 ",Apr 16
+ROSE,Closed,12-Apr-16,Tue,6:00 PM,10:00 PM,,,,Dave,,,, -   ,, -   ,,,, -   , -   , -   ,Apr 16
+ROSE,Closed,14-Apr-16,Thu,6:00 PM,11:00 PM,5.0,125,Direct,adam,," 74,500 ",," 74,500 "," 74,500 ", -   ," 12,075 "," 7,000 ", 600 ," 54,825 "," 15,000 "," 39,825 ",Apr 16
+ROSE,Closed,15-Apr-16,Fri,5:00 PM,11:00 PM,6.0,180,Mala,syed mala yacht,," 67,000 ",," 67,000 "," 67,000 ", -   ," 24,750 ",, 600 ," 41,650 "," 18,000 "," 23,650 ",Apr 16
+ROSE,Closed,16-Apr-16,Sat,2:30 PM,6:30 PM,4.0,117,DJ,Aidin-Behzad (195 per pax ticketed),," 22,815 ",," 22,815 "," 22,815 ", -   ,," 3,000 ",," 19,815 "," 12,000 "," 7,815 ",Apr 16
+ROSE,Closed,22-Apr-16,Fri,2:00 PM,6:00 PM,4.0,117,,one tribe - joe,," 17,550 ",," 17,550 "," 17,550 ", -   , 670 ,, 960 ," 15,920 "," 12,000 "," 3,920 ",Apr 16
+ROSE,Closed,23-Apr-16,Sat,2:00 PM,6:00 PM,4.0,150,Bong,Farid bong (speakers),," 17,000 ",," 17,000 "," 17,000 ", -   ,,,," 17,000 "," 12,000 "," 5,000 ",Apr 16
+ROSE,Closed,27-Apr-16,Wed,12:00 AM,12:00 PM,,,MBC,Behzad - MBC RAK,,,, -   ,, -   ,,,, -   , -   , -   ,Apr 16
+ROSE,Closed,28-Apr-16,Thu,12:00 AM,12:00 PM,36.0,220,MBC,Behzad - MBC RAK,," 222,126 "," 37,126 "," 185,000 "," 185,000 ", -   ,," 5,000 "," 10,000 "," 170,000 "," 108,000 "," 62,000 ",Apr 16
+ROSE,Closed,29-Apr-16,Fri,12:00 AM,12:00 PM,,,MBC,Behzad - MBC RAK,,,, -   ,, -   ,,,, -   , -   , -   ,Apr 16
+ROSE,Closed,30-Apr-16,Sat,12:00 PM,8:00 PM,8.0,150,Alpha,"Alpha (satyan - Nikki Beach) 3 security, 200Kg ice",," 37,100 "," 3,500 "," 33,600 "," 33,600 ", -   ,,, 800 ," 32,800 "," 24,000 "," 8,800 ",Apr 16
+ROSE,Closed,1-May-16,Sun,10:00 AM,6:00 PM,8.0,450,Xtreme,Xtreme (450 Pax 2 trips),," 20,000 ",," 20,000 "," 20,000 ", -   ,,,," 20,000 "," 24,000 "," (4,000)",May 16
+ROSE,Closed,3-May-16,Tue,5:00 PM,9:00 PM,4.0,134,Alpha,Alpha (IT security),," 74,900 ",," 74,900 "," 74,900 ", -   ," 10,800 "," 3,000 "," 2,420 "," 58,680 "," 12,000 "," 46,680 ",May 16
+ROSE,Closed,5-May-16,Thu,5:00 PM,9:00 PM,4.0,250,,Pallavi (Rosy) + 2 security + 2 waiter + music equipment,," 19,250 ",," 19,250 "," 19,250 ", -   ,,, 750 ," 18,500 "," 12,000 "," 6,500 ",May 16
+ROSE,Closed,5-May-16,Thu,11:00 PM,3:00 AM,4.0,50,,Ibrahim ( 1 security),," 14,500 ",," 14,500 "," 14,500 ", -   ,,, 300 ," 14,200 "," 12,000 "," 2,200 ",May 16
+ROSE,Closed,6-May-16,Fri,2:00 PM,6:00 PM,4.0,,DJ Party,Kieran,," 26,900 ",," 26,900 "," 26,900 ", -   ," 3,000 ",," 3,000 "," 20,900 "," 12,000 "," 8,900 ",May 16
+ROSE,Closed,7-May-16,Sat,4:00 AM,8:00 AM,4.0,120,MBC,"Behzad - MBC (Corkage, 2 sceurity, bar tender+3)",," 25,000 "," 2,000 "," 23,000 "," 23,000 ", -   ,,," 1,200 "," 21,800 "," 12,000 "," 9,800 ",May 16
+ROSE,Closed,9-May-16,Mon,5:00 PM,9:00 PM,4.0,300,,Nabill - facecard,," 55,500 ",," 55,500 "," 55,500 ", -   ,," 7,500 ", 600 ," 47,400 "," 12,000 "," 35,400 ",May 16
+ROSE,Closed,9-May-16,Mon,6:00 PM,9:00 PM,3.0,190,,leah - Lobster (Monalisa),," 62,700 ",," 62,700 "," 62,700 ", -   ," 28,700 ",," 13,300 "," 20,700 "," 9,000 "," 11,700 ",May 16
+ROSE,Closed,10-May-16,Tue,2:00 PM,6:00 PM,4.0,100,Mala,syed mala yacht + 2 security +music,," 23,100 "," 4,000 "," 19,100 "," 19,100 ", -   ,,," 1,200 "," 17,900 "," 12,000 "," 5,900 ",May 16
+ROSE,Closed,10-May-16,Tue,6:30 PM,10:30 PM,4.0,100,,pegas tour via omar Asfar charter,," 17,000 ",," 17,000 "," 17,000 ", -   ,,,," 17,000 "," 12,000 "," 5,000 ",May 16
+ROSE,Closed,13-May-16,Fri,2:00 PM,6:00 PM,4.0,150,Xtreme,Xtreme (corkage),," 15,000 ",," 15,000 "," 15,000 ", -   ,,," 1,200 "," 13,800 "," 12,000 "," 1,800 ",May 16
+ROSE,Closed,14-May-16,Sat,2:00 PM,6:00 PM,4.0,150,DJ,Big Mo-Behzad @195 per pax  maybe 150 pax,," 19,500 ",," 19,500 "," 19,500 ", -   ,,," 1,500 "," 18,000 "," 12,000 "," 6,000 ",May 16
+ROSE,Closed,14-May-16,Sat,9:00 PM,1:00 AM,4.0,70,Tour Dubai,Tour Dubai - spainsh (150 Beverage),," 26,500 ", -   ," 26,500 "," 26,500 ", -   ,," 2,500 ", 300 ," 23,700 "," 12,000 "," 11,700 ",May 16
+ROSE,Closed,15-May-16,Sun,8:00 AM,8:00 PM,12.0,50,,The Talkies (fliming),," 41,000 ", -   ," 41,000 "," 41,000 ", -   ,,,," 41,000 "," 36,000 "," 5,000 ",May 16
+ROSE,Closed,16-May-16,Mon,7:00 PM,10:00 PM,3.0,80,Mala,Syed mala Yacht (Brother Intl) Food +music+DJ,," 32,300 "," 3,000 "," 29,300 "," 29,300 ", -   ," 6,400 ",," 1,460 "," 21,440 "," 9,000 "," 12,440 ",May 16
+ROSE,Closed,18-May-16,Wed,9:00 PM,1:00 AM,4.0,100,,tim + 2 secuirty+ ilona+Niki+cash,," 19,700 ", -   ," 19,700 "," 19,700 ", -   ,,," 1,050 "," 18,650 "," 12,000 "," 6,650 ",May 16
+ROSE,Closed,20-May-16,Fri,3:00 PM,11:00 PM,8.0,230,Al Wasl,Ali Al wasl,," 31,500 "," 3,000 "," 28,500 "," 28,500 ", -   ,,,," 28,500 "," 24,000 "," 4,500 ",May 16
+ROSE,Closed,26-May-16,Thu,8:00 PM,2:00 AM,6.0,150,,Tausif,," 15,000 ",," 15,000 "," 15,000 ", -   ,,,," 15,000 "," 18,000 "," (3,000)",May 16
+ROSE,Balance,27-May-16,Fri,2:00 PM,6:00 PM,4.0,150,Exotic,exotic - Aram 055 2244 513 + 4 security guard,," 20,000 "," 4,000 "," 17,600 "," 13,600 "," 4,000 ",,, 960 ," 16,640 "," 12,000 "," 4,640 ",May 16
+ROSE,Closed,27-May-16,Fri,7:00 PM,11:00 PM,,15,,Fiona - UK Fava (arrange small boat + one bar for VIP area),," 3,750 ",," 3,750 "," 3,750 ", -   ,,, 450 ," 3,300 ", -   ," 3,300 ",May 16
+ROSE,Closed,27-May-16,Fri,7:00 PM,11:00 PM,4.0,127,DJ Party,Andrei - UK Fava,," 21,450 ",," 21,450 "," 21,450 ", -   ,," 4,000 ", 780 ," 16,670 "," 12,000 "," 4,670 ",May 16
+ROSE,Closed,27-May-16,Fri,11:30 PM,3:00 AM,3.5,68,,Ibrahim ( 1 security),," 12,500 ",," 13,000 "," 13,000 ", -   ,,,," 13,000 "," 10,500 "," 2,500 ",May 16
+ROSE,Closed,30-May-16,Mon,6:00 PM,12:00 AM,6.0,100,Tour Dubai,Tour Dubai - spainsh (145 Bev) another 2 hrs 8K,," 61,500 ", -   ," 61,500 "," 61,500 ", -   ,," 3,000 ", 600 ," 57,900 "," 18,000 "," 39,900 ",May 16
+ROSE,Closed,31-May-16,Tue,2:00 PM,7:00 PM,5.0,150,Al Wasl,Ali Al wasl - Nigeria,," 65,500 "," 3,500 "," 62,000 "," 62,000 ", -   ,," 3,000 "," 2,500 "," 56,500 "," 15,000 "," 41,500 ",May 16
+ROSE,Closed,31-May-16,Tue,8:30 PM,12:30 AM,,,,Farooq,, -   , -   , -   ,, -   ,,,, -   , -   , -   ,May 16
+ROSE,Balance,2-Jun-16,Thu,8:00 PM,12:00 AM,4.0,60,DJ Party,Faisel - ticket booze,," 15,000 ", -   ," 15,000 "," 7,700 "," 7,300 ",,,," 15,000 "," 12,000 "," 3,000 ",Jun 16
+ROSE,Closed,5-Jun-16,Sun,8:00 AM,10:00 AM,2.0,70,,Leah (Capt collect 5000 from Client),," 5,500 ", 900 ," 4,600 "," 4,600 ", -   ,,,," 4,600 "," 6,000 "," (1,400)",Jun 16
+ROSE,Closed,16-Jun-16,Thu,6:30 PM,10:30 PM,4.0,100,,BSA (marine concept),," 47,355 "," 4,736 "," 42,619 "," 42,619 ", -   ," 11,000 ",, 600 ," 31,019 "," 12,000 "," 19,019 ",Jun 16
+ROSE,Closed,6-Jul-16,Wed,10:00 AM,1:00 PM,3.0,150,,Leah,," 9,500 ",," 9,500 "," 9,500 ", -   ,,,," 9,500 "," 9,000 ", 500 ,Jul 16
+ROSE,Closed,7-Jul-16,Thu,10:00 PM,3:00 AM,5.0,150,DJ Party,Saeed + corkage package,," 25,000 ",," 25,000 "," 25,000 ", -   ," 1,000 ",," 1,830 "," 22,170 "," 15,000 "," 7,170 ",Jul 16
+ROSE,Closed,12-Jul-16,Tue,5:00 PM,9:00 PM,4.0,100,,leah - chinese lobster group,," 45,000 "," 6,750 "," 38,250 "," 38,250 ", -   ," 14,500 ",, 500 ," 23,250 "," 12,000 "," 11,250 ",Jul 16
+ROSE,Closed,20-Jul-16,Wed,10:00 AM,12:00 PM,2.0,86,,leah Beneficial Tourism,," 5,000 ",," 5,000 "," 5,000 ", -   ,,, 500 ," 4,500 "," 6,000 "," (1,500)",Jul 16
+ROSE,Closed,29-Jul-16,Fri,10:00 PM,2:00 AM,4.0,185,,Salem + 100 x 230 Package,," 43,000 ",," 43,000 "," 43,000 ", -   ,," 3,500 "," 1,800 "," 37,700 "," 12,000 "," 25,700 ",Jul 16
+ROSE,Closed,11-Aug-16,Thu,7:00 PM,11:00 PM,4.0,65,,Jamsed Wedding Address Standard Menu,," 26,425 ",," 26,425 "," 26,425 ", -   ," 4,550 ",, 500 ," 21,375 "," 12,000 "," 9,375 ",Aug 16
+ROSE,Closed,12-Aug-16,Fri,11:00 PM,3:00 AM,4.0,150,DJ Party,Saeed (Beverage package 100 x 150) (add 5000 for 250 pax),," 30,000 ",," 30,000 "," 30,000 ", -   ,," 3,000 "," 1,100 "," 25,900 "," 12,000 "," 13,900 ",Aug 16
+ROSE,Closed,13-Aug-16,Sat,8:00 PM,1:00 AM,5.0,100,Xtreme,Xtreme,," 64,690 ",," 64,690 "," 64,690 ", -   ," 11,700 "," 3,000 "," 1,000 "," 48,990 "," 15,000 "," 33,990 ",Aug 16
+VIRGO,Closed,23-Aug-16,Tue,5:00 PM,9:00 PM,4.0,50,Ultimate,ultimate - zilah + F&B (upgrade to desert rose),," 22,545 "," 3,005 "," 24,540 "," 24,540 ", -   ," 3,750 "," 1,500 ",," 19,290 "," 3,600 "," 15,690 ",Aug 16
+ROSE,Closed,25-Aug-16,Thu,5:00 PM,8:00 PM,3.0,100,,Omar - Asfer tour,," 15,000 "," 1,500 "," 13,500 "," 13,500 ", -   ,,,," 13,500 "," 9,000 "," 4,500 ",Aug 16
+ROSE,Balance,26-Aug-16,Fri,4:00 PM,12:00 AM,8.0,100,,audrey - ukraine party ( drink corkage),," 35,000 "," 6,000 "," 29,000 "," 28,000 "," 1,000 ",,," 2,580 "," 26,420 "," 24,000 "," 2,420 ",Aug 16
+ROSE,Closed,27-Aug-16,Sat,4:00 PM,8:00 PM,4.0,65,Bong,Farid bong (speakers),," 12,000 ",," 12,000 "," 12,000 ", -   ,, 500 , 300 ," 11,200 "," 12,000 ", (800),Aug 16
+ROSE,Closed,27-Aug-16,Sat,9:00 PM,12:00 AM,3.0,80,,Luxe Crest Holidays & events (india) - premium package,," 37,950 ",," 37,950 "," 37,950 ", -   ," 7,150 "," 4,300 ", 900 ," 25,600 "," 9,000 "," 16,600 ",Aug 16
+ROSE,Closed,2-Sep-16,Fri,4:30 PM,8:00 PM,3.5,40,,Tamara (music & Bar staff),," 10,000 ",," 10,000 "," 10,200 ", -   ,,,," 10,000 "," 10,500 ", (500),Sep 16
+ROSE,Closed,2-Sep-16,Fri,11:00 PM,3:00 AM,4.0,178,DJ Party,Saeed (Beverage package  70 pax additional AED 75 / pax),," 22,000 ",," 22,000 "," 22,000 ", -   ,,,," 22,000 "," 12,000 "," 10,000 ",Sep 16
+ROSE,Closed,11-Sep-16,Sun,8:30 PM,12:30 AM,4.0,,,James,," 18,250 ",," 18,250 "," 18,250 ", -   ,,,," 18,250 "," 12,000 "," 6,250 ",Sep 16
+ROSE,Closed,12-Sep-16,Mon,6:00 PM,9:00 PM,,30,,carol kampung,,,, -   ,, -   ,,,, -   , -   , -   ,Sep 16
+ROSE,Closed,20-Sep-16,Tue,6:00 PM,10:00 PM,4.0,130,,leah - chinese lobster group,," 58,500 "," 8,775 "," 49,725 "," 49,725 ", -   ," 21,000 ",, 700 ," 28,025 "," 12,000 "," 16,025 ",Sep 16
+ROSE,Closed,26-Sep-16,Mon,4:00 PM,4:00 AM,12.0,513,,John - Destniation Dubai,," 166,950 ",," 166,950 "," 166,950 ", -   ," 29,400 "," 10,000 "," 3,250 "," 124,300 "," 36,000 "," 88,300 ",Sep 16
+ROSE,Closed,27-Sep-16,Tue,5:00 PM,10:00 PM,5.0,250,,"Dilip - 3 hrs sailing 2 hrs setup, DJ, Hostess, 2 Security",," 32,500 ",," 32,500 "," 32,500 ", -   ,,," 1,100 "," 31,400 "," 15,000 "," 16,400 ",Sep 16
+ROSE,Closed,28-Sep-16,Wed,6:00 PM,10:00 PM,4.0,130,Alpha,Alpha Eyad (Standard pack) + DJ,," 58,250 "," 5,825 "," 52,425 "," 52,425 ", -   ," 8,050 "," 3,000 "," 1,250 "," 40,125 "," 12,000 "," 28,125 ",Sep 16
+ROSE,Closed,30-Sep-16,Fri,2:00 PM,6:00 PM,4.0,100,,Femi - Mike (speaker + 2 Security) for 100 guest. Aed50 per pax for above 100,," 16,500 ",," 16,500 "," 16,500 ", -   ,,,," 16,500 "," 12,000 "," 4,500 ",Sep 16
+ROSE,Closed,2-Oct-16,Sun,10:00 AM,12:00 PM,2.0,150,Tour Dubai,tour dubai + soft drinks aed 25 per pax,," 12,500 ",," 12,500 "," 12,500 ", -   ,,, 500 ," 12,000 "," 6,000 "," 6,000 ",Oct 16
+ROSE,Closed,7-Oct-16,Fri,6:00 PM,10:00 PM,4.0,150,MBC,Behzad - MBC +1200 6 speaker +800 security,," 23,300 "," 4,000 "," 19,300 "," 19,300 ", -   ,,," 1,300 "," 18,000 "," 12,000 "," 6,000 ",Oct 16
+ROSE,Closed,10-Oct-16,Mon,8:00 PM,11:00 PM,3.0,117,,Kamal Royal blue coast (Premium Pack Indian DJ),," 61,610 "," 6,161 "," 55,449 "," 55,449 ", -   ," 12,100 "," 4,000 ",," 39,349 "," 9,000 "," 30,349 ",Oct 16
+ROSE,Closed,11-Oct-16,Tue,2:00 PM,6:00 PM,4.0,200,,Pearl Elite (wine package 95 per pax),," 39,000 "," 4,000 "," 35,000 "," 35,000 ", -   ,," 7,000 ",," 28,000 "," 12,000 "," 16,000 ",Oct 16
+ROSE,Closed,12-Oct-16,Wed,7:00 PM,11:00 PM,4.0,120,Mala,Syed Microsoft,," 66,800 "," 10,150 "," 56,650 "," 56,650 ", -   ," 12,100 "," 3,500 ",," 41,050 "," 12,000 "," 29,050 ",Oct 16
+ROSE,Balance,13-Oct-16,Thu,7:00 PM,11:00 PM,4.0,175,Alpha,alpha - serhat (Premium F&B),," 88,000 "," 8,750 "," 79,250 "," 70,500 "," 8,750 "," 16,500 "," 5,000 ",," 57,750 "," 12,000 "," 45,750 ",Oct 16
+ROSE,Balance,14-Oct-16,Fri,7:30 PM,11:30 PM,4.0,185,, Blueink event - DELL DJ + 5 security (2 charged 1000),," 74,575 "," 7,458 "," 68,118 "," 58,825 "," 9,293 "," 9,800 "," 3,000 "," 1,350 "," 53,968 "," 12,000 "," 41,968 ",Oct 16
+ROSE,Confirm,15-Oct-16,Sat,2:30 PM,7:30 PM,5.0,166,,offshore (195 X166 pax),," 32,370 ",," 32,370 "," 32,370 ", -   ,," 5,000 ",," 27,370 "," 15,000 "," 12,370 ",Oct 16
+ROSE,Confirm,21-Oct-16,Fri,1:00 PM,5:00 PM,,35,,Fiona - FDW event (+500 security) upgrade14k(80 pax) additional aed100.,," 14,000 ",," 14,000 "," 3,000 "," 11,000 "," 2,100 "," 1,000 ",," 10,900 ", -   ," 10,900 ",Oct 16
+ROSE,Confirm,21-Oct-16,Fri,1:00 PM,5:00 PM,4.0,50,,Claudia FM92,," 22,500 ",," 22,500 "," 3,000 "," 19,500 "," 3,500 "," 1,500 ",," 17,500 "," 12,000 "," 5,500 ",Oct 16
+ROSE,Confirm,22-Oct-16,Sat,3:00 PM,7:00 PM,4.0,100,MBC,MBC Behzad (Ric salsa - Drink Corkage),," 25,000 "," 4,000 "," 21,000 "," 8,000 "," 13,000 ",,,," 21,000 "," 12,000 "," 9,000 ",Oct 16
+ROSE,Confirm,23-Oct-16,Sun,10:00 PM,1:00 AM,3.0,80,,kirean brother - pick up 101. standard,," 22,500 ",," 22,500 ",," 22,500 ",,,," 22,500 "," 9,000 "," 13,500 ",Oct 16
+ROSE,Confirm,27-Oct-16,Thu,10:30 PM,2:30 AM,4.0,250,DJ Party,"Ossama - Dance School 195 pack (40,000 for 250)",," 40,000 ",," 40,000 "," 10,000 "," 30,000 ",," 7,000 ",," 33,000 "," 12,000 "," 21,000 ",Oct 16
+ROSE,Confirm,28-Oct-16,Fri,1:00 PM,5:00 PM,4.0,150,DJ Party,andrei & kirean (195 per pax x 100),," 29,250 ",," 29,250 "," 5,000 "," 24,250 ",," 4,000 ",," 25,250 "," 12,000 "," 13,250 ",Oct 16
+ROSE,Confirm,28-Oct-16,Fri,8:00 PM,12:00 AM,4.0,100,4 Yacht,4 yacht (catering + drink corkage = 75 per pax),," 32,000 ",," 32,000 "," 5,000 "," 27,000 ",,,," 32,000 "," 12,000 "," 20,000 ",Oct 16
+ROSE,Confirm,28-Oct-16,Fri,1:00 AM,8:00 AM,7.0,200,Jamila,Jamila  (drink corkage = 50 per pax),," 40,000 "," 4,000 "," 36,000 "," 10,000 "," 26,000 ",,,," 36,000 "," 21,000 "," 15,000 ",Oct 16
+ROSE,Confirm,29-Oct-16,Sat,11:00 AM,3:00 PM,4.0,220,,Lynzi (Standard Food & premium drink Package),," 95,900 ",," 95,900 "," 70,000 "," 25,900 "," 15,400 "," 6,000 ",," 74,500 "," 12,000 "," 62,500 ",Oct 16
+ROSE,Pending,30-Oct-16,Sun,7:00 PM,11:00 PM,4.0,250,,Denmark Embassy(addres Food+ Music+Bar setup),," 47,250 ",," 47,250 ",," 47,250 "," 15,750 ",,," 31,500 "," 12,000 "," 19,500 ",Oct 16
+ROSE,Pending,2-Nov-16,Wed,6:00 PM,5:30 PM,23.5,250,,syed mala yacht,,,, -   ,, -   ,,,, -   ," 70,500 "," (70,500)",Nov 16
+ROSE,Confirm,3-Nov-16,Thu,7:00 PM,11:00 PM,4.0,100,Mala,syed mala yacht,," 20,000 ",," 20,000 "," 6,000 "," 14,000 ",,,," 20,000 "," 12,000 "," 8,000 ",Nov 16
+ROSE,Confirm,4-Nov-16,Fri,3:00 PM,11:00 PM,8.0,200,,NY friend - Blueink event (10% off total billing),," 89,000 "," 8,900 "," 80,100 "," 10,000 "," 70,100 "," 14,000 "," 5,000 ",," 61,100 "," 24,000 "," 37,100 ",Nov 16
+ROSE,Confirm,9-Nov-16,Wed,5:00 PM,9:00 PM,4.0,150,,leah - chinese lobster group,," 67,500 "," 10,125 "," 57,375 ",," 57,375 "," 26,250 ",,," 31,125 "," 12,000 "," 19,125 ",Nov 16
+ROSE,Confirm,11-Nov-16,Fri,2:00 PM,6:00 PM,4.0,100,Xtreme,Xtreme + drinks corkage,," 20,000 "," 4,000 "," 16,000 "," 8,000 "," 8,000 ",,,," 16,000 "," 12,000 "," 4,000 ",Nov 16
+ROSE,Pending,11-Nov-16,Fri,10:00 PM,2:00 AM,4.0,150,DJ Party,Del Piero Salsa (Standard Pack 250 per person),," 37,500 ",," 37,500 ",," 37,500 "," 9,800 "," 4,000 ",," 23,700 "," 12,000 "," 11,700 ",Nov 16
+ROSE,Confirm,12-Nov-16,Sat,7:00 PM,12:00 AM,5.0,74,,Hero Middle east Premium Pack,," 54,230 ",," 54,230 "," 26,966 "," 27,264 "," 7,400 "," 2,500 ",," 44,330 "," 15,000 "," 29,330 ",Nov 16
+ROSE,Pending,13-Nov-16,Sun,1:00 PM,9:00 PM,8.0,80,MBC,Mbc - fuquan,,,, -   ,, -   ,,,, -   ," 24,000 "," (24,000)",Nov 16
+ROSE,Confirm,18-Nov-16,Fri,4:00 PM,9:00 PM,5.0,200,Mala,Syed Mala Yacht - Reunion,," 79,000 ",," 79,000 "," 5,000 "," 74,000 "," 14,000 "," 5,000 ",," 60,000 "," 15,000 "," 45,000 ",Nov 16
+ROSE,Pending,19-Nov-16,Sat,8:00 PM,12:00 AM,4.0,80,Tour Dubai,Tour dubai,," 20,000 "," 4,000 "," 16,000 ",," 16,000 ",,,," 16,000 "," 12,000 "," 4,000 ",Nov 16
+ROSE,Pending,20-Nov-16,Sun,7:30 PM,11:30 PM,4.0,150,Tour Dubai,Tour dubai food corkage+Standard Beverage),," 43,075 ",," 43,075 ",," 43,075 ",," 4,000 ",," 39,075 "," 12,000 "," 27,075 ",Nov 16
+ROSE,Pending,23-Nov-16,Wed,F1 23 Nov,28-Nov,5 Days,150,,F1 - Cancel,," 200,000 ",," 200,000 "," 200,000 ", -   ,,,," 200,000 ",," 200,000 ",Nov 16
+ROSE,Confirm,8-Dec-16,Thu,7:00 PM,11:00 PM,4.0,100,,"ken one tribe (Aviation Event) Premium Drinks, Standard food, AED 75 extra per pax above 150",," 50,000 ",," 50,000 "," 3,000 "," 47,000 "," 10,500 "," 5,000 ",," 34,500 "," 12,000 "," 22,500 ",Dec 16
+ROSE,Pending,9-Dec-16,Fri,1:00 PM,5:00 PM,4.0,150,,aram booze party,," 22,500 ",," 22,500 ",," 22,500 ",,,," 22,500 "," 12,000 "," 10,500 ",Dec 16
+ROSE,Pending,16-Dec-16,Fri,2:00 PM,6:00 PM,4.0,100,,sunset party - davidpeterboyle@hotmail.co.uk,," 20,000 ",," 20,000 ",," 20,000 ",,,," 20,000 "," 12,000 "," 8,000 ",Dec 16
+ROSE,Pending,25-Dec-16,Sun,2:00 PM,6:00 PM,4.0,100,,fiona,," 20,000 ",," 20,000 ",," 20,000 ",,,," 20,000 "," 12,000 "," 8,000 ",Dec 16
+ROSE,Pending,31-Dec-16,Sat,6:00 PM,3:00 AM,9.0,100,,NYE,," 200,000 ",," 200,000 ",," 200,000 ",,,," 200,000 "," 27,000 "," 173,000 ",Dec 16
+ROSE,Pending,13-Jan-17,Fri,3:00 PM,12:00 AM,9.0,100,,Dhiraj Saluja,," 40,000 ",," 40,000 ",," 40,000 ",,,," 40,000 "," 27,000 "," 13,000 ",Jan 17
+ROSE,Pending,16-Jan-17,Mon,9:00 AM,12:00 PM,3.0,100,,leah,," 15,000 "," 3,000 "," 12,000 ",," 12,000 ",,,," 12,000 "," 9,000 "," 3,000 ",Jan 17
+ROSE,Confirm,28-Jan-17,Sat,7:00 PM,12:00 AM,5.0,250,,Autopax - prewedding (indian),," 118,750 ",," 118,750 "," 10,000 "," 108,750 "," 25,000 "," 6,000 ",," 87,750 "," 15,000 "," 72,750 ",Jan 17
+ROSE,Pending,20-May-17,Sat,11:00 AM,3:00 PM,4.0,80,,cievents - chris,," 20,000 ",," 20,000 ",," 20,000 ",,,," 20,000 "," 12,000 "," 8,000 ",May 17
+LOTUS,Pending,6-Mar-17,Mon,9:00 AM,1:00 PM,4.0,600,Alpha,Alpha - Amway Korea,," 147,000 ",," 147,000 ",," 147,000 ",,,," 147,000 "," 23,600 "," 123,400 ",Mar 17
+LOTUS,Pending,8-Mar-17,Wed,9:00 AM,1:00 PM,4.0,600,Alpha,Alpha - Amway Korea,," 147,000 ",," 147,000 ",," 147,000 ",,,," 147,000 "," 23,600 "," 123,400 ",Mar 17
+LOTUS,Pending,10-Mar-17,Fri,9:00 AM,1:00 PM,4.0,600,Alpha,Alpha - Amway Korea,," 147,000 ",," 147,000 ",," 147,000 ",,,," 147,000 "," 23,600 "," 123,400 ",Mar 17
+LOTUS,Pending,12-Mar-17,Sun,9:00 AM,1:00 PM,4.0,600,Alpha,Alpha - Amway Korea,," 147,000 ",," 147,000 ",," 147,000 ",,,," 147,000 "," 23,600 "," 123,400 ",Mar 17
+LOTUS,Pending,14-Mar-17,Tue,9:00 AM,1:00 PM,4.0,600,Alpha,Alpha - Amway Korea,," 147,000 ",," 147,000 ",," 147,000 ",,,," 147,000 "," 23,600 "," 123,400 ",Mar 17
+LOTUS,Pending,16-Mar-17,Thu,9:00 AM,1:00 PM,4.0,600,Alpha,Alpha - Amway Korea,," 147,000 ",," 147,000 ",," 147,000 ",,,," 147,000 "," 23,600 "," 123,400 ",Mar 17

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/f_checkdate.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/f_createbooking.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/f_login.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/f_statuschange.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/f_update_users.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/f_updatebookingstatus.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_payment.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_yacht.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/modules/migration/src/dev/sqlDump_4.sql" dialect="PostgreSQL" />
+  </component>
+</project>

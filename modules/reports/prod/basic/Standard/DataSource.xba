@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="DataSource" script:language="StarBasic">REM  *****  BASIC  *****
+
+Option Compatible
+Option ClassModule
+
+Option Explicit
+
+private _dataDir as string &apos; without trailing slash
+private _workDir as string &apos; without trailing slash
+private _storageDocument as Object
+private _collectorName as string
+private _posName() as string &apos; internal line pointer in data tables (table name part)
+private _posLine() as integer &apos; internal line pointer in data tables (line pos part)
+private _names as HashTable
+
+private Sub Class_Initialize()
+    _dataDir = &quot;&quot;
+    _workDir = &quot;&quot;
+    _collectorName = &quot;tmp_collector&quot;
+    _names = new HashTable
+End Sub
+
+Private Sub Class_Terminate()
+	CloseCollector
+end sub
+
+Public Sub CloseCollector()
+	if isObject(_storageDocument) then
+		_storageDocument.close(0)
+    endif
+end sub
+
+Public Sub setDataDir (ByVal pValue As String)
+   _dataDir = pValue
+End sub
+
+Public Sub setWorkDir (ByVal pValue As String)
+   _workDir = pValue
+End sub
+
+public function getCurrentLine(table as string)
+	dim i as integer
+	i = getTableIndex(table)
+	if i &gt;= 0 then
+		getCurrentLine = _posLine(i)
+	else
+		getCurrentLine = 0
+	endif
+end function
+
+public function nextLine(table as string)
+	dim i as integer
+	i = getTableIndex(table)
+	if i &gt;= 0 then
+		_posLine(i) = _posLine(i) + 1
+		nextLine = _posLine(i)
+	else
+		nextLine = 0
+	endif
+end function
+
+private function getTableIndex(table as string)
+	dim i as integer, ub as integer
+	ub = UBound(_posName)
+	i = 0
+	while (i &lt;= ub) and (_posName(i) &lt;&gt; table)
+		i = i + 1
+	wend
+	if i &lt;= ub then
+		getTableIndex = i
+	else
+		getTableIndex = -1
+	endif
+end function
+
+private function stripeName(byval varName as string)
+	dim res(2) as string
+	dim firstPoint as integer, secondPoint as integer
+	firstPoint = InStr(varName, &quot;.&quot;)
+	if firstPoint = 0 then
+		res(0) = varName
+		res(1) = &quot;&quot;
+		res(2) = &quot;&quot;
+		stripeName = res
+		exit function
+	endif
+	res(0) = Mid(varName, 1, firstPoint - 1)
+	secondPoint = InStr(firstPoint + 1, varName, &quot;.&quot;)
+	if secondPoint = 0 then
+		res(1) = mid(varName, firstPoint + 1, Len(varName) - firstPoint)
+		res(2) = &quot;&quot;
+		stripeName = res
+		exit function
+	endif
+	res(1) = mid(varName, firstPoint + 1, secondPoint - firstPoint - 1)
+	res(2) = mid(varName, secondPoint + 1, Len(varName) - secondPoint)
+	stripeName = res
+end function
+
+public function GetByDelimitedName(byval varName as string)
+	dim args(2) as string
+	args = stripeName(varName)
+	if args(2) = &quot;&quot; then
+		GetByDelimitedName = GetCell(args(0), args(1))
+	else
+		GetByDelimitedName = GetCell(args(0), args(1), cstr(args(2)))
+	endif
+end function
+
+&apos; todo make getcell use line as string (interpreted as index in first column)
+public function GetCell(byval sheet as string, byval column as string, optional byval line as integer)
+	dim sheetObject as Object
+	dim colIndex
+	on error goto ErrorHandler
+	if isMissing(line) then
+		line = getCurrentLine(sheet)
+	endif
+	sheetObject = _storageDocument.Sheets.getByName(sheet)
+	&apos;colIndex = getColumnIndex(sheetObject, column)
+	colIndex = _names.GetByKey(sheet).GetByKey(column)
+	if isnull(colIndex) then
+		colIndex = 0
+	endif
+	GetCell = sheetObject.getCellByPosition(colIndex, line)
+	exit function
+ErrorHandler:
+	GetCell = nothing
+end function
+
+private function getColumnIndex(byref sheet as Object, byref column as string)
+	dim i as integer
+	dim cell as Object
+	if IsNumeric(column) then
+		getColumnIndex = CInt(column)
+		exit function
+	endif
+	if column = &quot;&quot; then
+		getColumnIndex = 0
+		exit function
+	endif 
+	i = -1
+	do 
+		i = i + 1
+		cell = sheet.getCellByPosition(i, 0)
+	loop while cell.String &lt;&gt; &quot;&quot; and cell.String &lt;&gt; column
+	if sheet.getCellByPosition(i, 0).String = column then
+		getColumnIndex = i
+	else
+		getColumnIndex = -1
+	endif
+end function
+
+Public Sub CollectData
+	&apos; create empty storage document
+	dim arg(2) as new com.sun.star.beans.PropertyValue
+	dim document   as object
+	dim dispatcher as object
+	dim fileProps(1) as new com.sun.star.beans.PropertyValue
+	dim args1(2) as new com.sun.star.beans.PropertyValue
+	dim collectorFileName as string
+	dim sFileName as string
+	dim csvFileURL as string
+	dim pSize as integer
+	dim csvSheet as object, csvCell as Object, csvSheetName as string
+	dim i as integer
+	collectorFileName = _workDir &amp; GetPathSeparator() &amp; _collectorName &amp; &quot;.ods&quot;
+	_storageDocument = StarDesktop.loadComponentFromURL(&quot;private:factory/scalc&quot;, &quot;_blank&quot;, 0, arg())
+	subSaveAs(_storageDocument, collectorFileName)
+	
+	dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+	sFileName = Dir(_dataDir &amp; GetPathSeparator(), 0) &apos;Get the first one
+	Do While (sFileName &lt;&gt; &quot;&quot;) &apos;While something found
+		
+		if fileExt(sFileName) = &quot;csv&quot; then
+			csvFileURL = ConvertToURL(_dataDir &amp; GetPathSeparator() &amp; sFileName)
+			fileProps(0).Name = &quot;FilterName&quot;
+			fileProps(0).Value = &quot;Text - txt - csv (StarCalc)&quot;
+			fileProps(1).Name = &quot;FilterOptions&quot;
+			fileProps(1).Value = &quot;44,34,76,1,,0,false,true,true,false&quot;
+			document = StarDesktop.loadComponentFromURL(csvFileUrl, &quot;_blank&quot;, 0, fileProps())	
+			csvSheetName = document.Sheets(0).name
+			
+			&apos; init internal position pointer
+			pSize = UBound(_posName) + 1
+			redim preserve _posName(pSize)	
+			redim preserve _posLine(pSize)
+			_posName(pSize) = csvSheetName
+			_posLine(pSize) = 1	
+			
+			&apos; add names to hash
+			_names.Add(csvSheetName, new HashTable)
+			&apos; collect column names into hash
+			csvSheet = document.Sheets(0)
+			i = -1
+			do
+				i = i + 1
+				csvCell = csvSheet.GetCellByPosition(i, 0)
+				if csvCell.TYPE &lt;&gt; com.sun.star.table.CellContentType.EMPTY then
+					_names.GetByKey(csvSheetName).Add(csvCell.string, i)
+				endif
+			loop while csvCell.TYPE &lt;&gt; com.sun.star.table.CellContentType.EMPTY
+			
+			args1(0).Name = &quot;DocName&quot;
+			args1(0).Value = _collectorName
+			args1(1).Name = &quot;Index&quot;
+			args1(1).Value = 32767
+			args1(2).Name = &quot;Copy&quot;
+			args1(2).Value = true
+			
+			dispatcher.executeDispatch(document.CurrentController.Frame, &quot;.uno:Move&quot;, &quot;&quot;, 0, args1())
+			document.dispose()
+		endif
+		sFileName = Dir() &apos;Get the next one
+	Loop
+end sub
+
+private function fileExt(byval filename as string)
+	fileExt = LCase(Right(filename, 3))
+end function
+
+private sub subSaveAs(oDoc, sFile, optional sType)
+	dim sURL as string
+	dim oSFA as Object
+	oSFA = createUNOService (&quot;com.sun.star.ucb.SimpleFileAccess&quot;) 
+    If oSFA.exists(sFile) Then
+      oSFA.kill(sFile) &apos;if file exists, delete it
+    End If
+	sURL = convertToURL(sFile)
+	if isMissing(sType) then
+	   oDoc.storeAsURL(sURL, array())
+	else
+	  dim mFileType(0)
+	  mFileType(0) = createUnoStruct(&quot;com.sun.star.beans.PropertyValue&quot;)
+	  mFileType(0).Name = &quot;FilterName&quot;
+	  mFileType(0).Value = sType
+	  oDoc.storeAsURL(sURL, mFileType())
+	end if
+end sub
+
+</script:module>

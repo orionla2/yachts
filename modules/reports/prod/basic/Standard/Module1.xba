@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Module1" script:language="StarBasic">REM  *****  BASIC  *****
+
+Sub Main
+
+End Sub
+
+sub starter( _
+	optional byval reportName as string, _
+	optional byval reportDir as string, _
+	optional byval dataDir as string, _
+	optional byval dstDir as string)
+	
+	if ismissing(reportName) then
+	  reportName = &quot;&quot;
+	endif
+	if ismissing(reportDir) then
+	  reportDir = &quot;&quot;
+	endif
+	if ismissing(dataDir) then
+	  dataDir = &quot;&quot;
+	endif
+	if ismissing(dstDir) then
+	  dstDir = &quot;&quot;
+	endif
+	
+	dim msg as new com.sun.star.logging.LogRecord
+	msg.Message = a
+	msg.Level = com.sun.star.logging.LogLevel.ALL
+	
+	dim obj as object
+	obj = createUnoService(&quot;com.sun.star.logging.ConsoleHandler&quot;)
+	obj.initialize(Array())
+	obj.Level = com.sun.star.logging.LogLevel.ALL
+
+	msg.Message = reportName
+	msg.Level = com.sun.star.logging.LogLevel.ALL
+	obj.publish(msg)
+
+	msg.Message = reportDir
+	msg.Level = com.sun.star.logging.LogLevel.ALL
+	obj.publish(msg)
+
+	msg.Message = dataDir
+	msg.Level = com.sun.star.logging.LogLevel.ALL
+	obj.publish(msg)
+
+	msg.Message = dstDir
+	msg.Level = com.sun.star.logging.LogLevel.ALL
+	obj.publish(msg)
+end sub
+
+sub starter2( _
+	optional byval reportName as string, _
+	optional byval reportDir as string, _
+	optional byval dataDir as string, _
+	optional byval dstDir as string)
+	
+	if ismissing(reportName) then
+	  reportName = &quot;&quot;
+	endif
+	if ismissing(reportDir) then
+	  reportDir = &quot;&quot;
+	endif
+	if ismissing(dataDir) then
+	  dataDir = &quot;&quot;
+	endif
+	if ismissing(dstDir) then
+	  dstDir = &quot;&quot;
+	endif
+	
+	dim msg as new com.sun.star.logging.LogRecord
+	msg.Message = a
+	msg.Level = com.sun.star.logging.LogLevel.ALL
+	
+	dim obj as object
+	obj = createUnoService(&quot;com.sun.star.logging.ConsoleHandler&quot;)
+	obj.initialize(Array())
+	obj.Level = com.sun.star.logging.LogLevel.ALL
+
+	msg.Message = reportName
+	msg.Level = com.sun.star.logging.LogLevel.ALL
+	obj.publish(msg)
+
+	msg.Message = reportDir
+	msg.Level = com.sun.star.logging.LogLevel.ALL
+	obj.publish(msg)
+
+	msg.Message = dataDir
+	msg.Level = com.sun.star.logging.LogLevel.ALL
+	obj.publish(msg)
+
+	msg.Message = dstDir
+	msg.Level = com.sun.star.logging.LogLevel.ALL
+	obj.publish(msg)
+
+	dim ds as Object
+	set ds = new DataSource
+	ds._dataDir = &quot;/home/application/reports&quot;
+	ds._workDir = &quot;/home/application/reports&quot;
+	ds.CollectData
+	ds.CloseCollector
+end sub
+
+function show_open_dialog
+	dim aurl as object
+	dim s as string
+	dim oDlg as object
+	
+	oDlg = createUnoService(&quot;com.sun.star.ui.dialogs.FilePicker&quot;)
+	oDlg.setMultiSelectionMode(false)
+	oDlg.appendFilter(&quot;CSV Files (.csv)&quot;, &quot;*.csv&quot; )	
+	oDlg.execute
+	aUrl = oDlg.getFiles()
+	
+	s = aUrl(0)
+	if len(s) &gt; 0 then
+		MsgBox(&quot;File Selected: &quot; &amp; s &amp; chr(13))
+	end if
+	show_open_dialog = s
+end function
+
+sub testDataSource
+	dim ds as Object
+	dim cell as object
+	set ds = new DataSource
+	ds._dataDir = &quot;/home/andriy/projects/lo-reports/dev/reports&quot;
+	ds._workDir = &quot;/home/andriy/tmp&quot;
+	ds.CollectData
+	cell = ds.GetByDelimitedName(&quot;test_data. GP .1&quot;)
+	if not isnull(cell) then
+		print cell.string
+	else
+		print &quot;null&quot;
+	endif
+	ds.NextLine(&quot;persons&quot;)
+	cell = ds.GetByDelimitedName(&quot;persons.Person.1&quot;)
+	if not isnull(cell) then
+		print cell.string
+	else
+		print &quot;null&quot;
+	endif
+	ds.CloseCollector
+end sub
+
+sub testReportMaker
+	dim rm as New ReportMaker
+	dim res as boolean
+	dim ds as Object
+	set ds = new DataSource
+	ds._dataDir = &quot;/home/andriy/projects/lo-reports/dev/reports&quot;
+	ds._workDir = &quot;/home/andriy/tmp&quot;
+	ds.CollectData
+	
+	res = rm.Make( _
+		&quot;/home/andriy/projects/lo-reports/dev/reports/report1.ods&quot;, _
+		&quot;/home/andriy/projects/lo-reports/dev/reports/test2.xls&quot;, _
+		ds)
+	if res then
+		print &quot;success&quot;
+	else
+		print rm.errorMessage
+	endif
+	ds.CloseCollector
+end sub
+
+sub testStripe
+	dim ds as Object
+	dim res()
+	set ds = new DataSource
+	res = ds.stripeName(&quot;person.name.2&quot;)
+	print &quot;[0]=&quot; &amp; res(0) &amp; &quot; [1]=&quot; &amp; res(1) &amp; &quot; [2]=&quot; &amp; res(2)
+end sub
+
+sub testReading
+	dim timeStart as Date, timeEnd as Date, ts as Long, te as Long
+	dim i as integer, j as integer
+	dim sheet as Object
+	dim a as string
+	dim arr(99, 999) 
+	sheet = thiscomponent.getcurrentcontroller.activesheet
+	
+	timeStart = now()
+	
+	for i = 0 to 99
+		for j = 0 to 999
+			&apos;sheet.GetCellByPosition(i,j).SetString(&quot;Hello&quot;)
+			arr(i, j) = &quot;Hello&quot;
+		next j
+	next i
+	timeEnd = now()
+	ts = (Hour(timeStart)*60 + Minute(timeStart))*60 + Second(timeStart)
+	te = (Hour(timeEnd)*60 + Minute(timeEnd))*60 + Second(timeEnd)
+	print (te-ts)
+end sub
+
+sub testHash
+	dim h as new HashTable
+	dim v
+	h.Add(&quot;One&quot;, new HashTable)
+	h.Add(&quot;Two&quot;, new HashTable)
+	h.Add(&quot;Three&quot;, new HashTable)
+
+	v = h.getByKey(&quot;One&quot;)
+	
+	v.Add(&quot;H1One&quot;, 11)
+	v.Add(&quot;H1Two&quot;, 12)
+	v.Add(&quot;H1Three&quot;, 13)
+	
+	print h.getByKey(&quot;One&quot;).GetByKey(&quot;H1Two&quot;)
+end sub
+
+sub testOut
+   Dim oSFA As Object, oOutStream as Object, oOutText as Object
+   Dim sFilePath as String 
+   oSFA = createUNOService (&quot;com.sun.star.ucb.SimpleFileAccess&quot;) 
+   sFilePath = &quot;/tmp/stdout&quot;
+   
+   oOutStream = oSFA.openFileWrite(sFilePath) 
+   oOutText = createUNOService (&quot;com.sun.star.io.TextOutputStream&quot;) 
+   oOutText.setOutputStream(oOutStream) 
+
+   oOutText.WriteString(&quot;Hello World&quot;) 
+   oOutText.closeOutput()
+end sub
+</script:module>

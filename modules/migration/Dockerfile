@@ -1,5 +1,5 @@
 FROM docteurklein/sqitch
-ENV PGHOST=postgresql \
+ENV PGHOST=postgresql_test \
     PGDATABASE=postgres \
     PGUSER=postgres \
     PGPASSWORD=1q2w3e4r \
@@ -7,6 +7,8 @@ ENV PGHOST=postgresql \
 ENV	PG_MAJOR 9.6
 ENV PG_VERSION 9.6.1-1.pgdg80+1
 COPY ./app/ /src/
+COPY ./ssh/ /root/.ssh/
+RUN chmod 600 /root/.ssh/*
 RUN apt-get update \
 	&& apt-get install -y apt-utils \
     && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
@@ -19,7 +21,6 @@ RUN apt-get update \
   && apt-get install -y libdbd-pg-perl \
   && cpan App::cpanminus \
   && cpanm DBD::Pg
-RUN groupadd -r postgres --gid=999 \ 
-  && useradd -r -g postgres --uid=999 postgres  
+RUN groupadd -r postgres --gid=999 \
+  && useradd -r -g postgres --uid=999 postgres
 RUN apt-get install -y --force-yes postgresql-client
-ENTRYPOINT ["/bin/bash"]

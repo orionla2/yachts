@@ -1,6 +1,66 @@
 -- Deploy appschema
 
 BEGIN;
+
+
+ALTER TABLE my_yacht.packages drop COLUMN if exists unit cascade;
+DROP SCHEMA if exists auth cascade;
+DROP SCHEMA if exists my_yacht cascade;
+DROP EXTENSION IF EXISTS plpgsql CASCADE;
+DROP EXTENSION IF EXISTS pgcrypto CASCADE;
+DROP TYPE IF EXISTS jwt_claims CASCADE;
+DROP TYPE IF EXISTS token_type_enum CASCADE;
+DROP FUNCTION IF EXISTS check_role_exists() CASCADE;
+DROP FUNCTION IF EXISTS clearance_for_role() CASCADE;
+DROP FUNCTION IF EXISTS current_email() CASCADE;
+DROP FUNCTION IF EXISTS encrypt_pass() CASCADE;
+DROP FUNCTION IF EXISTS send_validation() CASCADE;
+DROP FUNCTION IF EXISTS user_role() CASCADE;
+DROP FUNCTION IF EXISTS login() CASCADE;
+DROP FUNCTION IF EXISTS request_password_reset() CASCADE;
+DROP FUNCTION IF EXISTS reset_password() CASCADE;
+DROP FUNCTION IF EXISTS signup() CASCADE;
+DROP FUNCTION IF EXISTS update_users() CASCADE;
+DROP FUNCTION IF EXISTS request_password_reset() CASCADE;
+DROP FUNCTION IF EXISTS reset_password() CASCADE;
+DROP FUNCTION IF EXISTS public.signup(email text, pass text) CASCADE;
+DROP FUNCTION IF EXISTS update_users() CASCADE;
+
+DROP TABLE IF EXISTS tokens CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS additional CASCADE;
+
+DROP SEQUENCE IF EXISTS additional_id_seq CASCADE;
+DROP TABLE IF EXISTS booking CASCADE;
+DROP SEQUENCE IF EXISTS booking_id_seq CASCADE;
+DROP TABLE IF EXISTS devices CASCADE;
+DROP SEQUENCE IF EXISTS devices_id_seq CASCADE;
+DROP TABLE IF EXISTS download CASCADE;
+DROP SEQUENCE IF EXISTS download_id_seq CASCADE;
+DROP TABLE IF EXISTS extras CASCADE;
+DROP SEQUENCE IF EXISTS extras_id_seq CASCADE;
+DROP TABLE IF EXISTS file CASCADE;
+DROP SEQUENCE IF EXISTS file_id_seq CASCADE;
+DROP TABLE IF EXISTS invoice CASCADE;
+DROP SEQUENCE IF EXISTS invoice_id_seq CASCADE;
+DROP TABLE IF EXISTS packages CASCADE;
+DROP SEQUENCE IF EXISTS packages_id_seq CASCADE;
+DROP TABLE IF EXISTS payment CASCADE;
+DROP SEQUENCE IF EXISTS payment_id_seq CASCADE;
+DROP TABLE IF EXISTS "user" CASCADE;
+DROP SEQUENCE IF EXISTS user_id_seq CASCADE;
+DROP VIEW IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS yacht CASCADE;
+DROP SEQUENCE IF EXISTS yacht_id_seq CASCADE;
+DROP VIEW IF EXISTS users CASCADE;
+
+DROP OWNED BY manager;
+DROP ROLE IF EXISTS manager;
+DROP OWNED BY user_role;
+DROP ROLE IF EXISTS user_role;
+DROP OWNED BY authenticator;
+DROP ROLE IF EXISTS authenticator;
+
 --
 -- PostgreSQL database dump
 --
@@ -42,12 +102,17 @@ CREATE SCHEMA my_yacht;
 
 ALTER SCHEMA my_yacht OWNER TO postgres;
 
+-- ======================= copy this to other deploy ============================= ---
 CREATE ROLE manager;
 CREATE ROLE user_role;
-CREATE ROLE authenticator noinherit;
+CREATE ROLE guest;
+CREATE ROLE authenticator LOGIN
+ENCRYPTED PASSWORD 'md5b8d79b0dea1de1788ea7dd39fa0ec195'
+NOSUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
 GRANT manager TO authenticator;
 GRANT user_role TO authenticator;
-
+GRANT guest TO authenticator;
+-- ======================= /copy this to other deploy ============================ ---
 
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner:
@@ -557,23 +622,6 @@ CREATE TABLE tokens (
 
 ALTER TABLE tokens OWNER TO postgres;
 
---
--- Name: users; Type: TABLE; Schema: auth; Owner: postgres
---
-
-CREATE TABLE users (
-  email text NOT NULL,
-  pass text NOT NULL,
-  role name NOT NULL,
-  verified boolean DEFAULT false NOT NULL,
-  CONSTRAINT users_email_check CHECK ((email ~* '^.+@.+\..+$'::text)),
-  CONSTRAINT users_pass_check CHECK ((length(pass) < 512)),
-  CONSTRAINT users_role_check CHECK ((length((role)::text) < 512))
-);
-
-
-ALTER TABLE users OWNER TO postgres;
-
 SET search_path = my_yacht, pg_catalog;
 
 --
@@ -733,7 +781,7 @@ CREATE TABLE extras (
   price money NOT NULL,
   min_charge integer NOT NULL,
   unit character varying(45) NOT NULL,
-  terms character varying(255) NOT NULL,
+  description character varying(255) NOT NULL,
   status boolean DEFAULT true
 );
 
@@ -848,7 +896,8 @@ CREATE TABLE packages (
   min_charge integer NOT NULL,
   description character varying(255),
   y_id integer,
-  status boolean DEFAULT true
+  status boolean DEFAULT true,
+  unit character varying(40) NOT NULL
 );
 
 
@@ -924,6 +973,7 @@ CREATE TABLE "user" (
   password character varying(64) NOT NULL,
   role character varying(45) NOT NULL,
   discount numeric(2,2) DEFAULT 0,
+  status boolean DEFAULT true NOT NULL,
   CONSTRAINT chk_email CHECK (((email)::text ~* '^.+@.+\..+$'::text)),
   CONSTRAINT chk_pass CHECK ((length((password)::text) < 65))
 );
@@ -981,7 +1031,8 @@ CREATE TABLE yacht (
   id integer NOT NULL,
   title character varying(255) NOT NULL,
   content text NOT NULL,
-  readmore text NOT NULL
+  readmore text NOT NULL,
+  status boolean DEFAULT true NOT NULL
 );
 
 
@@ -1009,20 +1060,6 @@ ALTER SEQUENCE yacht_id_seq OWNED BY yacht.id;
 
 
 SET search_path = public, pg_catalog;
-
-CREATE VIEW users AS
-  SELECT actual.role,
-    '***'::text AS pass,
-    actual.email,
-    actual.verified
-  FROM auth.users actual,
-    ( SELECT pg_authid.rolname
-      FROM pg_authid
-      WHERE pg_has_role("current_user"(), pg_authid.oid, 'member'::text)) member_of
-  WHERE (actual.role = member_of.rolname);
-
-
-ALTER TABLE users OWNER TO postgres;
 
 SET search_path = pg_catalog;
 
@@ -1104,261 +1141,26 @@ ALTER TABLE ONLY "user" ALTER COLUMN id SET DEFAULT nextval('user_id_seq'::regcl
 
 ALTER TABLE ONLY yacht ALTER COLUMN id SET DEFAULT nextval('yacht_id_seq'::regclass);
 
-
 SET search_path = auth, pg_catalog;
-
---
--- Data for Name: tokens; Type: TABLE DATA; Schema: auth; Owner: postgres
---
-
-COPY tokens (token, token_type, email, created_at) FROM stdin;
-37644957-6c04-4f7d-bf5c-c0aea78aebf7	reset	orionla2@new.com	2016-11-17 00:00:00+00
-5fde4cc6-2b5b-4690-9cc6-e537189e9bb5	reset	orion@new.com	2016-11-17 00:00:00+00
-75112c3c-e527-43c3-969c-fd82a209372e	reset	test@new.com	2016-11-21 00:00:00+00
-\.
-
-
---
--- Data for Name: users; Type: TABLE DATA; Schema: auth; Owner: postgres
---
-
-COPY users (email, pass, role, verified) FROM stdin;
-orion@new.com	$2a$06$ZKbJNktOi79Szt08kFhUieem4cUbwGl.C1DJtA.feATciYGHfjYh.	user_role	t
-new@new.com	$2a$06$K0913VFBZ/n3ftfmwLbk0Oat0.v6IAP.6NUnNRjlEOPYavWtnAV5u	user_role	f
-\.
-
-
-SET search_path = my_yacht, pg_catalog;
-
---
--- Data for Name: additional; Type: TABLE DATA; Schema: my_yacht; Owner: postgres
---
-
-COPY additional (id, booking_id, extras_id, packages_id, guests, amount, money) FROM stdin;
-\.
-
-
---
--- Name: additional_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
---
-
-SELECT pg_catalog.setval('additional_id_seq', 1, false);
-
-
---
--- Data for Name: booking; Type: TABLE DATA; Schema: my_yacht; Owner: postgres
---
-
-COPY booking (id, y_id, start_date, end_date, user_id, payment, status, payment_type, discount) FROM stdin;
-\.
-
-
---
--- Name: booking_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
---
-
-SELECT pg_catalog.setval('booking_id_seq', 1, false);
-
-
---
--- Data for Name: devices; Type: TABLE DATA; Schema: my_yacht; Owner: postgres
---
-
-COPY devices (id, user_id, platform, device_id) FROM stdin;
-\.
-
-
---
--- Name: devices_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
---
-
-SELECT pg_catalog.setval('devices_id_seq', 1, false);
-
-
---
--- Data for Name: download; Type: TABLE DATA; Schema: my_yacht; Owner: postgres
---
-
-COPY download (id, tagline, filename) FROM stdin;
-\.
-
-
---
--- Name: download_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
---
-
-SELECT pg_catalog.setval('download_id_seq', 1, false);
-
-
---
--- Data for Name: extras; Type: TABLE DATA; Schema: my_yacht; Owner: postgres
---
-
-COPY extras (id, title, price, min_charge, unit, terms, status) FROM stdin;
-\.
-
-
---
--- Name: extras_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
---
-
-SELECT pg_catalog.setval('extras_id_seq', 1, false);
-
-
---
--- Data for Name: file; Type: TABLE DATA; Schema: my_yacht; Owner: postgres
---
-
-COPY file (id, type, url, y_id) FROM stdin;
-\.
-
-
---
--- Name: file_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
---
-
-SELECT pg_catalog.setval('file_id_seq', 1, false);
-
-
---
--- Data for Name: invoice; Type: TABLE DATA; Schema: my_yacht; Owner: postgres
---
-
-COPY invoice (id, booking_id, invoice_num, title, amount, rate, subtotal, total, status, invoice_date) FROM stdin;
-\.
-
-
---
--- Name: invoice_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
---
-
-SELECT pg_catalog.setval('invoice_id_seq', 1, false);
-
-
---
--- Data for Name: packages; Type: TABLE DATA; Schema: my_yacht; Owner: postgres
---
-
-COPY packages (id, title, price, min_charge, description, y_id, status) FROM stdin;
-\.
-
-
---
--- Name: packages_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
---
-
-SELECT pg_catalog.setval('packages_id_seq', 1, false);
-
-
---
--- Data for Name: payment; Type: TABLE DATA; Schema: my_yacht; Owner: postgres
---
-
-COPY payment (id, invoice_id, type, user_id, value) FROM stdin;
-\.
-
-
---
--- Name: payment_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
---
-
-SELECT pg_catalog.setval('payment_id_seq', 1, false);
-
-
---
--- Data for Name: user; Type: TABLE DATA; Schema: my_yacht; Owner: postgres
---
-
-COPY "user" (id, firstname, lastname, email, mobile, password, role, discount) FROM stdin;
-14	Andrew	Markov	orionla2@new.com	123456789	$2a$06$xdp6B5MgmeYlTYj5ghe3qO1itZImMIHaulqr2NuyyKp1r2sWXv/za	user_role	0.00
-15	Andrew	test	orion@new.com	123456789	$2a$06$bpPg0sUad/EOfY69h9yfWuAMoHSolUZ.dkvUBpzI5AYdKED3NJP7W	user_role	0.00
-18	Orion	test	test@new.com	123456789	$2a$06$U.yTXoJ5Jo5nnJywGK2eJuUYcD8nJPSIrlfsa/50sqxmFGN3QE2cK	user_role	0.00
-\.
-
-
---
--- Name: user_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
---
-
-SELECT pg_catalog.setval('user_id_seq', 18, true);
-
-
---
--- Data for Name: yacht; Type: TABLE DATA; Schema: my_yacht; Owner: postgres
---
-
-COPY yacht (id, title, content, readmore) FROM stdin;
-1	MegaYacht 1000	<p>content</p>	<p>readmore<p>
-\.
-
-
---
--- Name: yacht_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
---
-
-SELECT pg_catalog.setval('yacht_id_seq', 1, true);
-
-
-SET search_path = public, pg_catalog;
-
-SET search_path = pg_catalog;
-
-
-SET search_path = auth, pg_catalog;
-
---
--- Name: tokens tokens_pkey; Type: CONSTRAINT; Schema: auth; Owner: postgres
---
-
 ALTER TABLE ONLY tokens
     ADD CONSTRAINT tokens_pkey PRIMARY KEY (token);
 
-
---
--- Name: users users_pkey; Type: CONSTRAINT; Schema: auth; Owner: postgres
---
-
-ALTER TABLE ONLY users
-    ADD CONSTRAINT users_pkey PRIMARY KEY (email);
-
-
 SET search_path = my_yacht, pg_catalog;
-
---
--- Name: additional pk_id_additional; Type: CONSTRAINT; Schema: my_yacht; Owner: postgres
---
-
 ALTER TABLE ONLY additional
     ADD CONSTRAINT pk_id_additional PRIMARY KEY (id);
 
-
---
--- Name: booking pk_id_booking; Type: CONSTRAINT; Schema: my_yacht; Owner: postgres
---
 
 ALTER TABLE ONLY booking
     ADD CONSTRAINT pk_id_booking PRIMARY KEY (id);
 
 
---
--- Name: devices pk_id_devices; Type: CONSTRAINT; Schema: my_yacht; Owner: postgres
---
-
 ALTER TABLE ONLY devices
     ADD CONSTRAINT pk_id_devices PRIMARY KEY (id);
 
 
---
--- Name: download pk_id_download; Type: CONSTRAINT; Schema: my_yacht; Owner: postgres
---
-
 ALTER TABLE ONLY download
     ADD CONSTRAINT pk_id_download PRIMARY KEY (id);
 
-
---
--- Name: extras pk_id_extras; Type: CONSTRAINT; Schema: my_yacht; Owner: postgres
---
 
 ALTER TABLE ONLY extras
     ADD CONSTRAINT pk_id_extras PRIMARY KEY (id);
@@ -1420,32 +1222,6 @@ ALTER TABLE ONLY "user"
     ADD CONSTRAINT unq_email UNIQUE (email);
 
 
-SET search_path = pg_catalog;
-
-
-SET search_path = auth, pg_catalog;
-
---
--- Name: users encrypt_pass; Type: TRIGGER; Schema: auth; Owner: postgres
---
-
-CREATE TRIGGER encrypt_pass BEFORE INSERT OR UPDATE ON users FOR EACH ROW EXECUTE PROCEDURE encrypt_pass();
-
-
---
--- Name: users ensure_user_role_exists; Type: TRIGGER; Schema: auth; Owner: postgres
---
-
-CREATE CONSTRAINT TRIGGER ensure_user_role_exists AFTER INSERT OR UPDATE ON users NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE PROCEDURE check_role_exists();
-
-
---
--- Name: users send_validation; Type: TRIGGER; Schema: auth; Owner: postgres
---
-
-CREATE TRIGGER send_validation AFTER INSERT ON users FOR EACH ROW EXECUTE PROCEDURE send_validation();
-
-
 SET search_path = my_yacht, pg_catalog;
 
 --
@@ -1457,15 +1233,6 @@ CREATE TRIGGER encrypt_pass BEFORE INSERT OR UPDATE ON "user" FOR EACH ROW EXECU
 
 --
 -- Name: users update_users; Type: TRIGGER; Schema: my_yacht; Owner: postgres
---
-
-CREATE TRIGGER update_users INSTEAD OF INSERT OR DELETE OR UPDATE ON users FOR EACH ROW EXECUTE PROCEDURE update_users();
-
-
-SET search_path = public, pg_catalog;
-
---
--- Name: users update_users; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
 CREATE TRIGGER update_users INSTEAD OF INSERT OR DELETE OR UPDATE ON users FOR EACH ROW EXECUTE PROCEDURE update_users();
@@ -1555,25 +1322,34 @@ ALTER TABLE ONLY payment
     ADD CONSTRAINT fk_payment_user FOREIGN KEY (user_id) REFERENCES "user"(id);
 
 
-SET search_path = pg_catalog;
-
 --
 -- Name: auth; Type: ACL; Schema: -; Owner: postgres
 --
 
-GRANT USAGE ON SCHEMA auth TO manager;
+GRANT USAGE ON SCHEMA auth TO guest;
 GRANT USAGE ON SCHEMA auth TO user_role;
+GRANT USAGE ON SCHEMA auth TO manager;
 
 
 --
 -- Name: my_yacht; Type: ACL; Schema: -; Owner: postgres
 --
 
-GRANT USAGE ON SCHEMA my_yacht TO manager;
+GRANT USAGE ON SCHEMA my_yacht TO guest;
 GRANT USAGE ON SCHEMA my_yacht TO user_role;
+GRANT USAGE ON SCHEMA my_yacht TO manager;
 
 
 SET search_path = my_yacht, pg_catalog;
+
+--
+-- Name: login(text, text); Type: ACL; Schema: my_yacht; Owner: postgres
+--
+
+GRANT ALL ON FUNCTION login(email text, password text) TO guest;
+GRANT ALL ON FUNCTION login(email text, password text) TO user_role;
+GRANT ALL ON FUNCTION login(email text, password text) TO manager;
+
 
 --
 -- Name: request_password_reset(text); Type: ACL; Schema: my_yacht; Owner: postgres
@@ -1581,6 +1357,21 @@ SET search_path = my_yacht, pg_catalog;
 
 GRANT ALL ON FUNCTION request_password_reset(email text) TO user_role;
 GRANT ALL ON FUNCTION request_password_reset(email text) TO manager;
+
+
+--
+-- Name: reset_password(text, uuid, text); Type: ACL; Schema: my_yacht; Owner: postgres
+--
+
+GRANT ALL ON FUNCTION reset_password(email text, token uuid, password text) TO user_role;
+GRANT ALL ON FUNCTION reset_password(email text, token uuid, password text) TO manager;
+
+
+--
+-- Name: signup(text, text, text, text, text); Type: ACL; Schema: my_yacht; Owner: postgres
+--
+
+GRANT ALL ON FUNCTION signup(firstname text, lastname text, email text, mobile text, password text) TO guest;
 
 
 SET search_path = public, pg_catalog;
@@ -1609,20 +1400,93 @@ GRANT ALL ON FUNCTION signup(email text, pass text) TO manager;
 SET search_path = auth, pg_catalog;
 
 --
--- Name: users; Type: ACL; Schema: auth; Owner: postgres
+-- Name: tokens; Type: ACL; Schema: auth; Owner: postgres
 --
 
-GRANT SELECT,INSERT ON TABLE users TO user_role;
-GRANT SELECT,INSERT ON TABLE users TO manager;
+GRANT INSERT ON TABLE tokens TO guest;
 
 
 SET search_path = my_yacht, pg_catalog;
+
+--
+-- Name: additional; Type: ACL; Schema: my_yacht; Owner: postgres
+--
+
+GRANT SELECT,INSERT ON TABLE additional TO user_role;
+GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE additional TO manager;
+GRANT INSERT ON TABLE additional TO guest;
+
+
+--
+-- Name: booking; Type: ACL; Schema: my_yacht; Owner: postgres
+--
+
+GRANT SELECT,INSERT ON TABLE booking TO user_role;
+GRANT SELECT,INSERT,UPDATE ON TABLE booking TO manager;
+GRANT INSERT ON TABLE booking TO guest;
+
+
+--
+-- Name: download; Type: ACL; Schema: my_yacht; Owner: postgres
+--
+
+GRANT SELECT ON TABLE download TO user_role;
+GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE download TO manager;
+GRANT SELECT ON TABLE download TO guest;
+
+
+--
+-- Name: extras; Type: ACL; Schema: my_yacht; Owner: postgres
+--
+
+GRANT SELECT ON TABLE extras TO user_role;
+GRANT SELECT,INSERT,UPDATE ON TABLE extras TO manager;
+GRANT SELECT ON TABLE extras TO guest;
+
+
+--
+-- Name: file; Type: ACL; Schema: my_yacht; Owner: postgres
+--
+
+GRANT SELECT ON TABLE file TO user_role;
+GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE file TO manager;
+GRANT SELECT ON TABLE file TO guest;
+
+
+--
+-- Name: invoice; Type: ACL; Schema: my_yacht; Owner: postgres
+--
+
+GRANT SELECT ON TABLE invoice TO user_role;
+GRANT SELECT,INSERT,UPDATE ON TABLE invoice TO manager;
+
+
+--
+-- Name: packages; Type: ACL; Schema: my_yacht; Owner: postgres
+--
+
+GRANT SELECT ON TABLE packages TO user_role;
+GRANT SELECT,INSERT,UPDATE ON TABLE packages TO manager;
+GRANT SELECT ON TABLE packages TO guest;
+
 
 --
 -- Name: user; Type: ACL; Schema: my_yacht; Owner: postgres
 --
 
 REVOKE ALL ON TABLE "user" FROM postgres;
+GRANT SELECT,INSERT ON TABLE "user" TO guest;
+GRANT SELECT,UPDATE ON TABLE "user" TO user_role;
+GRANT SELECT,INSERT,UPDATE ON TABLE "user" TO manager;
+
+
+--
+-- Name: yacht; Type: ACL; Schema: my_yacht; Owner: postgres
+--
+
+GRANT SELECT ON TABLE yacht TO user_role;
+GRANT SELECT,INSERT,UPDATE ON TABLE yacht TO manager;
+GRANT SELECT ON TABLE yacht TO guest;
 
 
 SET search_path = pg_catalog;
@@ -1633,6 +1497,7 @@ SET search_path = pg_catalog;
 
 GRANT SELECT ON TABLE pg_authid TO user_role;
 GRANT SELECT ON TABLE pg_authid TO manager;
+GRANT SELECT ON TABLE pg_authid TO guest;
 
 
 --

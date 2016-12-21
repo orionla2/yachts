@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="ReportMaker" script:language="StarBasic">REM  *****  BASIC  *****
+
+Option Compatible
+Option ClassModule
+
+Option Explicit
+
+&apos;private _templateDocument as Object
+&apos;private _resultDocument as Object
+private _error as string
+private _width as integer
+private _max_height as integer &apos; max line in template. protects from out of range case
+private _line as integer &apos;current line of processing
+private _curBlockType as string
+private _dataFrameBegin as integer
+private _dataFrameEnd as integer
+private _tplFrameBegin as integer
+private _tplFrameEnd as integer
+private _iterationTable as string
+private _targetLine as integer
+private _tplDoc as Object
+private _reportSheetName as string
+private _logger as Object
+private _copyOperationsMade as integer
+private _logStep as integer
+
+private Sub Class_Initialize()
+	_width = 0
+	_max_height = 1000
+	_targetLine = 0
+	_reportSheetName = &quot;Report&quot;
+	_logger = nothing
+	_copyOperationsMade = 0
+	_logStep = 10
+End Sub
+
+Private Sub Class_Terminate()
+end sub
+
+Public Property Get errorMessage ()
+   errorMessage = _error
+End property
+
+public sub SetLogger (byref value as Object)
+   _logger = value
+End sub
+
+&apos; returns true on success
+&apos; false if error and _error is message
+Public function Make(byval srcTemplate as string, byval dstFile as string, byref ds as Object)
+	&apos; open template
+	Dim Args(1) As new com.sun.star.beans.PropertyValue
+	Dim tmplDocument as Object
+	dim dstDocument as Object, dstDocName as string
+	dim oDisp as Object
+	dim templateUrl as string
+	dim result as boolean
+	templateURL = ConvertToURL(srcTemplate)
+	args(0).Name = &quot;FilterName&quot;
+	args(0).Value = &quot;calc8&quot;
+	args(1).Name = &quot;FilterOptions&quot;
+	args(1).Value = &quot;44,34,76,1,,0,false,true,true,false&quot;
+
+	tmplDocument = StarDesktop.loadComponentFromURL(templateUrl, &quot;_blank&quot;, 0, args)
+	if isnull(tmplDocument) then
+		_error = &quot;template file &quot; &amp; templateURL &amp; &quot; did not opened&quot;
+		Make = false
+		exit function
+	endif 	
+	_tplDoc = tmplDocument	
+
+	&apos; interpolate template
+
+	&apos; make new page as dest page (test purpose for copy cells range comparition)
+	tmplDocument.Sheets.InsertNewByName(_reportSheetName, 1)
+	oDisp = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+	
+	dim timeStart as Date, timeEnd as Date, ts as Long, te as Long
+	timeStart = now()
+	result = Interpolate(tmplDocument, ds, oDisp)
+	timeEnd = now()
+	ts = (Hour(timeStart)*60 + Minute(timeStart))*60 + Second(timeStart)
+	te = (Hour(timeEnd)*60 + Minute(timeEnd))*60 + Second(timeEnd)
+	&apos;print (te-ts)
+	
+	&apos; save as xls file
+	if result then
+		dim args1(1) as new com.sun.star.beans.PropertyValue
+		dim args2(2) as new com.sun.star.beans.PropertyValue
+		&apos; create empty dst file
+		dstDocument = StarDesktop.loadComponentFromURL(&quot;private:factory/scalc&quot;, &quot;_blank&quot;, 0, Array())
+		args1(0).Name = &quot;Overwrite&quot;
+		args1(0).Value = True
+		args1(1).Name = &quot;FilterName&quot;
+		args1(1).Value = &quot;Calc MS Excel 2007 XML&quot;	
+		dstDocument.storeAsUrl(ConvertToURL(dstFile), args1)
+
+		&apos; copy report to dst file
+		CopySheet(tmplDocument.Sheets.GetByName(_reportSheetName), tmplDocument, dstDocument, 0)
+		
+		dim required(0) as string
+		required(0) = _reportSheetName
+		DeleteSheetExceptRequired(dstDocument, required)
+		dstDocument.store()
+	endif
+	&apos; close all
+	tmplDocument.dispose(-1)
+	dstDocument.dispose(-1)
+	Make = result
+end function
+
+private function Interpolate(byref tmplDoc as Object, ds as Object, oDisp as Object)
+	dim i as integer
+	dim finished as boolean
+	dim started as boolean
+	dim sheet as object, dstSheet as object
+	dim zeroColVal as string
+	dim dataColVal as string
+	dim result as boolean
+
+	result = extractMeta(tmplDoc)
+	if not result then
+		Interpolate = false
+		exit function
+	endif
+	
+	
+	&apos; walk until no tag
+	sheet = tmplDoc.Sheets(0)
+	dstSheet = tmplDoc.Sheets.GetByName(_reportSheetName)
+	equalizeColWidth(sheet, dstSheet, 1, _width, 0)
+	do
+		zeroColVal = sheet.getCellByPosition(0, _line).string
+		finished = zeroColVal = &quot;&quot;
+		if not finished then
+			_dataFrameBegin = -1
+			_dataFrameEnd = -1
+			_tplFrameBegin = -1
+			_tplFrameEnd = -1
+			result = scanArea(sheet)
+			if not result then
+				Interpolate = false
+				exit function
+			endif
+			result = interpolateArea(oDisp, sheet, dstSheet, ds)
+			if not result then
+				Interpolate = false
+				exit function
+			endif
+		endif
+	loop while (not finished) and (not (_line &gt; _max_height))
+	Interpolate = true
+end function
+
+private sub equalizeColWidth(byref srcSheet as object, byref dstSheet as Object, cBegin as integer, cEnd as integer, dstBegin as integer)
+	dim i as integer
+	dim w as integer
+	for i = cBegin to cEnd
+		&apos;print srcSheet.getColumns.getByIndex(i).getPropertyValue(&quot;Width&quot;)
+		w = srcSheet.Columns(i).getPropertyValue(&quot;Width&quot;)
+		dstSheet.Columns(dstBegin + (i - cBegin)).setPropertyValue(&quot;Width&quot;, w)
+	next i
+end sub
+
+private sub equalizeRowHeight(byref srcSheet as object, byref dstSheet as Object, lBegin as integer, lEnd as integer, dstBegin as integer)
+	dim i as integer
+	dim h as integer
+	for i = lBegin to lEnd
+		h = srcSheet.Rows(i).getPropertyValue(&quot;Height&quot;)
+		dstSheet.Rows(dstBegin + (i - lBegin)).setPropertyValue(&quot;Height&quot;, h)
+	next i
+end sub
+
+private function scanArea(byref sheet as Object)
+	dim inData as boolean
+	dim inTemplate as boolean
+	dim zeroColVal as string
+	_curBlockType = sheet.getCellByPosition(0, _line).string
+	do
+		zeroColVal = sheet.getCellByPosition(0, _line).string
+		select case zeroColVal
+			case &quot;data&quot;:
+				_dataFrameBegin = _line + 1
+			case &quot;/data&quot;:
+				_dataFrameEnd = _line - 1
+			case &quot;template&quot;:
+				_tplFrameBegin = _line + 1
+			case &quot;/template&quot;:
+				_tplFrameEnd = _line - 1
+		end select
+		_line = _line + 1
+	loop while (sheet.getCellByPosition(0, _line).string &lt;&gt; (&quot;/&quot; &amp; _curBlockType)) and (not (_line &gt; _max_height))
+	if _line &gt; _max_height then
+		_error = &quot;scanArea: max height=&quot; &amp; cstr(_max_height) &amp; &quot; reached&quot;
+		scanArea = false
+	else
+		_line = _line + 1
+		scanArea = true
+	endif
+end function
+
+private function InterpolateArea(byRef oDisp as Object, byref sheet as Object, byref dstSheet as Object, byref ds as Object)
+	dim result as boolean
+	select case _curBlockType
+		case &quot;single&quot;:
+			result = InterpolateSingle(oDisp, sheet, dstSheet, ds)
+		case &quot;multiple&quot;:
+			result = InterpolateMultiple(oDisp, sheet, dstSheet, ds)
+		case else
+			result = false
+			_error = &quot;InterpolateArea: interpolation tag &quot; &amp; _curBlockType &amp; &quot; unknown&quot;
+	end select
+    InterpolateArea = result
+end function
+
+private function InterpolateSingle(byRef oDisp as Object, byref sheet as Object, byref dstSheet as Object, byref ds as Object)
+	copyAreaInOneBook(sheet, _tplFrameBegin, _tplFrameEnd, _width, dstSheet)
+	fillWithData (sheet, _dataFrameBegin, _dataFrameEnd, _width, dstSheet, _targetLine, ds)
+
+&apos;	CopyPasteRange(oDisp, sheet, _tplFrameBegin, _tplFrameEnd, _width, dstDoc, dstDoc.Sheets(0))
+&apos;	fillWithData (sheet, _dataFrameBegin, _dataFrameEnd, _width, dstDoc.Sheets(0), _targetLine, ds)
+	_targetLine = _targetLine + (_tplFrameEnd - _tplFrameBegin + 1)
+	InterpolateSingle = true
+end function
+
+private function InterpolateMultiple(byRef oDisp as Object, byref sheet as Object, byref dstSheet as Object, byref ds as Object)
+	dim iterTable as string
+	dim firstDataCell as Object
+	&apos; get the table for iteration
+	iterTable = sheet.getCellByPosition(1, _dataFrameBegin - 1).string
+	firstDataCell = ds.GetByDelimitedName(iterTable)
+	while firstDataCell.TYPE &lt;&gt; com.sun.star.table.CellContentType.EMPTY
+
+		copyAreaInOneBook(sheet, _tplFrameBegin, _tplFrameEnd, _width, dstSheet)
+		fillWithData (sheet, _dataFrameBegin, _dataFrameEnd, _width, dstSheet, _targetLine, ds)
+
+&apos;		CopyPasteRange(oDisp, sheet, _tplFrameBegin, _tplFrameEnd, _width, dstDoc, dstDoc.Sheets(0))
+&apos;		fillWithData (sheet, _dataFrameBegin, _dataFrameEnd, _width, dstDoc.Sheets(0), _targetLine, ds)
+		_targetLine = _targetLine + (_tplFrameEnd - _tplFrameBegin + 1)
+		ds.NextLine(iterTable)
+		firstDataCell = ds.GetByDelimitedName(iterTable)
+	wend
+	InterpolateMultiple = true
+end function
+
+private sub fillWithData (byref srcSheet as Object, lineBegin as integer, lineEnd as integer, width as integer, byref dstSheet as Object, byval dstLine as integer, byref ds as Object)
+	dim lin as integer, col as integer
+	dim cell as object
+	dim dataCell as object
+	
+	With com.sun.star.table.CellContentType
+	for lin = lineBegin to lineEnd
+		for col = 1 to width
+			if srcSheet.getCellByPosition(col, lin).Type &lt;&gt; .EMPTY then
+				cell = srcSheet.getCellByPosition(col, lin)
+				  Select Case Cell.Type
+				    Case .VALUE
+				    	dstSheet.getCellByPosition(col - 1, dstLine + (lin - lineBegin)).Value = Cell.Value
+				    Case .TEXT
+				    	dataCell = ds.GetByDelimitedName(Cell.string)
+				    	if isNull(dataCell) then
+				    		dstSheet.getCellByPosition(col - 1, dstLine + (lin - lineBegin)).Value = Cell.string
+				    	else
+				    		select case dataCell.Type
+				    			case .VALUE
+						    		dstSheet.getCellByPosition(col - 1, dstLine + (lin - lineBegin)).Value = dataCell.Value
+				    			case .TEXT
+						    		dstSheet.getCellByPosition(col - 1, dstLine + (lin - lineBegin)).string = dataCell.string
+				    			case .FORMULA
+						    		dstSheet.getCellByPosition(col - 1, dstLine + (lin - lineBegin)).Formula = dataCell.Formula
+				    			case else
+						    		dstSheet.getCellByPosition(col - 1, dstLine + (lin - lineBegin)).string = dataCell.string
+				    		end select
+				    	endif
+				    Case .FORMULA
+				    	dstSheet.getCellByPosition(col - 1, dstLine + (lin - lineBegin)).formula = Cell.formula
+				  End Select
+			endif		
+		next col
+	next lin
+	End With
+end sub
+
+private function copyAreaInOneBook(byref srcSheet as Object, lineBegin as integer, lineEnd as integer, width as integer, dstSheet as Object)
+	dim CopyRange as Object
+	dim PasteCell as Object
+	dim CopyAddress as Object
+	dim PasteAddress as Object
+
+	CopyRange = srcSheet.getCellRangebyPosition(1, lineBegin, _width, lineEnd)
+	PasteCell = dstSheet.getCellByPosition(0, _targetLine)
+	CopyAddress = CopyRange.RangeAddress
+	PasteAddress = PasteCell.CellAddress
+	srcSheet.CopyRange(PasteAddress, CopyAddress)	
+	equalizeRowHeight(srcSheet, dstSheet, lineBegin, lineEnd, _targetLine)
+	logCopyOperation
+end function
+
+Private Sub CopyPasteRange(byref oDisp as Object, byref srcSheet as Object, lineBegin as integer, lineEnd as integer, width as integer, byref dstDoc as Object, dstSheet as Object)
+	Dim oSourceRange
+	Dim oTargetCell
+	Dim oTargetFrame
+	Dim octl 
+	Dim NoArg()
+	
+	REM Set source doc/currentController/frame/sheet/range.
+	octl = _tplDoc.getCurrentController()
+	oSourceRange = srcSheet.getCellRangebyPosition(1, lineBegin, _width, lineEnd)
+	
+	REM select source range
+	octl.Select(oSourceRange)
+	
+	REM copy the current selection to the clipboard.
+	oDisp.executeDispatch(octl, &quot;.uno:Copy&quot;, &quot;&quot;, 0, NoArg()) 
+	
+	oTargetCell = dstSheet.getCellByPosition(0, _targetLine)
+	dstDoc.getCurrentController().Select(oTargetCell)
+	
+	REM paste from the clipboard to your current location.
+	oTargetframe = dstDoc.getCurrentController().getFrame()
+	oDisp.executeDispatch(oTargetFrame, &quot;.uno:Paste&quot;, &quot;&quot;, 0, NoArg())
+	equalizeRowHeight(srcSheet, dstSheet, lineBegin, lineEnd, _targetLine)
+End Sub
+
+private function extractMeta(byref tmplDoc as Object)
+	dim i as integer
+	dim finished as boolean
+	dim started as boolean
+	dim sheet as object
+	dim zeroColVal as string
+	dim dataColVal as string
+	sheet = tmplDoc.Sheets(0)
+	started = false
+	finished = false
+	i = 0
+	do
+		zeroColVal = sheet.getCellByPosition(0, i).string
+		started = started or zerocolval = &quot;meta&quot;
+		finished = zerocolval = &quot;/meta&quot;
+		dataColVal = sheet.getCellByPosition(1, i).string
+		select case dataColVal
+			case &quot;width&quot;:
+				_width = sheet.getCellByPosition(2, i).value
+		end select
+		i = i + 1
+	loop while (not finished) and (not (i &gt; _max_height))
+	if i &gt; _max_height then
+		_error = &quot;extractMeta: max height=&quot; &amp; cstr(_max_height) &amp; &quot; reached&quot;
+		extractMeta = false
+	else
+		extractMeta = true
+	endif
+	_line = i
+end function
+
+
+
+&apos; Modified macro: copy sheet from the current document to the destination document,
+&apos; before a given index (so the new sheet will have that index).
+&apos; Index &lt;= 0 means move to end.
+&apos; see http://www.cse.unsw.edu.au/~en1811/resources/Workbook/Workbook1.3.bas
+private Sub CopySheet(oSheet As Object, oSrcDoc as Object, oDestDoc As Object, idxBefore As Integer)
+	Dim oFrame As Object
+	Dim oDispatcher As Object
+	
+	oFrame = oSrcDoc.CurrentController.Frame
+	oDispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+		
+	&apos; Activate source data sheet, this might be replaceable by a direct API sheet activation TO_DO
+	Dim args1(0) As New com.sun.star.beans.PropertyValue
+	args1(0).Name = &quot;Nr&quot;
+	args1(0).Value = getSheetIndex(oSheet, oSrcDoc)
+	oDispatcher.executeDispatch(oFrame, &quot;.uno:JumpToTable&quot;, &quot;&quot;, 0, args1())
+	
+	&apos; Destination
+	Dim docName As String
+	Dim args2(2) As New com.sun.star.beans.PropertyValue
+	
+	docName = oDestDoc.Title
+	If Right(docName, 4) = &quot;.xls&quot; Then
+		docName = Left(oDestDoc.Title, Len(oDestDoc.Title)-4)   &apos; remove extension
+	End If
+	
+	If idxBefore &lt;= 0 Then
+		idxBefore = oDestDoc.getSheets().Count+1
+	End If
+	
+	args2(0).Name = &quot;DocName&quot;:  args2(0).Value = docName
+	args2(1).Name = &quot;Index&quot;:	args2(1).Value = idxBefore
+	args2(2).Name = &quot;Copy&quot;:		args2(2).Value = true
+	
+	On Error Resume Next    &apos; Unsure why this throws an exception, the sheet is copied.
+						    &apos; Perhaps it&apos;s because the move occurs between documents.
+	oDispatcher.executeDispatch(oFrame, &quot;.uno:Move&quot;, &quot;&quot;, 0, args2())
+	
+End Sub
+
+&apos; Map sheet name to index (1-origin).
+private Function GetSheetIndex(oSheet As Object, oDoc As Object) As Integer
+	Dim sheetNames As Variant
+	Dim sheetIndex As Integer
+	
+	sheetNames = oDoc.getSheets().ElementNames
+	sheetIndex = 1
+	Do While sheetIndex &lt;=  oDoc.getSheets().Count
+		If sheetNames(sheetIndex-1) = oSheet.Name Then
+			GetSheetIndex = sheetIndex
+			Exit Function
+		End If
+		sheetIndex = sheetIndex + 1
+	Loop
+	
+	GetSheetIndex = -1
+End Function
+
+private function InArray(a, needle)
+	dim i as integer
+	for i = 0 to ubound(a)
+		if a(i) = needle then
+			InArray = true
+			exit function
+		endif
+	next i
+	InArray = false
+end function
+
+private sub DeleteSheetExceptRequired(byref oDoc as Object, required)
+	Dim sheetNames As Variant
+	Dim sheetIndex As Integer
+	
+	sheetNames = oDoc.getSheets().ElementNames
+	sheetIndex = 0
+	Do While sheetIndex &lt;  oDoc.getSheets().Count
+		If not inArray(required, sheetNames(sheetIndex)) Then
+			oDoc.Sheets.removeByName(sheetNames(sheetIndex))
+		End If
+		sheetIndex = sheetIndex + 1
+	Loop
+end sub
+
+private sub logCopyOperation
+	_copyOperationsMade = _copyOperationsMade + 1
+	if (_copyOperationsMade mod _logStep) = 0 then
+		if not isnull(_logger) then
+			_logger.out(&quot;{&quot;&quot;progress&quot;&quot;: &quot; &amp; CStr(_copyOperationsMade) &amp; &quot;}&quot;)
+		endif
+	endif
+end sub
+</script:module>

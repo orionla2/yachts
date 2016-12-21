@@ -5,3 +5,52 @@ appschema 2016-11-18T16:28:29Z Andriy Doroshenko <mapleukraine@gmail.com> # Addi
 @v1.0.0-dev1 2016-11-21T13:28:20Z root <root@4003b84b92ac> # Tag v1.0.0-dev1.
 @v1.0.0-dev2 2016-11-21T19:09:00Z root <root@c2f4bd2506a1> # Tag v1.0.0-dev2
 @v1.0.0-dev3 2016-11-24T12:45:00Z root <root@e43b902571be> # Tag v1.0.0-dev3
+
+modify_packages [appschema] 2016-11-24T16:49:31Z root <root@e43b902571be> # Adds unit column to packages
+@v1.0.0-dev4 2016-12-02T15:57:58Z root <root@081905fb7d15> # Tag v1.0.0-dev4.
+modify_packages [modify_packages@v1.0.0-dev4 appschema] 2016-12-02T16:02:29Z root <root@081905fb7d15># new database schema.
+@v1.0.0-dev5 2016-12-02T16:12:15Z root <root@081905fb7d15> # Tag v1.0.0-dev5.
+appschema [appschema@v1.0.0-dev5] 2016-12-02T16:13:31Z root <root@081905fb7d15># new database schema.
+@v1.0.0-dev6 2016-12-02T16:22:12Z root <root@081905fb7d15> # Tag v1.0.0-dev6.
+
+v20161212 [appschema modify_packages] 2016-12-12T13:54:53Z root <root@be5f43b59dca> # next generation
+clearance [v20161212] 2016-12-15T17:08:35Z root <root@6b7d8dfdc4f1> # clears
+schema_pure [clearance] 2016-12-15T18:00:31Z root <root@6b7d8dfdc4f1> # create
+users [schema_pure] 2016-12-15T18:15:35Z root <root@6b7d8dfdc4f1> # create
+extensions [schema_pure] 2016-12-15T18:38:43Z root <root@6b7d8dfdc4f1> # create
+types [schema_pure] 2016-12-15T18:46:42Z root <root@6b7d8dfdc4f1> # create
+f_check_role_exists [types] 2016-12-15T19:11:05Z root <root@6b7d8dfdc4f1> # create
+f_clearance_for_role [types] 2016-12-15T19:13:01Z root <root@6b7d8dfdc4f1> # create
+f_current_email [types] 2016-12-15T19:14:46Z root <root@6b7d8dfdc4f1> # create
+f_encrypt_pass [types] 2016-12-15T19:16:00Z root <root@6b7d8dfdc4f1> # create
+f_send_validation [types] 2016-12-15T19:18:13Z root <root@6b7d8dfdc4f1> # create
+f_user_role [types] 2016-12-15T19:19:48Z root <root@6b7d8dfdc4f1> # create
+f_checkdate [types] 2016-12-15T19:20:57Z root <root@6b7d8dfdc4f1> # create
+f_createbooking [types] 2016-12-15T19:25:47Z root <root@6b7d8dfdc4f1> # create
+f_getid [types] 2016-12-16T11:07:27Z root <root@cb705c2ae0c5> # create
+f_login [types] 2016-12-16T11:09:06Z root <root@cb705c2ae0c5> # create
+f_notify [types] 2016-12-16T11:10:10Z root <root@cb705c2ae0c5> # create
+f_request_password_reset [types] 2016-12-16T11:11:14Z root <root@cb705c2ae0c5> # create
+f_reset_password [types] 2016-12-16T11:12:27Z root <root@cb705c2ae0c5> # create
+f_signup [types] 2016-12-16T11:13:28Z root <root@cb705c2ae0c5> # create
+f_update_users [types] 2016-12-16T11:14:17Z root <root@cb705c2ae0c5> # create
+
+t_user [types f_encrypt_pass] 2016-12-16T13:09:39Z root <root@cb705c2ae0c5> # create
+t_tokens [types t_user] 2016-12-16T12:56:54Z root <root@cb705c2ae0c5> # create
+t_devices [types] 2016-12-16T13:00:56Z root <root@cb705c2ae0c5> # create
+t_download [types] 2016-12-16T13:02:53Z root <root@cb705c2ae0c5> # create
+t_extras [types] 2016-12-16T13:03:48Z root <root@cb705c2ae0c5> # create
+t_packages [types] 2016-12-16T13:06:35Z root <root@cb705c2ae0c5> # create
+t_yacht [types] 2016-12-16T13:13:53Z root <root@cb705c2ae0c5> # create
+t_yacht_description [types t_yacht] 2016-12-16T13:51:09Z root <root@cb705c2ae0c5> # create
+t_file [types t_yacht] 2016-12-16T13:04:38Z root <root@cb705c2ae0c5> # create
+t_text_storage [schema_pure] 2016-12-16T13:56:08Z root <root@cb705c2ae0c5> # create
+v_users [types t_user f_update_users] 2016-12-16T13:11:58Z root <root@cb705c2ae0c5> # create
+t_booking [types t_user t_yacht] 2016-12-16T12:59:55Z root <root@cb705c2ae0c5> # create
+t_invoice [types t_booking] 2016-12-16T13:05:27Z root <root@cb705c2ae0c5> # create
+t_additional [types t_booking t_extras t_packages] 2016-12-16T12:58:27Z root <root@cb705c2ae0c5> # create
+t_payment [types t_user t_invoice] 2016-12-16T13:07:42Z root <root@cb705c2ae0c5> # create
+t_status [schema_pure users] 2016-12-16T15:15:22Z root <root@cb705c2ae0c5> # create
+a_pg_authid [users] 2016-12-16T18:04:00Z root <root@cb705c2ae0c5> # create
+f_statuschange [users] 2016-12-16T19:15:26Z root <root@cb705c2ae0c5> # create
+f_updatebookingstatus [users schema_pure] 2016-12-16T19:26:12Z root <root@cb705c2ae0c5> # create

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="HashTable" script:language="StarBasic">REM  *****  BASIC  *****
+
+Option Compatible
+Option ClassModule
+
+Option Explicit
+
+private _keys() as string
+private _vals()
+
+private Sub Class_Initialize()
+End Sub
+
+public sub Add(key as string, value)
+	dim ub as integer
+	ub = UBound(_keys) + 1
+	redim preserve _keys(ub)
+	redim preserve _vals(ub)
+	_keys(ub) = key
+	_vals(ub) = value
+end sub
+
+public function GetByKey(key as string)
+	dim ub as integer, i as integer
+	ub = UBound(_keys)
+	for i = 0 to ub
+		if _keys(i) = key then
+			GetByKey = _vals(i)
+			exit function
+		endif
+	next i
+	GetByKey = null
+end function
+</script:module>

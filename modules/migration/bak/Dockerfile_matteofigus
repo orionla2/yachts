@@ -1,0 +1,16 @@
+FROM matteofigus/docker-sqitch
+ENV PGHOST=postgresql \
+    PGDATABASE=postgres \
+    PGUSER=postgres \
+    PGPASSWORD=1q2w3e4r \
+    GOSU_VERSION="1.7" \
+    PG_MAJOR=9.6 \
+    PG_VERSION=9.6.1-1.pgdg80+1 \
+    LANG=en_US.utf8
+RUN groupadd -r postgres --gid=999 \
+    && useradd -r -g postgres --uid=999 postgres
+RUN apt-get update \
+	&& apt-get install -y apt-utils \
+    && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
+	&& localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
+    && apt-get install -y --force-yes postgresql-client
