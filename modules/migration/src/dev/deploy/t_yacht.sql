@@ -13,6 +13,9 @@ CREATE TABLE yacht (
     id integer NOT NULL,
     title character varying(255) NOT NULL,
     description text NOT NULL,
+    extra_level integer,
+    max_guests integer NOT NULL,
+    bedrooms integer NOT NULL,
     status boolean DEFAULT true NOT NULL
 );
 
