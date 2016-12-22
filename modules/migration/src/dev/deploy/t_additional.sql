@@ -45,8 +45,16 @@ ALTER SEQUENCE additional_id_seq OWNED BY additional.id;
 ALTER TABLE ONLY additional ALTER COLUMN id SET DEFAULT nextval('additional_id_seq'::regclass);
 ALTER TABLE ONLY additional
     ADD CONSTRAINT pk_id_additional PRIMARY KEY (id);
+
+/*
 ALTER TABLE ONLY additional
     ADD CONSTRAINT fk_additional_booking FOREIGN KEY (booking_id) REFERENCES booking(id);
+*/
+ALTER TABLE ONLY additional
+    ADD CONSTRAINT additional_booking_id_fkey FOREIGN KEY (booking_id)
+    REFERENCES my_yacht.booking (id) MATCH SIMPLE
+    ON UPDATE CASCADE ON DELETE CASCADE;
+
 ALTER TABLE ONLY additional
     ADD CONSTRAINT fk_additional_extras FOREIGN KEY (extras_id) REFERENCES extras(id);
 ALTER TABLE ONLY additional
