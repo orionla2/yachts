@@ -5,6 +5,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_additional.sql" afterPath="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_additional.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_booking.sql" afterPath="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_booking.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_extras.sql" afterPath="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_extras.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_invoice.sql" afterPath="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_invoice.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_packages.sql" afterPath="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_packages.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_payment.sql" afterPath="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_payment.sql" />
     </list>
     <ignored path="yachts-common.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,81 +30,105 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="f_createbooking.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/f_createbooking.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1548">
-              <caret line="86" column="2" selection-start-line="86" selection-start-column="2" selection-end-line="86" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sqlDump_4.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/sqlDump_4.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5400">
-              <caret line="300" column="7" selection-start-line="300" selection-start-column="7" selection-end-line="300" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="f_login.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/f_login.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="docker-compose-dev.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker-compose-dev.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="120" column="42" selection-start-line="120" selection-start-column="42" selection-end-line="120" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="t_additional.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_additional.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+            <state relative-caret-position="288">
+              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sqitch.plan" pinned="false" current-in-tab="true">
+      <file leaf-file-name="t_extras.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_extras.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+              <folding>
+                <marker date="1482490121629" expanded="true" signature="217:496" ph="CREATE TABLE... extras" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="t_invoice.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_invoice.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+              <folding>
+                <marker date="1482490121641" expanded="true" signature="219:529" ph="CREATE TABLE... invoice" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="t_packages.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_packages.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="t_user.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_user.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/users.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="v_users.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/v_users.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-108">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sqitch.plan" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/sqitch.plan">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="35" column="14" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="14" />
+            <state relative-caret-position="563">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="f_statuschange.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/f_statuschange.sql">
+      <file leaf-file-name="t_booking.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_booking.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+            <state relative-caret-position="324">
+              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="f_update_users.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/f_update_users.sql">
+      <file leaf-file-name="t_payment.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_payment.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+            <state relative-caret-position="288">
+              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -125,13 +154,17 @@
         <option value="$PROJECT_DIR$/modules/public/app/web/index.html" />
         <option value="$PROJECT_DIR$/modules/public/connect.sh" />
         <option value="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_yacht.sql" />
-        <option value="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_payment.sql" />
         <option value="$PROJECT_DIR$/modules/migration/src/dev/deploy/f_statuschange.sql" />
         <option value="$PROJECT_DIR$/modules/migration/src/dev/deploy/f_update_users.sql" />
         <option value="$PROJECT_DIR$/modules/migration/src/dev/deploy/f_createbooking.sql" />
         <option value="$PROJECT_DIR$/modules/migration/src/dev/deploy/f_login.sql" />
         <option value="$PROJECT_DIR$/docker-compose-dev.yml" />
+        <option value="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_booking.sql" />
+        <option value="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_payment.sql" />
         <option value="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_additional.sql" />
+        <option value="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_extras.sql" />
+        <option value="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_invoice.sql" />
+        <option value="$PROJECT_DIR$/modules/migration/src/dev/deploy/t_packages.sql" />
       </list>
     </option>
   </component>
@@ -403,18 +436,21 @@
       <workItem from="1482322636747" duration="642000" />
       <workItem from="1482326341589" duration="4125000" />
       <workItem from="1482402012804" duration="20000" />
-      <workItem from="1482431620023" duration="712000" />
+      <workItem from="1482431620023" duration="1006000" />
+      <workItem from="1482432654531" duration="414000" />
+      <workItem from="1482488324739" duration="28000" />
+      <workItem from="1482489888316" duration="401000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11054000" />
+    <option name="totallyTimeSpent" value="12191000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1215" height="776" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30367836" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32078698" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -449,55 +485,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/public/app/web/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/public/src/default.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/public/connect.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_yacht.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/public/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/public/app/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/public/app/web/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/public/src/default.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -699,13 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_payment.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/f_statuschange.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -790,24 +770,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docker-compose-dev.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
+        <state relative-caret-position="2160">
           <caret line="120" column="42" selection-start-line="120" selection-start-column="42" selection-end-line="120" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_additional.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/sqitch.plan">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="35" column="14" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="14" />
+        <state relative-caret-position="563">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_booking.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_payment.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_additional.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_extras.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding>
+            <marker date="1482490121629" expanded="true" signature="217:496" ph="CREATE TABLE... extras" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_invoice.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding>
+            <marker date="1482490121641" expanded="true" signature="219:529" ph="CREATE TABLE... invoice" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_packages.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/t_user.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/users.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/migration/src/dev/deploy/v_users.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-108">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

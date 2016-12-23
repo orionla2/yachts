@@ -17,7 +17,7 @@ CREATE TABLE additional (
     packages_id integer,
     guests integer NOT NULL,
     amount integer NOT NULL,
-    money numeric
+    money numeric(64,2)
 );
 
 

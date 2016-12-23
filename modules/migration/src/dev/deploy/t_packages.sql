@@ -9,7 +9,7 @@ SET default_with_oids = false;
 CREATE TABLE packages (
     id integer NOT NULL,
     title character varying(45) NOT NULL,
-    price numeric NOT NULL,
+    price numeric(64,2) NOT NULL,
     min_charge integer NOT NULL,
     description character varying(255),
     y_id integer,

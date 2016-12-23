@@ -16,8 +16,8 @@ CREATE TABLE invoice (
     title text NOT NULL,
     amount integer NOT NULL,
     rate numeric NOT NULL,
-    subtotal numeric NOT NULL,
-    total numeric,
+    subtotal numeric(64,2) NOT NULL,
+    total numeric(64,2),
     status boolean,
     invoice_date date NOT NULL
 );

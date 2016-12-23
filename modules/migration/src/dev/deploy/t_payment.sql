@@ -14,7 +14,7 @@ CREATE TABLE payment (
     invoice_id integer NOT NULL,
     type character varying(80) NOT NULL,
     user_id integer NOT NULL,
-    value numeric
+    value numeric(64,2)
 );
 
 

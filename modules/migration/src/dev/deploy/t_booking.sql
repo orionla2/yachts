@@ -16,7 +16,7 @@ CREATE TABLE booking (
     start_date timestamp with time zone NOT NULL,
     end_date timestamp with time zone NOT NULL,
     user_id integer NOT NULL,
-    payment numeric,
+    payment numeric(64,2),
     status integer NOT NULL,
     payment_type character varying(80) NOT NULL,
     discount numeric(2,2)
