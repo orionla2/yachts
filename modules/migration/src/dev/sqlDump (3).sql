@@ -309,11 +309,15 @@ declare
   i json;
   m_id text;
   booking_id int;
+  u_role text;
   msg text;
 begin
   IF createBooking.user_id is null OR createBooking.user_id = 0 THEN
-    PERFORM my_yacht.signup(createBooking.firstname, createBooking.lastname, createBooking.email, createBooking.phone, createBooking.phone);
     SELECT my_yacht.getid(email) into ret_id;
+    IF ret_id IS null THEN
+        PERFORM my_yacht.signup(createBooking.firstname, createBooking.lastname, createBooking.email, createBooking.phone, createBooking.phone);
+        SELECT my_yacht.getid(email) into ret_id;
+    END IF;
     _usr_id := ret_id;
   ELSE
     _usr_id := user_id;
@@ -342,9 +346,10 @@ begin
 			(booking_id,_extras::int,_packages::int,createBooking.guests,_amount::int,_money::int);
 			--RAISE unique_violation USING MESSAGE = _extras || ' ' || _amount;
 		END LOOP;
-		
-		IF (SELECT user) = 'user_role' THEN
-			FOR m_id IN SELECT id FROM my_yacht.user WHERE role = 'manager'
+		SELECT role FROM my_yacht.user WHERE my_yacht.user.id = _usr_id into u_role;
+		--RAISE unique_violation USING MESSAGE = msg;
+		IF u_role = 'user_role' THEN
+			FOR m_id IN SELECT my_yacht.user.id FROM my_yacht.user WHERE my_yacht.user.role = 'manager'
 			LOOP
 				msg :=  _usr_id || '.' || m_id || '.booking.newBooking.push';
 				SELECT pg_notify('messanger',msg) into msg;
@@ -355,14 +360,12 @@ begin
 			SELECT pg_notify('messanger',msg) into msg;
 			msg :=  _usr_id || '.' || _usr_id || '.booking.newBooking.sms';
 			SELECT pg_notify('messanger',msg) into msg;
-		ELSIF (SELECT user) = 'manager' THEN
+		ELSIF u_role = 'manager' THEN
 			msg :=  _usr_id || '.' || _usr_id || '.booking.newBooking.email';
 			SELECT pg_notify('messanger',msg) into msg;
 			msg :=  _usr_id || '.' || _usr_id || '.booking.newBooking.push';
 			SELECT pg_notify('messanger',msg) into msg;
 		END IF;
-		msg := id || '.manager.user.newUser.push';
-		SELECT pg_notify('messanger',msg) into msg;
 		return true;
 	ELSE
 		return false;
@@ -406,25 +409,14 @@ declare
   _email text;
   result auth.jwt_claims;
 begin
-  -- check email and password
-
   select auth.user_role(login.email, login.password) into _role;
   if _role is null then
     raise invalid_password using message = 'invalid user or password';
   end if;
-
-  -- check verified flag whether users
-  -- have validated their emails
   _email := login.email;
-  --select email from my_yacht.user as u where u.email=login.email limit 1 into _verified;
-  --if not _verified then
-  --  raise invalid_authorization_specification using message = 'user is not verified';
-  --end if;
-  --raise using message = _verified;
   select _role as role, login.email as email,
          extract(epoch from now())::integer + 60*60 as exp
   into result;
-  NOTIFY messanger, 'test.message';
   return result;
 end;
 $$;
@@ -574,22 +566,22 @@ begin
 			WHEN 3 THEN
 				IF _role = 'manager' THEN
 					--RAISE unique_violation USING MESSAGE = 'bookingId: ' || bookingId || '; bookingStatus: ' || bookingStatus || '; role: ' || _role || ';';
-					msg :=  'manager.' || _usr_id || '.booking.approvedBooking.email';
+					msg :=  _usr_id || '.' || _usr_id || '.booking.approvedBooking.email';
+					--RAISE unique_violation USING MESSAGE = msg;
 					SELECT pg_notify('messanger',msg) into msg;
-					msg :=  'manager.' || _usr_id || '.booking.approvedBooking.push';
+					msg :=  _usr_id || '.' || _usr_id || '.booking.approvedBooking.push';
 					SELECT pg_notify('messanger',msg) into msg;
-					msg :=  'manager.' || _usr_id || '.booking.approvedBooking.sms';
+					msg :=  _usr_id || '.' || _usr_id || '.booking.approvedBooking.sms';
 					SELECT pg_notify('messanger',msg) into msg;
 				END IF;
 			WHEN 4 THEN
 				IF _role = 'manager' THEN
 					--RAISE unique_violation USING MESSAGE = 'bookingId: ' || bookingId || '; bookingStatus: ' || bookingStatus || '; role: ' || _role || ';';
+					msg :=  _usr_id || '.' || _usr_id || '.booking.cancelledBooking.email';
 					SELECT pg_notify('messanger',msg) into msg;
-					msg :=  'manager.' || _usr_id || '.booking.cancelledBooking.email';
+					msg :=  _usr_id || '.' || _usr_id || '.booking.cancelledBooking.push';
 					SELECT pg_notify('messanger',msg) into msg;
-					msg :=  'manager.' || _usr_id || '.booking.cancelledBooking.push';
-					SELECT pg_notify('messanger',msg) into msg;
-					msg :=  'manager.' || _usr_id || '.booking.cancelledBooking.sms';
+					msg :=  _usr_id || '.' || _usr_id || '.booking.cancelledBooking.sms';
 					SELECT pg_notify('messanger',msg) into msg;
 				ELSIF _role = 'user_role' THEN
 					--RAISE unique_violation USING MESSAGE = 'bookingId: ' || bookingId || '; bookingStatus: ' || bookingStatus || '; role: ' || _role || ';';
@@ -637,7 +629,7 @@ begin
     values
       (new.firstname, new.lastname, new.email, new.mobile, new.password, new.role,new.discount);
     select lastval() into id;
-	FOR m_id IN SELECT id FROM my_yacht.user WHERE role = 'manager'
+	FOR m_id IN SELECT my_yacht.user.id FROM my_yacht.user WHERE my_yacht.user.role = 'manager'
 	LOOP
 		msg := id || '.' || m_id ||'.user.newUser.email';
 		SELECT pg_notify('messanger',msg) into msg;
@@ -1748,6 +1740,54 @@ COPY additional (id, booking_id, extras_id, packages_id, guests, amount, money) 
 21	18	11	\N	50	3	19750
 22	18	15	\N	50	5	64380
 23	18	\N	15	50	1	\N
+30	21	11	\N	50	3	19750
+31	21	15	\N	50	5	64380
+32	21	\N	15	50	1	\N
+33	22	11	\N	50	3	19750
+34	22	15	\N	50	5	64380
+35	22	\N	15	50	1	\N
+48	27	11	\N	50	3	19750
+49	27	15	\N	50	5	64380
+50	27	\N	15	50	1	\N
+51	28	11	\N	50	3	19750
+52	28	15	\N	50	5	64380
+53	28	\N	15	50	1	\N
+54	29	11	\N	50	3	19750
+55	29	15	\N	50	5	64380
+56	29	\N	15	50	1	\N
+57	30	11	\N	50	3	19750
+58	30	15	\N	50	5	64380
+59	30	\N	15	50	1	\N
+60	31	11	\N	50	3	19750
+61	31	15	\N	50	5	64380
+62	31	\N	15	50	1	\N
+63	32	11	\N	50	3	19750
+64	32	15	\N	50	5	64380
+65	32	\N	15	50	1	\N
+66	33	11	\N	50	3	19750
+67	33	15	\N	50	5	64380
+68	33	\N	15	50	1	\N
+69	34	11	\N	50	3	19750
+70	34	15	\N	50	5	64380
+71	34	\N	15	50	1	\N
+72	35	11	\N	50	3	19750
+73	35	15	\N	50	5	64380
+74	35	\N	15	50	1	\N
+75	36	11	\N	50	3	19750
+76	36	15	\N	50	5	64380
+77	36	\N	15	50	1	\N
+78	37	11	\N	50	3	19750
+79	37	15	\N	50	5	64380
+80	37	\N	15	50	1	\N
+81	38	11	\N	50	3	19750
+82	38	15	\N	50	5	64380
+83	38	\N	15	50	1	\N
+84	39	11	\N	50	3	19750
+85	39	15	\N	50	5	64380
+86	39	\N	15	50	1	\N
+87	40	11	\N	50	3	19750
+88	40	15	\N	50	5	64380
+89	40	\N	15	50	1	\N
 \.
 
 
@@ -1755,7 +1795,7 @@ COPY additional (id, booking_id, extras_id, packages_id, guests, amount, money) 
 -- Name: additional_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
 --
 
-SELECT pg_catalog.setval('additional_id_seq', 23, true);
+SELECT pg_catalog.setval('additional_id_seq', 89, true);
 
 
 --
@@ -1772,6 +1812,22 @@ COPY booking (id, y_id, start_date, end_date, user_id, payment, status, payment_
 16	7	2016-09-23 11:00:00+00	2016-09-23 15:00:00+00	38	84130	1	Method 1	0.00
 17	7	2016-09-24 11:00:00+00	2016-09-24 15:00:00+00	39	84130	1	Method 1	0.00
 18	7	2016-09-25 11:00:00+00	2016-09-25 15:00:00+00	40	84130	4	Method 1	0.00
+21	7	2016-08-24 11:00:00+00	2016-08-24 15:00:00+00	22	84130	1	Method 1	0.00
+22	7	2016-08-23 11:00:00+00	2016-08-23 15:00:00+00	22	84130	1	Method 1	0.00
+27	7	2016-08-22 11:00:00+00	2016-08-22 15:00:00+00	22	84130	1	Method 1	0.00
+28	7	2016-08-21 11:00:00+00	2016-08-21 15:00:00+00	22	84130	1	Method 1	0.00
+29	7	2016-08-20 11:00:00+00	2016-08-20 15:00:00+00	22	84130	1	Method 1	0.00
+30	7	2016-08-19 11:00:00+00	2016-08-19 15:00:00+00	22	84130	1	Method 1	0.00
+31	7	2016-08-18 11:00:00+00	2016-08-18 15:00:00+00	22	84130	1	Method 1	0.00
+32	7	2016-08-17 11:00:00+00	2016-08-17 15:00:00+00	22	84130	1	Method 1	0.00
+33	7	2016-08-16 11:00:00+00	2016-08-16 15:00:00+00	22	84130	1	Method 1	0.00
+35	7	2016-08-14 11:00:00+00	2016-08-14 15:00:00+00	26	84130	1	Method 1	0.00
+36	7	2016-08-13 11:00:00+00	2016-08-13 15:00:00+00	26	84130	1	Method 1	0.00
+37	7	2016-08-12 11:00:00+00	2016-08-12 15:00:00+00	22	84130	1	Method 1	0.00
+38	7	2016-08-11 11:00:00+00	2016-08-11 15:00:00+00	22	84130	1	Method 1	0.00
+34	7	2016-08-15 11:00:00+00	2016-08-15 15:00:00+00	26	84130	3	Method 1	0.00
+39	7	2016-08-10 11:00:00+00	2016-08-10 15:00:00+00	48	84130	1	Method 1	0.00
+40	7	2016-08-09 11:00:00+00	2016-08-09 15:00:00+00	49	84130	4	Method 1	0.00
 \.
 
 
@@ -1779,7 +1835,7 @@ COPY booking (id, y_id, start_date, end_date, user_id, payment, status, payment_
 -- Name: booking_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
 --
 
-SELECT pg_catalog.setval('booking_id_seq', 18, true);
+SELECT pg_catalog.setval('booking_id_seq', 40, true);
 
 
 --
@@ -1955,7 +2011,6 @@ SELECT pg_catalog.setval('status_id_seq', 5, true);
 --
 
 COPY "user" (id, firstname, lastname, email, mobile, password, role, discount, status) FROM stdin;
-22	Andrew	test	orion@new.com	123456789	$2a$06$oKPPbT3LJh9QVmzgKErWu.lRrYOJ8G/zagQ5PWLzG94tgXa3Ms6bC	manager	\N	t
 23	Tomas	Moore	Misty33@gmail.com	323-471-0731 x02	$2a$06$HRvrVO3IagjrEHFlre0XmeMV1ygfUtLQi0rfFrD9eEsWZsGGu1JGy	user_role	0.09	t
 24	Dion	O'Kon	Macy_Labadie@gmail.com	(948) 704-8288 x	$2a$06$E.WpY/eChhTwxwd2hJfXj.4RBtdU7u0oOpf5NUXjSw2UG8hPzzKO.	user_role	\N	t
 25	Winfield	Batz	Walton.Cummings@yahoo.com	1-508-874-5425 x	$2a$06$uJKYfD.tQzXdwL1clVbd6OrrxUYwooayBDewMNzZgaJn/WMyLNXf6	user_role	\N	t
@@ -1968,6 +2023,9 @@ COPY "user" (id, firstname, lastname, email, mobile, password, role, discount, s
 38	User	Name	test215@name.com	+111111111111	$2a$06$GEDM2yjj4dtjxTLR3f7D8.DRXP7reZqVjJNE/gsmFxa23kGgoi/1y	user_role	0.00	t
 39	User	Name	test216@name.com	+111111111111	$2a$06$bR8r5vCmeZXPfC/unl3Age625HsevZSkbtB8HvsIzTbKsVTdnIOkq	user_role	0.00	t
 40	User	Name	test217@name.com	+111111111111	$2a$06$rKJVCuIxe5JCqlBXfR5a.ex/CThDse5wrL77V0YzhwdRFiNjQ94hm	user_role	0.00	t
+22	Andrew	test	orionla2@gmail.com	123456789	$2a$06$oKPPbT3LJh9QVmzgKErWu.lRrYOJ8G/zagQ5PWLzG94tgXa3Ms6bC	manager	\N	t
+48	User	Name	megabitch@gmail.com	+111111111111	$2a$06$tZxtX7J6rohkK019zx/1RuEWkkd86O7BJbl/hlMU.7FweXN68hAKm	user_role	0.00	t
+49	User	Name	megadick@gmail.com	+111111111111	$2a$06$AdRgm1fNP4Tkdkg2AM2A7.cYwWfd4gF36ATHay3gkXKx3D.KWLtc2	user_role	0.00	t
 \.
 
 
@@ -1975,7 +2033,7 @@ COPY "user" (id, firstname, lastname, email, mobile, password, role, discount, s
 -- Name: user_id_seq; Type: SEQUENCE SET; Schema: my_yacht; Owner: postgres
 --
 
-SELECT pg_catalog.setval('user_id_seq', 41, true);
+SELECT pg_catalog.setval('user_id_seq', 49, true);
 
 
 --

@@ -16,7 +16,7 @@ var emailSubject = {
   newUser: 'New account!',
   newBooking: 'New booking!',
   newInvoice: 'New invoice!',
-  bookingApproved: 'Approved booking.',
+  approvedBooking: 'Approved booking.',
   cancelledBooking: 'Canceled booking.'
 };
 
@@ -24,7 +24,7 @@ var emailText = {
   newUser: 'Congratulations, you have been registrated on site.org. Your 🐴 is 🐸!',
   newBooking: 'New booking have been created! All hands on d_ck!',
   newInvoice: 'New invoice have been sent! All on board acros a board!',
-  bookingApproved: 'Approved booking. With in one hour!',
+  approvedBooking: 'Approved booking. With in one hour!',
   cancelledBooking: 'Canceled booking. Attention to details'
 };
 
@@ -32,7 +32,7 @@ var emailHtml = {
   newUser: '<h1>New account!</h1><p>Html text</p>',
   newBooking: '<h1>New booking!</h1><p>Html text</p>',
   newInvoice: '<h1>New invoice!</h1><p>Html text</p>',
-  bookingApproved: '<h1>Approved booking.</h1><p>Html text</p>',
+  approvedBooking: '<h1>Approved booking.</h1><p>Html text</p>',
   cancelledBooking: '<h1>Canceled booking.</h1><p>Html text</p>'
 };
 
@@ -71,12 +71,15 @@ amqp.connect('amqp://admin:123456789@rabbitmq:5672', function(err, conn) {
               //console.log(' [receiver] user:',receiver);
               //console.log(' [emiter] user:',emiter);
               var transporter = nodemailer.createTransport('smtps://orionla2%40gmail.com:85931210@smtp.gmail.com');
+              var maper = {
+                map: function(em,re){return 'Send from' + re + ' to ' + em;}
+              };
               var mailOptions = {
                   from: '"⛵ Dutch Oriental ⛵" <' + emiter + '>',
                   to: 'orionla2@gmail.com',//,receiver,
                   subject: emailSubject[messanger.event],
-                  text: 'This message was sent from '+emiter+' to '+receiver,//emailText[messanger.event],
-                  html: emailHtml[messanger.event]
+                  text: emailText[messanger.event],
+                  html: '<br><p>send from '+emiter+' to '+receiver+'</p><br>'//emailHtml[messanger.event]
               };
               // send mail with defined transport object 
               transporter.sendMail(mailOptions, function(error, info){
