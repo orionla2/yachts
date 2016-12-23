@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ea87c2baf94c345df444c1eb9598a5b2",
-    "content-hash": "4e07198b264e06b6ca22cb8aa5b1892e",
+    "hash": "3291034905e1e560b0d25dc7ec06b549",
+    "content-hash": "94836135b36560ea6c1c3208c8a810b5",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -3084,16 +3084,16 @@
         },
         {
             "name": "symfony/security",
-            "version": "v3.0.9",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
-                "reference": "e00948e5ae59fb98477b8b9868aa00646e8d5e23"
+                "reference": "946bae1b15cb634ea9705476f4bb34fbede6fd2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/e00948e5ae59fb98477b8b9868aa00646e8d5e23",
-                "reference": "e00948e5ae59fb98477b8b9868aa00646e8d5e23",
+                "url": "https://api.github.com/repos/symfony/security/zipball/946bae1b15cb634ea9705476f4bb34fbede6fd2b",
+                "reference": "946bae1b15cb634ea9705476f4bb34fbede6fd2b",
                 "shasum": ""
             },
             "require": {
@@ -3116,7 +3116,7 @@
                 "psr/log": "~1.0",
                 "symfony/expression-language": "~2.8|~3.0",
                 "symfony/finder": "~2.8|~3.0",
-                "symfony/ldap": "~2.8|~3.0",
+                "symfony/ldap": "~3.1",
                 "symfony/polyfill-intl-icu": "~1.0",
                 "symfony/routing": "~2.8|~3.0",
                 "symfony/validator": "~2.8|~3.0"
@@ -3131,7 +3131,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
@@ -3158,7 +3158,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-17 13:54:30"
+            "time": "2016-12-08 15:18:22"
         },
         {
             "name": "symfony/stopwatch",
